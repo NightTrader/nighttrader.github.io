@@ -1,0 +1,44 @@
+<HEAD>
+<TITLE>NightTrader Presentation</TITLE>
+</HEAD>
+<BODY BGCOLOR="BLACK">
+
+<SCRIPT>
+function passWord() {
+var testV = 1;
+var pass1 = prompt('Please Enter Your Password',' ');
+while (testV < 3) {
+if (!pass1) 
+history.go(-1);
+if (pass1.toLowerCase() == "simsalabim") {
+alert('You Got it Right!');
+window.open('https://nighttrader.github.io/preview/');
+break;
+} 
+testV+=1;
+var pass1 = 
+prompt('Access Denied - Password Incorrect, Please Try Again.','Password');
+}
+if (pass1.toLowerCase()!="password" & testV ==3) 
+history.go(-1);
+return " ";
+} 
+</SCRIPT>
+
+<CENTER>
+<br></br><br>
+<H4><p style="color:white;">The website visitor acknowledges that any information provided on the following website is confidential in nature,</br>
+    and that any disclosure or use of same by the reader may cause serious harm or damage to the NightTrader Trademark and the concepts and ideas behind.</p></H4>
+    <H3><p style="color:white;">Therefore, the visitor agrees not to disclose it without express written permission from  <a href="mailto:alec@bitcoin42.com.mx">alec@bitcoin42.com.mx</a> </p></H3>
+</br><br>
+
+<FORM>
+<input type="button" value="Enter Protected Area" onClick="passWord()">
+</FORM>
+
+<br></br>
+
+<H4><p style="color:gray;">Copyright &#9400; 2018 NightTrader</p></A>
+</H4></CENTER>
+
+</body>
