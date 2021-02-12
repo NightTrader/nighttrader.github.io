@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Nighttrader: Over the counter (OTC) trading chat and future DEX/ MSEX - Decentralized/ Multisignature Exchange. State of the art, highly secured, trustless and peer to peer.">
+    <meta name="author" content="AlecFrazerMatthewHahn">
+
+    <script src="https://bitcoin42.com.mx/support/js/min/jquery.min.js"></script>
+    <script id="sbinit" src="https://bitcoin42.com.mx/support/js/init.js"></script>
+
+    <title>Nighttrader - Over the counter (OTC) trading chat and future state of the art, highly secured trustless, peer to peer, multisignature cryptocurrency wallet and exchange.</title>
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon.png">
+    <link rel="stylesheet" href="./vendor/nice-select/css/nice-select.css">
+    <link rel="stylesheet" href="./vendor/owl-carousel/css/owl.theme.default.css">
+    <link rel="stylesheet" href="./vendor/owl-carousel/css/owl.carousel.min.css">
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+
+    <div id="preloader">
+        <div class="sk-three-bounce">
+            <div class="sk-child sk-bounce1"></div>
+            <div class="sk-child sk-bounce2"></div>
+            <div class="sk-child sk-bounce3"></div>
+        </div>
+    </div>
+
+    <div id="main-wrapper">
+
+        <div class="header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="navigation">
+                            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                                <a class="navbar-brand" href="index.html"><img src="./images/logo.png" alt=""></a>
+                                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                    data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
+                                    aria-expanded="false" aria-label="Toggle navigation">
+                                    <span class="navbar-toggler-icon"></span>
+                                </button>
+                                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                                    <ul class="navbar-nav">
+                                                                                
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="index.html">BACK HOME</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="content-body">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">OTC Trading Wallet Deposit Addresses</h4>
+                            </div>
+                            <div class="card-body"  id="deposits">
+                                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" data-toggle="tab" href="#tab1">BTC</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-toggle="tab" href="#tab2">BAY</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-toggle="tab" href="#tab3">ETH</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-toggle="tab" href="#tab4">USDT</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-toggle="tab" href="#tab5">DASH</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-toggle="tab" href="#tab6">XMR</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-toggle="tab" href="#tab7">BCH</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-toggle="tab" href="#tab8">EUR (FIAT)</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-toggle="tab" href="#tab9">USD (FIAT)</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-toggle="tab" href="#tab10">MXN (FIAT)</a>
+                                    </li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div class="tab-pane fade show active" id="tab1">
+                                        <div class="qrcode">
+                                            <img src="./images/BTC-qr.png" alt="" width="150">
+                                        </div>
+                                        <form action="">
+                                            <div class="input-group">
+                                                <input type="text" class="form-control"
+                                                    value="368JUi9sRQ8uY2JAwR27pmEDtj8dUniVdP">
+                                                <div class="input-group-append">
+                                                    <span class="input-group-text bg-primary text-white">Copy</span>
+                                                </div>
+                                            </div>
+                                        </form>
+
+                                        <ul>
+                                            <li>
+                                                <i class="mdi mdi-checkbox-blank-circle"></i>
+                                                BTC network transfers will be available for trading after 6 network confirmations.
+                                            </li>
+                                            <li>
+                                                <i class="mdi mdi-checkbox-blank-circle"></i>
+                                                Please give us your TXID in chat so we can identify your deposit.
+                                            </li>
+                                            <div style="width: 400px; height:220px; background-color: #1D2330; overflow:hidden; box-sizing: border-box; border: 1px solid #282E3B; border-radius: 4px; text-align: right; line-height:14px; block-size:220px; font-size: 12px; font-feature-settings: normal; text-size-adjust: 100%; box-shadow: inset 0 -20px 0 0 #262B38;padding:1px;padding: 0px; margin: 0px;"><div style="height:200px; padding:0px; margin:0px; width: 100%;"><iframe src="https://widget.coinlib.io/widget?type=single_v2&theme=dark&coin_id=859&pref_coin_id=1505" width="400" height="196px" scrolling="No" marginwidth="0" marginheight="0" frameborder="0" border="0" style="border:0;margin:0;padding:0;line-height:14px;"></iframe></div></div>
+                                        </ul>
+                                    </div>
+
+                                    <div class="tab-pane fade" id="tab2">
+                                        <div class="qrcode">
+                                            <img src="./images/BAY-qr.png" alt="" width="150">
+                                        </div>
+                                        <form action="">
+                                            <div class="input-group">
+                                                <input type="text" class="form-control"
+                                                    value="bUtWMHNZDdpR2o7AKoTu1isWuTfELARbhE">
+                                                <div class="input-group-append">
+                                                    <span class="input-group-text bg-primary text-white">Copy</span>
+                                                </div>
+                                            </div>
+                                        </form>
+
+                                        <ul>
+                                            <li>
+                                                <i class="mdi mdi-checkbox-blank-circle"></i>
+                                                BAY network transfers will be available for trading after
+                                                25 network confirmations.
+                                            </li>
+                                            <li>
+                                                <i class="mdi mdi-checkbox-blank-circle"></i>
+                                                Please give us your TXID in chat so we can identify your deposit.
+                                            </li>
+                                            <script src="https://widgets.coingecko.com/coingecko-coin-converter-widget.js"></script>
+                                            <coingecko-coin-converter-widget  coin-id="bitbay" currency="usd" background-color="#373843" font-color="#ffffff" locale="en"></coingecko-coin-converter-widget>
+                                        </ul>
+                                    </div>
+
+                                    <div class="tab-pane fade" id="tab3">
+                                        <div class="qrcode">
+                                            <img src="./images/ETH-qr.png" alt="" width="150">
+                                        </div>
+                                        <form action="">
+                                            <div class="input-group">
+                                                <input type="text" class="form-control"
+                                                    value="0x15971Dce27b8e9439d429B9c3B751274574826B6">
+                                                <div class="input-group-append">
+                                                    <span class="input-group-text bg-primary text-white">Copy</span>
+                                                </div>
+                                            </div>
+                                        </form>
+
+                                        <ul>
+                                            <li>
+                                                <i class="mdi mdi-checkbox-blank-circle"></i>
+                                                ETH network transfers will be available for trading after 25 network confirmations.
+                                            </li>
+                                            <li>
+                                                <i class="mdi mdi-checkbox-blank-circle"></i>
+                                                Please give us your TXID in chat so we can identify your deposit.
+                                            </li>
+                                            <div style="width: 400px; height:220px; background-color: #1D2330; overflow:hidden; box-sizing: border-box; border: 1px solid #282E3B; border-radius: 4px; text-align: right; line-height:14px; block-size:220px; font-size: 12px; font-feature-settings: normal; text-size-adjust: 100%; box-shadow: inset 0 -20px 0 0 #262B38;padding:1px;padding: 0px; margin: 0px;"><div style="height:200px; padding:0px; margin:0px; width: 100%;"><iframe src="https://widget.coinlib.io/widget?type=single_v2&theme=dark&coin_id=145&pref_coin_id=1505" width="400" height="196px" scrolling="No" marginwidth="0" marginheight="0" frameborder="0" border="0" style="border:0;margin:0;padding:0;line-height:14px;"></iframe></div></div>
+                                        </ul>
+                                    </div>
+
+                                    <div class="tab-pane fade" id="tab4">
+                                        <div class="qrcode">
+                                            <img src="./images/USDT-qr.png" alt="" width="150">
+                                        </div>
+                                        <form action="">
+                                            <div class="input-group">
+                                                <input type="text" class="form-control"
+                                                    value="0x6293ae58e02f3c077803b7a73f7dfc1aa941bdbc">
+                                                <div class="input-group-append">
+                                                    <span class="input-group-text bg-primary text-white">Copy</span>
+                                                </div>
+                                            </div>
+                                        </form>
+
+                                        <ul>
+                                            <li>
+                                                <i class="mdi mdi-checkbox-blank-circle"></i>
+                                                USDT (ERC20) network transfers will be available for trading after
+                                                30 network confirmations.
+                                            </li>
+                                            <li>
+                                                <i class="mdi mdi-checkbox-blank-circle"></i>
+                                                Please give us your TXID in chat so we can identify your deposit.
+                                            </li>
+                                            <div style="width: 400px; height:220px; background-color: #1D2330; overflow:hidden; box-sizing: border-box; border: 1px solid #282E3B; border-radius: 4px; text-align: right; line-height:14px; block-size:220px; font-size: 12px; font-feature-settings: normal; text-size-adjust: 100%; box-shadow: inset 0 -20px 0 0 #262B38;padding:1px;padding: 0px; margin: 0px;"><div style="height:200px; padding:0px; margin:0px; width: 100%;"><iframe src="https://widget.coinlib.io/widget?type=single_v2&theme=dark&coin_id=637&pref_coin_id=1505" width="400" height="196px" scrolling="No" marginwidth="0" marginheight="0" frameborder="0" border="0" style="border:0;margin:0;padding:0;line-height:14px;"></iframe></div></div>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="tab-pane fade show" id="tab5">
+                                            <div class="qrcode">
+                                                <img src="./images/Dash-qr.png" alt="" width="150">
+                                            </div>
+                                            <form action="">
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control"
+                                                        value="XmwPnsmaG6itdTBD4S6MG5jwgc1iJ1YjEc">
+                                                    <div class="input-group-append">
+                                                        <span class="input-group-text bg-primary text-white">Copy</span>
+                                                    </div>
+                                                </div>
+                                            </form>
+    
+                                            <ul>
+                                                <li>
+                                                    <i class="mdi mdi-checkbox-blank-circle"></i>
+                                                    DASH network transfers will be available for trading after
+                                                    6 network confirmations.
+                                                </li>
+                                                <li>
+                                                    <i class="mdi mdi-checkbox-blank-circle"></i>
+                                                    Please give us your TXID in chat so we can identify your deposit.
+                                                </li>
+                                                <div style="width: 400px; height:220px; background-color: #1D2330; overflow:hidden; box-sizing: border-box; border: 1px solid #282E3B; border-radius: 4px; text-align: right; line-height:14px; block-size:220px; font-size: 12px; font-feature-settings: normal; text-size-adjust: 100%; box-shadow: inset 0 -20px 0 0 #262B38;padding:1px;padding: 0px; margin: 0px;"><div style="height:200px; padding:0px; margin:0px; width: 100%;"><iframe src="https://widget.coinlib.io/widget?type=single_v2&theme=dark&coin_id=1188&pref_coin_id=1505" width="400" height="196px" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" border="0" style="border:0;margin:0;padding:0;line-height:14px;"></iframe></div></div>
+                                            </ul>
+                                        </div>
+                                    
+                                    <div class="tab-pane fade show" id="tab6">
+                                                <div class="qrcode">
+                                                    <img src="./images/XMR-qr.png" alt="" width="150">
+                                                </div>
+                                                <form action="">
+                                                    <div class="input-group">
+                                                        <input type="text" class="form-control"
+                                                            value="832PxHazibk3MbaJvCt6Xq6fva5SvLvPbhm41JcR6a2GZPrmJ2Yf6UmYUina5jd7bq4PcN3VxJ89WCreTuxZguCdUtJP4bW">
+                                                        <div class="input-group-append">
+                                                            <span class="input-group-text bg-primary text-white">Copy</span>
+                                                        </div>
+                                                    </div>
+                                                </form>
+        
+                                                <ul>
+                                                    <li>
+                                                        <i class="mdi mdi-checkbox-blank-circle"></i>
+                                                        XMR Monero network transfers will be available for trading after
+                                                        15 network confirmations.
+                                                    </li>
+                                                    <li>
+                                                        <i class="mdi mdi-checkbox-blank-circle"></i>
+                                                        Please give us your TXID in chat so we can identify your deposit.
+                                                    </li>
+                                                    <div style="width: 400px; height:220px; background-color: #1D2330; overflow:hidden; box-sizing: border-box; border: 1px solid #282E3B; border-radius: 4px; text-align: right; line-height:14px; block-size:220px; font-size: 12px; font-feature-settings: normal; text-size-adjust: 100%; box-shadow: inset 0 -20px 0 0 #262B38;padding:1px;padding: 0px; margin: 0px;"><div style="height:200px; padding:0px; margin:0px; width: 100%;"><iframe src="https://widget.coinlib.io/widget?type=single_v2&theme=dark&coin_id=6&pref_coin_id=1505" width="400" height="196px" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" border="0" style="border:0;margin:0;padding:0;line-height:14px;"></iframe></div></div>
+                                            </ul>
+                                        </div>
+
+                                        <div class="tab-pane fade show" id="tab7">
+                                            <div class="qrcode">
+                                                <img src="./images/BCH-qr.png" alt="" width="150">
+                                            </div>
+                                            <form action="">
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control"
+                                                        value="bitcoincash:pqxlnja09rlnph86u9a48hack69s7lfr8s8cdy8djg">
+                                                    <div class="input-group-append">
+                                                        <span class="input-group-text bg-primary text-white">Copy</span>
+                                                    </div>
+                                                </div>
+                                            </form>
+    
+                                            <ul>
+                                                <li>
+                                                    <i class="mdi mdi-checkbox-blank-circle"></i>
+                                                    Bitcoin Cash network transfers will be available for trading after
+                                                    6 network confirmations.
+                                                </li>
+                                                <li>
+                                                    <i class="mdi mdi-checkbox-blank-circle"></i>
+                                                    Please give us your TXID in chat so we can identify your deposit.
+                                                </li>
+                                                <div style="width: 400px; height:220px; background-color: #1D2330; overflow:hidden; box-sizing: border-box; border: 1px solid #282E3B; border-radius: 4px; text-align: right; line-height:14px; block-size:220px; font-size: 12px; font-feature-settings: normal; text-size-adjust: 100%; box-shadow: inset 0 -20px 0 0 #262B38;padding:1px;padding: 0px; margin: 0px;"><div style="height:200px; padding:0px; margin:0px; width: 100%;"><iframe src="https://widget.coinlib.io/widget?type=single_v2&theme=dark&coin_id=157&pref_coin_id=1505" width="400" height="196px" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" border="0" style="border:0;margin:0;padding:0;line-height:14px;"></iframe></div></div>
+                                            </ul>
+                                        </div>
+
+                                        <div class="tab-pane fade show" id="tab8">
+                                            <div class="qrcode">
+                                                <img src="./images/BCH-qr.png" alt="" width="150">
+                                            </div>
+                                            <form action="">
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control"
+                                                        value="Please ask us in chat for bank deposit details">
+                                                    <div class="input-group-append">
+                                                    </div>
+                                                </div>
+                                            </form>
+    
+                                            <ul>
+                                                <li>
+                                                    <i class="mdi mdi-checkbox-blank-circle"></i>
+                                                    EUR transfers will be available for trading latest after
+                                                    2 banking business days.
+                                                </li>
+                                                <li>
+                                                    <i class="mdi mdi-checkbox-blank-circle"></i>
+                                                    Please give usthe transfer subject in chat so we can identify your deposit.
+                                                </li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="tab-pane fade show" id="tab9">
+                                            <div class="qrcode">
+                                                <img src="./images/BCH-qr.png" alt="" width="150">
+                                            </div>
+                                            <form action="">
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control"
+                                                        value="Please ask us in chat for bank deposit details">
+                                                    <div class="input-group-append">
+                                                    </div>
+                                                </div>
+                                            </form>
+    
+                                            <ul>
+                                                <li>
+                                                    <i class="mdi mdi-checkbox-blank-circle"></i>
+                                                    USD transfers will be available for trading latest after
+                                                    2 banking business days
+                                                </li>
+                                                <li>
+                                                    <i class="mdi mdi-checkbox-blank-circle"></i>
+                                                    Please give us the transfer subject in chat so we can identify your deposit.
+                                                </li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="tab-pane fade show" id="tab10">
+                                            <div class="qrcode">
+                                                <img src="./images/BCH-qr.png" alt="" width="150">
+                                            </div>
+                                            <form action="">
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control"
+                                                        value="Please ask us in chat for bank deposit details">
+                                                    <div class="input-group-append">
+                                                    </div>
+                                                </div>
+                                            </form>
+    
+                                            <ul>
+                                                <li>
+                                                    <i class="mdi mdi-checkbox-blank-circle"></i>
+                                                    MXN transfers will be available for trading latest after
+                                                    2 banking business days
+                                                </li>
+                                                <li>
+                                                    <i class="mdi mdi-checkbox-blank-circle"></i>
+                                                    Please give us the transfer subject in chat so we can identify your deposit.
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="footer dashboard">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-8 col-12">
+                        <div class="copyright">
+                            <p>© Copyright 2021 - Nightttrader -  All Rights Reserved - <a href="#">NAOME S.A.P.I. de C.V. and Gaia Vault Inc.</a> - <a href="https://github.com/NightTrader/"><i class="fa fa-github"></i></a> - <a href="https://t.me/nighttrader_org"><i class="fa fa-telegram"></i></a></p>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-12">
+
+                    </div>
+                </div>
+                <p>Warning of risks: The trade with cryptocurrencies like Bitcoin carries a high risk of losing your invested capital up to the total loss. Read the full warning at the bottom of the <a href="index.html">startpage</a>.</p>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="./js/global.js"></script>
+
+    <script src="./vendor/waves/waves.min.js"></script>
+
+    <script src="./js/scripts.js"></script>
+</body>
+
+</html>
