@@ -1,0 +1,203 @@
+<meta charset="UTF-8" />
+<html>
+<body>
+NightTrader OTC Sell calculator
+<select id="coin">
+<option>Sell Bitcoin</option>
+<option>Sell Ethereum</option>
+</select>
+<br>
+<div id="selldiv"></div>
+<div id="sellQR"></div>
+<div id="timerdiv"></div>
+<tr>
+    <td colspan="2"><input class="textBox" id="sellamount" type="text" maxlength="30"    required/></td>
+</tr>
+<select id="conversion">
+<option>USD</option>
+<option>Pesos</option>
+<option>Coins</option>
+</select>
+<input type="button" value="Sell $" onclick="calculatePrice()">
+<input type="button" value="Email" onclick="email()">
+<input type="button" value="Clear" onclick="clearit()">
+<tr>
+    <br>Dollar to peso exchange rate(buying dollars):<br>
+    <td colspan="2"><input class="textBox" id="exchangerate" type="text" maxlength="50"    required/></td>
+</tr>
+<tr>
+    <br>Email Receipt(optional):<br>
+    <td colspan="2"><input class="textBox" id="emailreceipt" type="text" maxlength="50"    required/></td>
+</tr>
+<tr>
+    <br>Casa de cambio Email:<br>
+    <td colspan="2"><input class="textBox" id="emailcasa" type="text" maxlength="50" style="width: 300px;" required/></td>
+</tr>
+</body>
+<div id="hiddendiv">
+    <tr>
+        <br>Custom bid price(to confirm calculation):<br>
+        <td colspan="2"><input class="textBox" id="custombid" type="text" maxlength="50"    required/></td>
+    </tr>
+</div>
+<script>
+    function hide (elements) {
+        document.getElementById('custombid').value="";
+        elements = elements.length ? elements : [elements];
+        for (var index = 0; index < elements.length; index++) {
+            elements[index].style.display = 'none';
+        }
+    }
+    function show (elements, specifiedDisplay) {
+        elements = elements.length ? elements : [elements];
+        for (var index = 0; index < elements.length; index++) {
+            elements[index].style.display = specifiedDisplay || 'block';
+        }
+    }
+    hide(document.getElementById('hiddendiv'));
+</script>
+<div id="notificationdiv"></div>
+<script src="./rates.js"></script>
+<script src="./users.js"></script>
+<script>
+    var quoted = 0;
+    var globcontent = "";
+    function calculatePrice(){
+        if(document.getElementById('emailcasa').value in registeredemails) {            
+        } else {
+            document.getElementById('notificationdiv').innerHTML="Not a registered cashier, please check email address";
+            return;
+        }
+        amount=document.getElementById('sellamount').value;
+        if (amount == "show") {
+            show(document.getElementById('hiddendiv'));
+            return;
+        }        
+        var coin = document.getElementById("coin");
+        var coin1 = "";
+        var coin2 = "";
+        if (coin.value == "Sell Bitcoin") {
+            coin = "BTC";
+            coin1 = "bitcoin";
+            coin2 = "Bitcoin";
+            address = "1DRv5FouLzQvgPDhgi3g9jyZEqT2vVzkxq";
+        }
+        if (coin.value == "Sell Ethereum") {
+            coin = "ETH";
+            coin1 = "ethereum";
+            coin2 = "Ethereum";
+            address = "0xbB56fD1575C275e1dC94E576A7d18347367a8d36";
+        }
+        var burl = "https://api.binance.com";
+        var query = '/api/v1/ticker/24hr';
+        query += '?symbol='+coin+'DAI';
+        var url = burl + query;
+        var ourRequest = new XMLHttpRequest();
+        ourRequest.open('GET',url,true);
+        ourRequest.onload = function(){
+            binancedata = JSON.parse(ourRequest.responseText);
+            binancedata = binancedata.bidPrice;
+            customrate = document.getElementById('custombid').value;
+            if (customrate != "") {
+                binancedata = customrate;
+            }
+            var conversion = document.getElementById("conversion").value;
+            if (conversion ==  "Pesos") {
+                rate=document.getElementById('exchangerate').value;
+                amount=parseFloat(parseFloat(amount)/parseFloat(rate)).toFixed(0);
+            }
+            if (conversion == "Coins") {
+                btctotal=amount;
+                amount=parseFloat(parseFloat(binancedata)*parseFloat(amount)).toFixed(0);                
+            } else {
+                btctotal = parseFloat(parseFloat(amount) / parseFloat(binancedata)).toFixed(8);
+            }
+            amount=parseFloat(amount);
+            if (coin == "BTC") {
+                if (amount < parseFloat(rates.minBTCsell)) {
+                    clearfields();
+                    document.getElementById('notificationdiv').innerHTML="Amount under minimum: " + rates.minBTCsell;
+                    return;
+                }
+            }
+            if (coin == "ETH") {
+                if (amount < parseFloat(rates.minERCsell)) {
+                    clearfields();
+                    document.getElementById('notificationdiv').innerHTML="Amount under minimum: " + rates.minERCsell;
+                    return;
+                }
+            }
+            document.getElementById('notificationdiv').innerHTML="";
+            var totalcom = 10;
+            var comcasa = 3;
+            var comnt = 7;
+            for(var i = 0, size = rates.rates.length; i < size ; i++) {
+                if (amount > parseFloat(rates.rates[i][0])) {
+                    totalcom = rates.rates[i][1] + rates.rates[i][2];
+                    comcasa = rates.rates[i][1];
+                    comnt = rates.rates[i][2];
+                }
+            }
+            //https://api.binance.com/sapi/v1/capital/deposit/address
+            commission = parseFloat((parseFloat(amount)*parseFloat(totalcom))/parseFloat(100)).toFixed(0);            
+            commissionCasa = parseFloat((parseFloat(amount)*parseFloat(comcasa))/parseFloat(100)).toFixed(0);
+            commissionNT = parseFloat(parseFloat(commission)-parseFloat(commissionCasa)).toFixed(0);
+            payout = parseFloat(parseFloat(amount) - parseFloat(commission)).toFixed(0);
+            mycontent="";
+            document.getElementById('selldiv').innerHTML = "";
+            mycontent += "Amount of "+coin+" to send: " + btctotal.toString();
+            mycontent += "<br>Commission in dollars: " + commission + "   (Casa:" + commissionCasa + ")(NT/fees:" + commissionNT + ")";
+            mycontent += "<br>Payout in dollars: " + payout;
+            document.getElementById('selldiv').innerHTML = mycontent;
+
+            document.getElementById("sellQR").innerHTML = "";        
+            var elem = document.createElement("img");
+            elem.setAttribute("src", "https://chart.googleapis.com/chart?chs=250x250&chld=L|2&cht=qr&chl="+coin1+":"+address+"?amount="+btctotal);
+            elem.setAttribute("height", "250");
+            elem.setAttribute("width", "250");
+            document.getElementById("sellQR").appendChild(elem);
+            document.getElementById('sellQR').innerHTML += "<br>"+coin2+" deposit address: " + address + "<br>";            
+            mycontent=mycontent.replace(/<br>/g,"%0A");
+            mycontent+="%0A"+coin2+" deposit address(client sent here): " + address;
+            mycontent+="%0ABinance/exchange "+coin2+" bid price: " + binancedata;
+            mycontent+="%0A%0A"+"Cashier's contract address: " + registeredemails[document.getElementById('emailcasa').value];
+            mycontent+="%0A"+"NT to send " + (parseFloat(payout) + parseFloat(commissionCasa)).toString() + " to cashier contract";
+            globcontent = mycontent;
+            quoted = 600;
+            clearInterval(interval);
+            interval = setInterval(clearfields, 600000);
+        }
+        ourRequest.send();
+    }
+    function clearit() {
+        if (confirm("Are you sure you want to clear everything?")) {
+          clearfields();
+        }
+    }
+    function clearfields() {
+        document.getElementById('sellamount').value = "";
+        document.getElementById('selldiv').innerHTML = "";
+        document.getElementById("sellQR").innerHTML = "";
+        document.getElementById('timerdiv').innerHTML = "";
+        document.getElementById('emailreceipt').value="";
+        document.getElementById('notificationdiv').innerHTML="";
+        document.getElementById('custombid').value="";
+        quoted = 0;
+        globcontent = "";
+    }
+    interval = setInterval(clearfields, 600000);
+
+    function quotetime() {
+        if (quoted != 0) {
+            quoted -= 1;
+            document.getElementById('timerdiv').innerHTML = "Seconds until quote expires: " + quoted;
+        }
+    }
+    setInterval(quotetime, 1000);
+
+    function email() {
+        window.location.href = "mailto:afmhahn@gmail.com,"+document.getElementById('emailreceipt').value+"?subject=NightTrader OTC notification&body="+globcontent;
+        document.getElementById('emailreceipt').value="";
+    }
+</script>
+</html>

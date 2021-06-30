@@ -1,0 +1,2 @@
+registeredusers = {"0x815745746101AFb04d21ECd40577b134d0819e2E":"0xAad6ACaED50082A5e2921dF5904A5bE7715CdC49"};
+registeredemails = {"dzimbeck@gmail.com":"0xAad6ACaED50082A5e2921dF5904A5bE7715CdC49"}
