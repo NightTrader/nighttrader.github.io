@@ -83,19 +83,21 @@
                             <h2>NightTrader OTC Buy calculator</h2>   
 
                             </div>
-
                             <script>
+                                //To run locally:
+                                //python -m SimpleHTTPServer 8000
+                                //http://localhost:8000/(file-you-want-to-run).htm
+                                //Other notes(if you need to test cross-origin):
                                 //about:config
                                 //security.fileuri.strict_origin_policy
                                 //privacy.file_unique_origin
                             </script>
-
+                           
                             <select id="coin">
                             <option>Sell Bitcoin</option>
                             <option>Sell Ethereum</option>
                             </select>
                             <br> <br>
-                            <br>
                             <div id="buydiv"></div>
                             <div id="buyQR"></div>
                             <div id="timerdiv"></div>
@@ -111,8 +113,7 @@
                             <input type="button" value="Email" onclick="email()">
                             <input type="button" value="Send DAI" onclick="sendDAI()">
                             <input type="button" value="Clear" onclick="clearit()">
-                            <tr>
-                                <br> 
+                            <tr> <br>
                                 <br>Dollar to peso exchange rate(selling dollars):<br>
                                 <td colspan="2"><input class="textBox" id="exchangerate" type="text" maxlength="50"    required/></td>
                             </tr>
@@ -271,7 +272,7 @@
                                     } else {
                                         return;
                                     }
-                                    em=document.getElementById('emailcasa').value;
+                                    em=document.getElementById('emailcasa').value.toLowerCase();
                                     pw=document.getElementById('password').value;
                                     if (pw.length < 12) {            
                                         document.getElementById('notificationdiv').innerHTML="Password needs to be a minimum of 12 characters";
@@ -284,6 +285,8 @@
                                         checkbalances();
                                         document.getElementById('notificationdiv').innerHTML="";
                                     } else {
+                                        console.log("Email hash: " + web3.utils.sha3(document.getElementById('emailcasa').value.toLowerCase()));
+                                        console.log("ETH address(gas): " + myAccount);
                                         document.getElementById('notificationdiv').innerHTML="Account not found! Please check email/password";
                                         myAccount = "";
                                         contractInst = "";
@@ -498,9 +501,6 @@
                                     document.getElementById('QRdiv').innerHTML="No QR code detected.";
                                 }
                             </script>
-
-
-
 
 
                         </div>
