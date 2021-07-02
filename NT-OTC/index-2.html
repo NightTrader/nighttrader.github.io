@@ -94,8 +94,8 @@
                             </script>
                            
                             <select id="coin">
-                            <option>Sell Bitcoin</option>
-                            <option>Sell Ethereum</option>
+                            <option>Buy Bitcoin</option>
+                            <option>Buy Ethereum</option>
                             </select>
                             <br> <br>
                             <div id="buydiv"></div>
@@ -362,10 +362,10 @@
                                         return;
                                     }
                                     var coin = document.getElementById("coin");
-                                    if (coin.value == "Sell Bitcoin") {
+                                    if (coin.value == "Buy Bitcoin") {
                                         coin = "BTC";
                                     }
-                                    if (coin.value == "Sell Ethereum") {
+                                    if (coin.value == "Buy Ethereum") {
                                         coin = "ETH";
                                     }
                                     var burl = "https://api.binance.com";
