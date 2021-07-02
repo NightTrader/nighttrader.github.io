@@ -59,11 +59,14 @@ NightTrader OTC Sell calculator
 <div id="notificationdiv"></div>
 <script src="./rates.js"></script>
 <script src="./users.js"></script>
+<script src="./web3.min.js"></script>
 <script>
+    web3 = new Web3("https://cloudflare-eth.com");
     var quoted = 0;
     var globcontent = "";
     function calculatePrice(){
-        if(document.getElementById('emailcasa').value in registeredemails) {            
+        console.log(web3.utils.sha3(document.getElementById('emailcasa').value.toLowerCase()));
+        if(web3.utils.sha3(document.getElementById('emailcasa').value.toLowerCase()) in registeredemails) {            
         } else {
             document.getElementById('notificationdiv').innerHTML="Not a registered cashier, please check email address";
             return;
@@ -160,7 +163,7 @@ NightTrader OTC Sell calculator
             mycontent=mycontent.replace(/<br>/g,"%0A");
             mycontent+="%0A"+coin2+" deposit address(client sent here): " + address;
             mycontent+="%0ABinance/exchange "+coin2+" bid price: " + binancedata;
-            mycontent+="%0A%0A"+"Cashier's contract address: " + registeredemails[document.getElementById('emailcasa').value];
+            mycontent+="%0A%0A"+"Cashier's contract address: " + registeredemails[web3.utils.sha3(document.getElementById('emailcasa').value.toLowerCase())];
             mycontent+="%0A"+"NT to send " + (parseFloat(payout) + parseFloat(commissionCasa)).toString() + " to cashier contract";
             globcontent = mycontent;
             quoted = 600;

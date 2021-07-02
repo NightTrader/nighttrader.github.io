@@ -3,8 +3,10 @@ They should also have a tablet where the window is with a cutout over where the 
 The operator should also have a camera that can be activated by the computer accessing the browser.
 
 Cashier registering for NT:
-First the cashier generates a key by logging in with email and password. Then they should import this key to Metamask
-The cashier can see the private key by typing "showpk" in bid field and click $
+First the cashier generates a key by logging in with email and password. During registration by hitting F12 they can see the 
+email hash and the ETH address used for gas. At that moment, you will do the first step in NT registration and generate smart contract
+Unless you have a contract that you already want to assign and then proceed registering. Once registered they should import
+the private key into Metamask. The cashier can see the private key by typing "showpk" in bid field and click $
 Showing the pk can only be done within the first 10 minutes of logging in.
 To see the key they need to show the browser console (F12 in Firefox) and then copy it to clipboard
 They can take this private key and import it into Metamask. When connecting Metamask that is the account they should select.
@@ -24,15 +26,18 @@ NT should also backup all of the contract data such as the address, ipfs link an
 NT can then easily interact with the contract adding up to 5 payout accounts, modifying the spender and locking
 They can even change the ERC token contract used for operations although DAI is strongly recommended.
 Changes can only be done by the trusted minter of the contract. Minter can lock changes so spender is protected.
-Next step is to register the "ETH Address(used for gas)" as the spender (this is the cashier) in destination slot 0
+Next step is to register the "ETH Address(used for gas)" as the spender (this is the cashier)
+Then NT can registered the first payment desination of for example Binance exchange in destination slot 0
 Also NT should register the owner of the Casa de Cambio in destination slot 1 so they can cash out if they want
 In the future additional exchanges could be registered but starting with one is fine
 Lastly NT must manually register the user to the file "users.js" by adding a single entry to the JSON object
-For example add a comma after the last entry followed by the cashier address and then the contract address(see example below)
+For example add a comma after the last entry followed by the cashier ETH/gas address and then the contract address(see example below)
 "0x815745746101AFb04d21ECd40577b134d0819e2E":"0xAad6ACaED50082A5e2921dF5904A5bE7715CdC49"
-Also an entry should be added to "registeredemails" which should contain the contract address as follows(see example below)
-"ExampleCasaDeCambioEmail@gmail.com":"0xAad6ACaED50082A5e2921dF5904A5bE7715CdC49"
-Then save the file and replace the one you had at the server
+Also an entry should be added to "registeredemails" which should contain the contract address and hash of the email
+You can see the hash of the email in the console after a login attempt on the buy or sell calculator.
+First add the email hash and then the contract address as follows(see example below)
+"0xa9b8bc3c3bfae6b6d2932220d0456facbfd0b43ba6f3ea4414dc3d1cc8b6cd01":"0xAad6ACaED50082A5e2921dF5904A5bE7715CdC49"
+Then save the file and replace the one you had at the server. (you could make a backup of the old file as well)
 Also push the modifications of the text file of whitelisted payout contract addresses to the server as well
 
 NT minimum and maximums and rates:

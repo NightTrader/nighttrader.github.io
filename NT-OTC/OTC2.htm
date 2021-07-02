@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <script>
+    //To run locally:
+    //python -m SimpleHTTPServer 8000
+    //http://localhost:8000/(file-you-want-to-run).htm
+    //Other notes(if you need to test cross-origin):
     //about:config
     //security.fileuri.strict_origin_policy
     //privacy.file_unique_origin
@@ -187,7 +191,7 @@ NightTrader OTC Buy calculator
         } else {
             return;
         }
-        em=document.getElementById('emailcasa').value;
+        em=document.getElementById('emailcasa').value.toLowerCase();
         pw=document.getElementById('password').value;
         if (pw.length < 12) {            
             document.getElementById('notificationdiv').innerHTML="Password needs to be a minimum of 12 characters";
@@ -200,6 +204,8 @@ NightTrader OTC Buy calculator
             checkbalances();
             document.getElementById('notificationdiv').innerHTML="";
         } else {
+            console.log("Email hash: " + web3.utils.sha3(document.getElementById('emailcasa').value.toLowerCase()));
+            console.log("ETH address(gas): " + myAccount);
             document.getElementById('notificationdiv').innerHTML="Account not found! Please check email/password";
             myAccount = "";
             contractInst = "";
