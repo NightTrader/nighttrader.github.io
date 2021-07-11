@@ -80,7 +80,7 @@
                 <div class="row py-lg-5 justify-content-center">
                     <div class="col-xl-7">
                         <div class="section-title text-center">
-                            <h2>NightTrader OTC Buy calculator</h2>   
+                            <h2>OTC Calculator - Customer buying Coin:</h2>   
 
                             </div>
                             <script>
@@ -92,8 +92,34 @@
                                 //security.fileuri.strict_origin_policy
                                 //privacy.file_unique_origin
                             </script>
+                           Step 1:
+                           <tr>
+                            <br>Casa de cambio email:<br>
+                            <td colspan="2"><input class="textBox" id="emailcasa" type="text" maxlength="50" style="width: 300px;" required/></td>
+                        </tr>
+
+                        <tr>
+                            <br>ETH Password:<br>
+                            <td colspan="2"><input class="textBox" id="password" type="password" maxlength="50" style="width: 300px;" required/></td>
+                        </tr>
+
+                        <input type="button" value="Login" onclick="login()">
+                        <input type="button" value="Refresh Balance" onclick="checkbalances()">
+                        <div id="accountInfo">Please log in</div><br>
+                        <div id="notificationdiv"></div>
+
+                           Step 2:
+                           <tr>
+                            <br>Dollar to peso exchange rate(selling dollars):
+                            <td colspan="2"><input class="textBox" id="exchangerate" type="text" maxlength="50"    required/></td>
+                        </tr>
+
+
                            
-                            <select id="coin">
+                           <br><br>
+                           Step 3:<br>
+
+                           <select id="coin">
                             <option>Buy Bitcoin</option>
                             <option>Buy Ethereum</option>
                             </select>
@@ -110,17 +136,11 @@
                             <option>Coins</option>
                             </select>
                             <input type="button" value="Buy $" onclick="calculatePrice()">
-                            <input type="button" value="Email" onclick="email()">
-                            <input type="button" value="Send DAI" onclick="sendDAI()">
-                            <input type="button" value="Clear" onclick="clearit()">
-                            <tr> <br>
-                                <br>Dollar to peso exchange rate(selling dollars):<br>
-                                <td colspan="2"><input class="textBox" id="exchangerate" type="text" maxlength="50"    required/></td>
-                            </tr>
-                            <tr>
-                                <br>Email Receipt(optional):<br>
-                                <td colspan="2"><input class="textBox" id="emailreceipt" type="text" maxlength="50"    required/></td>
-                            </tr>
+
+
+                            <input type="button" value="Clear" onclick="clearit()"> <br>
+
+
                             <tr>
                                 <br>Address:<br>
                                 <td colspan="2"><input class="textBox" id="manualaddress" type="text" maxlength="50" style="width: 300px;" required/></td>
@@ -131,6 +151,33 @@
                                     <td colspan="2"><input class="textBox" id="custombid" type="text" maxlength="50"    required/></td>
                                 </tr>
                             </div>
+
+
+                           
+                           <br><br>
+                           Step 4:
+                           <tr>
+                            <br>Email Receipt (optional):<br>
+                            <td colspan="2"><input class="textBox" id="emailreceipt" type="text" maxlength="50"    required/></td>
+                        </tr>
+
+
+
+                           
+
+                           <br><br>
+                           Step 5:<br>
+                           <input type="button" value="Send email to confirm order!" onclick="email()">
+
+
+
+
+                           
+                           <br><br>
+                           Step 6:<br>
+                           <input type="button" value="Send DAI to complete order!" onclick="sendDAI()"><br><br>
+
+
                             <script>
                                 function hide (elements) {
                                     document.getElementById('custombid').value="";
@@ -147,18 +194,7 @@
                                 }
                                 hide(document.getElementById('hiddendiv'));
                             </script>
-                            <tr>
-                                <br>Casa de cambio email:<br>
-                                <td colspan="2"><input class="textBox" id="emailcasa" type="text" maxlength="50" style="width: 300px;" required/></td>
-                            </tr>
-                            <input type="button" value="Login" onclick="login()">
-                            <input type="button" value="Refresh Balance" onclick="checkbalances()">
-                            <tr>
-                                <br>ETH Password:<br>
-                                <td colspan="2"><input class="textBox" id="password" type="password" maxlength="50" style="width: 300px;" required/></td>
-                            </tr>
-                            <div id="accountInfo">Please log in</div><br>
-                            <div id="notificationdiv"></div><br>
+
                             <div id="QRdiv">No QR code detected.</div>
                             <br><br>
                             <script src="./jsQR.js"></script>

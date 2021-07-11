@@ -80,10 +80,20 @@
                 <div class="row py-lg-5 justify-content-center">
                     <div class="col-xl-7">
                         <div class="section-title text-center">
-                            <h2>NightTrader OTC Sell calculator</h2>   
+                            <h2>OTC Calculator - Customer selling Coin:</h2>   
 
                             </div>
-
+Step 1:
+<tr>
+    <br>Casa de cambio Email Login:<br>
+    <td colspan="2"><input class="textBox" id="emailcasa" type="text" maxlength="50" style="width: 300px;" required/></td>
+    </tr>
+    <br><br>Step 2:
+    <tr>
+        <br>Dollar to peso exchange rate (buying dollars):
+        <td colspan="2"><input class="textBox" id="exchangerate" type="text" maxlength="50"    required/></td>
+    </tr>
+    <br><br>Step 3:<br>
                             <select id="coin">
                                 <option>Sell Bitcoin</option>
                                 <option>Sell Ethereum</option>
@@ -101,20 +111,21 @@
                                 <option>Coins</option>
                                 </select>
                                 <input type="button" value="Sell $" onclick="calculatePrice()">
-                                <input type="button" value="Email" onclick="email()">
                                 <input type="button" value="Clear" onclick="clearit()">
-                                <tr><br>
-                                    <br>Dollar to peso exchange rate(buying dollars):<br>
-                                    <td colspan="2"><input class="textBox" id="exchangerate" type="text" maxlength="50"    required/></td>
-                                </tr>
+
+
+                                <br><br><br>
+                                Step 4:
+
                                 <tr>
-                                    <br>Email Receipt(optional):<br>
+                                    <br>Email Receipt (optional):<br>
                                     <td colspan="2"><input class="textBox" id="emailreceipt" type="text" maxlength="50"    required/></td>
                                 </tr>
-                                <tr>
-                                    <br>Casa de cambio Email:<br>
-                                    <td colspan="2"><input class="textBox" id="emailcasa" type="text" maxlength="50" style="width: 300px;" required/></td>
-                                </tr>
+
+                                <br><br>
+                                Step 5:<br>
+                                <input type="button" value="Send email to confirm order!" onclick="email()">
+
                                 </body>
                                 <div id="hiddendiv">
                                     <tr>
@@ -230,11 +241,11 @@
                                             payout = parseFloat(parseFloat(amount) - parseFloat(commission)).toFixed(0);
                                             mycontent="";
                                             document.getElementById('selldiv').innerHTML = "";
-                                            mycontent += "Amount of "+coin+" to send: " + btctotal.toString();
+                                            mycontent += "<br>";
+                                            mycontent += "Customer needs to send:"+coin+" " + btctotal.toString();
                                             mycontent += "<br>Commission in dollars: " + commission + "   (Casa:" + commissionCasa + ")(NT/fees:" + commissionNT + ")";
-                                            mycontent += "<br>Payout in dollars: " + payout;
+                                            mycontent += "<br>Customer payout in dollars: " + payout;
                                             document.getElementById('selldiv').innerHTML = mycontent;
-                                
                                             document.getElementById("sellQR").innerHTML = "";        
                                             var elem = document.createElement("img");
                                             elem.setAttribute("src", "https://chart.googleapis.com/chart?chs=250x250&chld=L|2&cht=qr&chl="+coin1+":"+address+"?amount="+btctotal);
@@ -285,10 +296,6 @@
                                         document.getElementById('emailreceipt').value="";
                                     }
                                 </script>
-
-
-
-
                         </div>
                     </div>
                 </div>
