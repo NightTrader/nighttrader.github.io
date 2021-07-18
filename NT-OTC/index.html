@@ -71,68 +71,114 @@
             </div>
         </div>
 
+ <div class="content-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="portfolio section-padding" data-scroll-index="1">
+
+                                            <h4>OTC Calculator - Customer selling Coin:</h4>  <br><br><br><br><br>
+                        </div>
+                        <div class="card-body"  id="deposits">
+                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" data-toggle="tab" href="#tab0">Step 1</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#tab1">Step 2</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#tab2">Step 3</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#tab3">Step 4</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#tab4">Step 5</a>
+                                </li>
+                            </ul>
 
 
+                            <div class="tab-content">
+                                <div class="tab-pane fade show active" id="tab0">
 
-
-        <div class="portfolio section-padding" data-scroll-index="1">
-            <div class="container">
-                <div class="row py-lg-5 justify-content-center">
-                    <div class="col-xl-7">
-                        <div class="section-title text-center">
-                            <h2>OTC Calculator - Customer selling Coin:</h2>   
-
-                            </div>
-Step 1:
-<tr>
-    <br>Casa de cambio Email Login:<br>
-    <td colspan="2"><input class="textBox" id="emailcasa" type="text" maxlength="50" style="width: 300px;" required/></td>
-    </tr>
-    <br><br>Step 2:
-    <tr>
-        <br>Dollar to peso exchange rate (buying dollars):
-        <td colspan="2"><input class="textBox" id="exchangerate" type="text" maxlength="50"    required/></td>
-    </tr>
-    <br><br>Step 3:<br>
-                            <select id="coin">
-                                <option>Sell Bitcoin</option>
-                                <option>Sell Ethereum</option>
-                                </select>
-                                <br><br>
-                                <div id="selldiv"></div>
-                                <div id="sellQR"></div>
-                                <div id="timerdiv"></div>
-                                <tr>
-                                    <td colspan="2"><input class="textBox" id="sellamount" type="text" maxlength="30"    required/></td>
-                                </tr>
-                                <select id="conversion">
-                                <option>USD</option>
-                                <option>Pesos</option>
-                                <option>Coins</option>
-                                </select>
-                                <input type="button" value="Sell $" onclick="calculatePrice()">
-                                <input type="button" value="Clear" onclick="clearit()">
-
-
-                                <br><br><br>
-                                Step 4:
-
-                                <tr>
-                                    <br>Email Receipt (optional):<br>
-                                    <td colspan="2"><input class="textBox" id="emailreceipt" type="text" maxlength="50"    required/></td>
-                                </tr>
-
-                                <br><br>
-                                Step 5:<br>
-                                <input type="button" value="Send email to confirm order!" onclick="email()">
-
-                                </body>
-                                <div id="hiddendiv">
+                                    <br><br>Step 1:
                                     <tr>
-                                        <br>Custom bid price(to confirm calculation):<br>
-                                        <td colspan="2"><input class="textBox" id="custombid" type="text" maxlength="50"    required/></td>
+                                        <br>Casa de cambio Email Login:<br>
+                                        <td colspan="2"><input class="textBox" id="emailcasa" type="text" maxlength="50" style="width: 300px;" required/></td>
+                                        </tr>
+
+                                    
+                                </div>
+                                
+                                <div class="tab-pane fade" id="tab1">
+                                    <br><br>Step 2:
+                                    <tr>
+                                        <br>Dollar to peso exchange rate (buying dollars):
+                                        <td colspan="2"><input class="textBox" id="exchangerate" type="text" maxlength="50"    required/></td>
                                     </tr>
                                 </div>
+                                
+                                
+                                
+                                <div class="tab-pane fade" id="tab2">
+                                     <br>Step 3:<br>
+                                    <select id="coin">
+                                        <option>Sell Bitcoin</option>
+                                        <option>Sell Ethereum</option>
+                                        </select>
+                                        <br><br>
+                                        <div id="selldiv"></div>
+                                        <div id="sellQR"></div>
+                                        <div id="timerdiv"></div>
+                                        <tr>
+                                            <td colspan="2"><input class="textBox" id="sellamount" type="text" maxlength="30"    required/></td>
+                                        </tr>
+                                        <select id="conversion">
+                                        <option>USD</option>
+                                        <option>Pesos</option>
+                                        <option>Coins</option>
+                                        </select>
+                                        <input type="button" value="Sell $" onclick="calculatePrice()">
+                                        <input type="button" value="Clear" onclick="clearit()">
+                                </div>
+
+                                <div class="tab-pane fade" id="tab3">
+
+                                    <br><br> Step 4:
+
+                                    <tr>
+                                        <br>Email Receipt (optional):<br>
+                                        <td colspan="2"><input class="textBox" id="emailreceipt" type="text" maxlength="50"    required/></td>
+                                    </tr>
+ 
+
+                                </div>
+
+                                <div class="tab-pane fade" id="tab4">
+                                    <br><br>Step 5:<br>
+                                    <input type="button" value="Send email to confirm order!" onclick="email()">
+    
+                                    </body>
+                                    <div id="hiddendiv">
+                                        <tr>
+                                            <br>Custom bid price(to confirm calculation):<br>
+                                            <td colspan="2"><input class="textBox" id="custombid" type="text" maxlength="50"    required/></td>
+                                        </tr>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
                                 <script>
                                     function hide (elements) {
                                         document.getElementById('custombid').value="";
@@ -295,13 +341,8 @@ Step 1:
                                         window.location.href = "mailto:afmhahn@gmail.com,"+document.getElementById('emailreceipt').value+"?subject=NightTrader OTC notification&body="+globcontent;
                                         document.getElementById('emailreceipt').value="";
                                     }
-                                </script>
-                        </div>
-                    </div>
-                </div>
-                    
-            </div>
-        </div>
+                                </script>           
+
 
 
 
