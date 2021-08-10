@@ -1,0 +1,51 @@
+
+//
+//serveices
+//
+.widget-flat {
+    position: relative;
+    overflow: hidden;
+}
+.card {
+    border: none;
+    -webkit-box-shadow: 0 0 35px 0 rgba(154,161,171,.15);
+    box-shadow: 0 0 35px 0 rgba(154,161,171,.15);
+    margin-bottom: 24px;
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid #e3eaef;
+    border-radius: 4px;
+}
+.card-body {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 1.5rem;
+
+    h3 {
+        font-size: 21px;
+        font-weight: 600;
+    }
+}
+.text-success {
+    color: #0acf97!important;
+}
+.card-image img{
+    width: 50px;
+    height: 50px;
+}
+.icon-section i {
+    text-align: center;
+    color: $info;
+    font-size: 45px;
+}

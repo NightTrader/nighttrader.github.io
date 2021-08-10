@@ -1,0 +1,118 @@
+//
+// menu.scss
+//
+.navbar-custom {
+    padding: 20px 0px;
+    width: 100%;
+    border-radius: 0px;
+    z-index: 999;
+    margin-bottom: 0px;
+    transition: all 0.5s ease-in-out;  
+    .navbar-nav {
+        li {
+            a {
+                line-height: 26px;
+                color: $white;
+                font-size: 14px;
+                transition: 0.2s linear;
+                background-color: transparent !important;
+                padding: 6px 0;
+                margin: 0 15px;
+                font-weight: 600;
+            } 
+        }
+        .nav-link {
+            padding-right: 0px;
+            padding-left: 0px;
+        }
+    }
+    .navbar-toggles {
+        padding: .25rem .75rem;
+        font-size: 18px;
+        background: 0 0;
+        border: 1px solid transparent;
+        color: $white;
+        outline: 0;
+    }
+    .navbar-toggles-icon {
+        display: inline-block;
+        width: 1.5em;
+        height: 1.5em;
+        vertical-align: middle;
+    }
+}
+.navbar-toggler {
+    font-size: 24px;
+    margin-top: 5px;
+    margin-bottom: 0px;
+    color: $white;
+}
+.navbar-custom .navbar-nav li.active a,
+.navbar-custom .navbar-nav li a:hover,
+.navbar-custom .navbar-nav li a:active {
+    color: $info !important;
+}
+.logo {
+    color: $white;
+    font-weight: 700;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    &:hover {
+        color: $white;    
+    }
+}
+.navbar-btn {
+    margin: 0 15px;
+    font-size: 12px;
+    font-weight: 600;
+    border-color: transparent;
+    transition: all 0.5s;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    background-color: $info;
+    &:hover {
+        color: $white;
+    }
+}
+.menu-toggle {
+    padding: 4.5px 10px !important;
+    span {
+        line-height: 27px;
+    }
+}
+
+/*---NAVBAR STICKY--*/
+.nav-sticky {
+    &.navbar-custom {
+        margin-top: 0px;
+        padding: 10px 0px;
+        background-color: $white !important;
+        box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.2);
+        color: $dark !important;
+    }
+    .navbar-toggles {
+        padding: .25rem .75rem;
+        border: 1px solid transparent;
+        outline: 0;
+    }
+    .navbar-nav {
+        margin-top: 0px;
+        li {
+            a {
+                color: $dark;
+            }
+        }
+    }
+}
+.logo {
+    .logo-light {
+        display: inline-block;
+    }
+    .logo-dark {
+        display: none;
+    }
+}
+.nav-sticky .logo {
+    color: $dark;
+}

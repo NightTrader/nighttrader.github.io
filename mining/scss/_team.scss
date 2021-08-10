@@ -1,0 +1,23 @@
+
+//
+// team.scss
+//
+
+.team-box {
+    border-radius: 4px;
+    overflow: hidden;
+    -webkit-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+.team-img img {
+    max-width: 120px;
+}
+.team-name {
+    font-size: 16px;
+    font-weight: 700;
+}
+.team-social li a {
+    color: $muted;
+    transition: all 0.52s;
+    font-size: 15px;
+}

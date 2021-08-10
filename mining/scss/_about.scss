@@ -1,0 +1,36 @@
+
+//
+// about.scss
+//
+
+.about-content {
+    .upper-heading {
+        font-size: 16px;
+        text-transform: uppercase;
+        color: $info;
+        letter-spacing: 1px;
+        margin-bottom: 20px;
+        font-weight: 700;
+    }
+    h3 {
+        line-height: 1.4;
+        margin-bottom: 20px;
+        font-size: 27px;
+    }
+    a {
+        font-size: 15px;
+        transition: all 0.5s;
+        color: $dark;
+    }
+    a:hover {
+        color: $info !important;
+    }
+    .sub-text {
+        font-size: 19px;
+        line-height: 26px;
+        padding: 28px 0px;
+    }
+    p{
+        margin-bottom: 20px;
+    }
+}

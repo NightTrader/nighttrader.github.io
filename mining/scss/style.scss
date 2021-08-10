@@ -1,0 +1,47 @@
+/* Template Name: Aeshio - Responsive bootsrap 4 Cryptocurrency Landing Page Template
+   Author: Zoyothemes
+   Version: 1.0.0
+   Created: March 2019
+   File Description: Main Css file of the template
+*/
+
+
+/****************************************\
+
+01.general
+02.helper
+03.components
+04.menu
+05.home
+06.services
+07.about
+08.counter
+09.portfolio
+10.resume
+11.skill
+12.client
+13.blog
+14.contact
+15.footer
+16.resposive
+
+*****************************************/
+
+@import "variables";
+@import "general";
+@import "preloader";
+@import "helper";
+@import "components";
+@import "menu";
+@import "home";
+@import "about";
+@import "services";
+@import "token";
+@import "roadmap";
+@import "team";
+@import "faq";
+@import "client";
+@import "footer";
+@import "commanpage";
+@import "responsive";
+@import "contact";

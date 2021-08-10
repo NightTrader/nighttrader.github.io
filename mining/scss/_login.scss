@@ -1,0 +1,74 @@
+//
+// contain page
+//
+
+body.authentication-bg {
+    background-position: center;
+    background: linear-gradient(to right, #512DA8, #711e72);
+}
+.home-btn {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+}
+.account-pages span {
+    color: $white;
+    font-weight: 700;
+    font-size: 25px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    p {
+        font-size: 12px;
+    }
+}
+.card-body {
+    &.p-4 {
+        padding: 2.25rem!important;
+    }
+    h4 {
+        font-size: 17px;
+        font-weight: 700;
+        letter-spacing: 0.50px;
+    }
+    p {
+        font-size: 13px;
+    }
+}
+.login-form {
+    .form-group {
+        label{
+            font-weight: 700;
+            color: $dark;
+            font-size: 13px;
+        }
+        .form-control {
+            display: block;
+            font-size: 13px !important;
+            font-weight: 400;
+            color: $placeholder;
+            background-color: $white;
+            background-clip: padding-box;
+            border: 1px solid $muted;
+            border-radius: .2rem;
+            -webkit-transition: border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+            transition: border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+            transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+            transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+        }
+    }
+}
+.custom-checkbox .custom-control-input:checked~.custom-control-label::before {
+    background-color: $info;
+    color: $info !important;
+    border-color: $info !important;
+}
+.link-resize p {
+    font-size: 13px;
+}
+/* recoverpage */
+.paddingpage {
+    padding: 80px 0px;;
+}
+.height-100vh {
+    height: 100vh;
+}
