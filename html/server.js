@@ -5,8 +5,18 @@ const path = require('path');
 const PORT = 3000;
 
 const server = http.createServer((req, res) => {
+  let filePath = path.join(__dirname, req.url);
+  
+  if (req.url.endsWith('.html')) {
+    const arr = req.url.split('/');
+    
+    arr.splice(arr.length - 1, 0, 'htmls')
+    
+    filePath = path.join(__dirname, arr.join('/'));
+  } else if (req.url === '/') {
+    filePath = path.join(__dirname, '/htmls/index.html');
+  }
   // Set the root directory to serve files from
-  const filePath = path.join(__dirname, req.url === '/' ? 'index.html' : req.url);
   const extname = path.extname(filePath);
 
   // Set the content type based on the file extension

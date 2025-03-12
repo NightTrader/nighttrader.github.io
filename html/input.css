@@ -1,8 +1,0 @@
-@import "tailwindcss";
-
-.empty-image {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("./imgs/bg/img.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}

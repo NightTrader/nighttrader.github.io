@@ -2,19 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Services</title>
-  <link href="./output.css" rel="stylesheet">
-  <script defer src="src/header.js"></script>
-  <script defer src="src/newsletter.js"></script>
+  <title>About</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../css/input.css" rel="stylesheet">
+  <script defer src="../js/header.js"></script>
+  <script defer src="../js/newsletter.js"></script>
 </head>
 <body>
-  <div class="py-4">
-    <div class="h-8"></div>
-  </div>
-  <header class="header top-0 left-0 w-full fixed z-5">
-    <div class="flex gap-4 border-b bg-white">
-      <div class="w-full flex gap-8 py-4 px-5 md:px-16 items-center justify-between md:justify-start max-w-360 m-auto">
-        <a aria-current="page" class="active" href="/" data-discover="true">
+  <div class="header-h"></div>
+  <header class="header" data-expanded="false">
+    <div class="header__top-bar">
+      <div class="header__logo-section">
+        <a aria-current="page" href="/" data-discover="true">
           <svg width="32" height="32" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M94.2721 16.2818C93.2654 17.0885 93.3854 17.3252 94.6321 16.9918C98.9854 15.8385 103.482 15.2818 108.122 15.3218C108.18 15.3208 108.237 15.334 108.288 15.3603C108.339 15.3866 108.383 15.425 108.415 15.472C108.447 15.5191 108.466 15.5731 108.471 15.629C108.476 15.685 108.466 15.741 108.442 15.7918L104.652 23.8918C104.596 24.0121 104.493 24.1061 104.362 24.1559C104.232 24.2057 104.082 24.2078 103.942 24.1618C100.549 22.9485 96.7088 22.5452 92.4221 22.9518C91.1954 23.0652 91.1054 23.4518 92.1521 24.1118C99.0121 28.4118 103.199 33.8652 104.712 40.4718C110.602 66.1318 76.8521 77.0318 61.1421 59.4918C60.9843 59.3158 60.7919 59.1741 60.5767 59.0756C60.3615 58.9771 60.1282 58.9239 59.8911 58.9192C59.654 58.9145 59.4182 58.9585 59.1982 59.0484C58.9782 59.1382 58.7788 59.2722 58.6121 59.4418C51.8321 66.4618 45.9021 68.7018 36.0721 67.9618C12.0121 66.1318 7.20211 34.3718 27.8021 24.5418C29.0954 23.9218 29.0388 23.4652 27.6321 23.1718C23.6988 22.3718 19.8654 22.6752 16.1321 24.0818C15.9994 24.1337 15.8531 24.1357 15.7231 24.0874C15.593 24.0391 15.489 23.9441 15.4321 23.8218L11.7721 15.8918C11.749 15.8408 11.7389 15.7849 11.7426 15.729C11.7464 15.6731 11.7639 15.619 11.7936 15.5715C11.8233 15.524 11.8642 15.4846 11.9128 15.4567C11.9614 15.4289 12.0161 15.4134 12.0721 15.4118C16.8521 15.2185 21.2054 15.7118 25.1321 16.8918C25.4054 16.9785 25.6021 16.9718 25.7221 16.8718C25.7616 16.8408 25.7886 16.7976 25.8009 16.7456C25.8132 16.6936 25.8107 16.6341 25.7933 16.5715C25.776 16.509 25.7444 16.445 25.7009 16.3845C25.6574 16.3239 25.6031 16.2683 25.5421 16.2218C20.8021 12.5285 15.4221 10.4718 9.40211 10.0518C9.2477 10.0426 9.09927 9.99308 8.97253 9.90858C8.84578 9.82409 8.74544 9.70773 8.68211 9.57183L5.19211 2.14183C5.14756 2.04571 5.12796 1.93976 5.1352 1.83409C5.14243 1.72843 5.17626 1.62659 5.23344 1.53831C5.29062 1.45003 5.36925 1.37826 5.46181 1.32985C5.55436 1.28145 5.65776 1.25803 5.76211 1.26183C18.1888 1.5885 29.0988 5.89516 38.4921 14.1818C38.6113 14.2856 38.7521 14.3633 38.9053 14.4098C39.0586 14.4563 39.221 14.4706 39.3821 14.4518C44.1821 13.9118 49.3121 11.4718 52.6621 16.3818C52.6931 16.425 52.712 16.4755 52.7171 16.5284C52.7221 16.5813 52.7132 16.6349 52.6912 16.684C52.6691 16.7332 52.6346 16.7763 52.591 16.8091C52.5474 16.842 52.4961 16.8636 52.4421 16.8718C50.6321 17.1318 38.2721 19.9818 37.9721 21.5018C37.9601 21.5596 37.9687 21.6175 37.9972 21.6704C38.0257 21.7234 38.0732 21.7697 38.1356 21.8053C38.1979 21.841 38.2731 21.8647 38.3545 21.8746C38.4359 21.8845 38.5209 21.8801 38.6021 21.8618C44.4354 20.4885 50.3388 19.6918 56.3121 19.4718C56.6018 19.4592 56.9092 19.5735 57.1721 19.7918L60.9521 22.8418C61.0555 22.926 61.1902 22.9671 61.3327 22.9579C61.4751 22.9488 61.6165 22.89 61.7321 22.7918L65.2721 19.8018C65.5158 19.5963 65.838 19.4925 66.1721 19.5118C71.4121 19.8785 76.5754 20.6385 81.6621 21.7918C82.0221 21.8718 82.1488 21.7685 82.0421 21.4818C81.4921 20.0218 71.3521 17.5418 69.6021 17.2518C68.7421 17.1118 68.6688 16.7618 69.3821 16.2018L72.5021 13.7618C72.6408 13.6545 72.7897 13.5741 72.9395 13.5259C73.0892 13.4777 73.2366 13.4627 73.3721 13.4818L80.6021 14.6218C80.7616 14.6468 80.9226 14.6372 81.0733 14.5939C81.2239 14.5506 81.3603 14.4747 81.4721 14.3718C90.8321 6.0385 101.839 1.6585 114.492 1.23183C114.549 1.22916 114.606 1.24042 114.658 1.26469C114.709 1.28897 114.755 1.32556 114.79 1.37145C114.825 1.41734 114.849 1.47123 114.86 1.52867C114.871 1.58611 114.868 1.64546 114.852 1.70183C114.032 4.58183 112.769 7.26517 111.062 9.75183C110.975 9.87966 110.858 9.9858 110.721 10.0621C110.584 10.1384 110.43 10.1827 110.272 10.1918C104.132 10.6452 98.7988 12.6752 94.2721 16.2818ZM57.0111 44.5788C56.9614 39.8397 54.9743 35.3151 51.4869 32.0002C47.9995 28.6853 43.2974 26.8517 38.4151 26.9028C35.9975 26.928 33.6084 27.4152 31.3841 28.3365C29.1599 29.2578 27.1442 30.5953 25.452 32.2725C23.7598 33.9498 22.4243 35.9339 21.5219 38.1117C20.6194 40.2894 20.1675 42.6181 20.1921 44.9648C20.2418 49.7039 22.2289 54.2286 25.7163 57.5435C29.2038 60.8584 33.9058 62.6919 38.7881 62.6408C41.2058 62.6158 43.5951 62.1287 45.8194 61.2074C48.0437 60.2861 50.0596 58.9487 51.7519 57.2715C53.4442 55.5942 54.7797 53.61 55.6823 51.4322C56.5848 49.2544 57.0357 46.9256 57.0111 44.5788ZM99.9611 45.0288C99.9938 42.6849 99.5503 40.3573 98.6559 38.1789C97.7614 36.0005 96.4336 34.0139 94.7482 32.3327C93.0628 30.6515 91.0529 29.3085 88.8331 28.3805C86.6133 27.4524 84.2273 26.9574 81.8111 26.9238C76.9317 26.8558 72.226 28.6709 68.729 31.9698C65.2321 35.2688 63.2303 39.7813 63.1641 44.5148C63.0981 49.2483 64.9729 53.815 68.3763 57.2103C71.7797 60.6056 76.4328 62.5514 81.3121 62.6198C86.1915 62.6879 90.8972 60.8728 94.3942 57.5738C97.8912 54.2749 99.8929 49.7623 99.9591 45.0288H99.9611Z" fill="black"></path>
             <path d="M37.7921 56.5518C37.6206 56.5421 37.4528 56.4974 37.299 56.4204C37.1452 56.3434 37.0086 56.2357 36.8973 56.1039C36.7861 55.9721 36.7026 55.8189 36.6518 55.6535C36.6011 55.4881 36.5842 55.3141 36.6021 55.1418C37.4121 47.8918 42.6321 42.9518 49.9721 43.0418C51.8588 43.0618 52.4421 44.3118 51.7221 46.7918C49.7088 53.7118 45.0654 56.9652 37.7921 56.5518Z" fill="black"></path>
@@ -29,271 +28,335 @@
             <path d="M81.9185 108.752L79.5386 108.772C78.8869 108.778 78.3633 109.311 78.3689 109.963L78.4354 117.582C78.4411 118.234 78.974 118.758 79.6257 118.752L82.0056 118.731C82.6573 118.726 83.181 118.193 83.1753 117.541L83.1088 109.921C83.1031 109.27 82.5702 108.746 81.9185 108.752Z" fill="black"></path>
           </svg>
         </a>
-        <div class="gap-8 hidden md:flex">
-          <a rel="noopener noreferrer" class="" href="https://my2.nighttrader.exchange/" target="_blank">Exchange</a>
-          <a class="" href="/services.html" data-discover="true">Our Services</a>
-          <a rel="noopener noreferrer" class="" href="https://t.me/Nighttrader_org_Chat" target="_blank">Support Center</a>
-          <div class="header__expand flex cursor-pointer">
+        <div class="header__menu-links">
+          <a rel="noopener noreferrer" href="https://my2.nighttrader.exchange/" target="_blank" class="header__menu-item">Exchange</a>
+          <a href="/services.html" data-discover="true" class="header__menu-item">Our Services</a>
+          <a rel="noopener noreferrer" href="https://t.me/Nighttrader_org_Chat" target="_blank" class="header__menu-item">Support Center</a>
+          <div class="header__expand">
             <p>More</p>
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="header__expand__icon transition duration-300">
+            <svg class="header__expand__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd" clip-rule="evenodd" d="M12.3982 15.6634C12.1785 15.8831 11.8224 15.8831 11.6027 15.6634L5.86788 9.92853C5.64821 9.70886 5.64821 9.35276 5.86788 9.13308L6.13305 8.86788C6.35271 8.64821 6.70887 8.64821 6.92854 8.86788L12.0005 13.9398L17.0724 8.86788C17.2921 8.64821 17.6482 8.64821 17.8679 8.86788L18.1331 9.13308C18.3527 9.35276 18.3527 9.70886 18.1331 9.92853L12.3982 15.6634Z" fill="black"></path>
             </svg>
           </div>
         </div>
-        <button type="button" class="cursor-pointer">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="md:hidden">
+        <button class="header__expand" type="button">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M4 6H20V8H4V6ZM4 11H20V13H4V11ZM4 16H20V18H4V16Z" fill="black"></path>
           </svg>
         </button>
       </div>
     </div>
-    <div class="header__content flex flex-col overflow-scroll transition-all duration-300 bg-white h-0">
-      <div class="flex flex-col md:flex-row gap-8 px-5 md:px-16 py-4 md:py-8 max-w-360 m-auto ">
-        <div class="flex flex-col gap-4 md:hidden">
-          <a rel="noopener noreferrer" class="" href="https://my2.nighttrader.exchange/" target="_blank">Exchange</a>
-          <a class="" href="/services.html" data-discover="true">Our Services</a>
-          <a rel="noopener noreferrer" class="" href="https://t.me/Nighttrader_org_Chat" target="_blank">Support Center</a>
+    <div class="header__nav-container">
+      <div class="header__nav-content">
+        <div class="header__nav-links">
+          <a class="header__menu-item" rel="noopener noreferrer" href="https://my2.nighttrader.exchange/" target="_blank">Exchange</a>
+          <a class="header__menu-item" href="/services.html" data-discover="true">Our Services</a>
+          <a class="header__menu-item" rel="noopener noreferrer" href="https://t.me/Nighttrader_org_Chat" target="_blank">Support Center</a>
         </div>
-        <div class="flex flex-col gap-2">
-          <p class="px-2 text-sm font-bold">Explore Our Pages</p>
-          <a class="flex gap-3 cursor-pointer hover:bg-gray-100 p-2 rounded-sm" href="/about.html" data-discover="true">
+        <div class="header__section">
+          <p class="header__section-title">Explore Our Pages</p>
+          <a class="header__section-item" href="/about.html" data-discover="true">
             <div>
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M20.73 7.12L20.59 6.87C20.4094 6.56769 20.1547 6.31643 19.85 6.14L13.14 2.27C12.8362 2.09375 12.4913 2.00062 12.14 2H11.85C11.4987 2.00062 11.1538 2.09375 10.85 2.27L4.14 6.15C3.83697 6.32526 3.58526 6.57697 3.41 6.88L3.27 7.13C3.09375 7.43384 3.00062 7.77874 3 8.13V15.88C3.00062 16.2313 3.09375 16.5762 3.27 16.88L3.41 17.13C3.58979 17.4295 3.84049 17.6802 4.14 17.86L10.86 21.73C11.1623 21.9099 11.5082 22.0033 11.86 22H12.14C12.4913 21.9994 12.8362 21.9063 13.14 21.73L19.85 17.85C20.156 17.6787 20.4087 17.426 20.58 17.12L20.73 16.87C20.9041 16.5653 20.9971 16.221 21 15.87V8.12C20.9994 7.76874 20.9063 7.42384 20.73 7.12ZM11.85 4H12.14L18 7.38L12 10.84L6 7.38L11.85 4ZM13 19.5L18.85 16.12L19 15.87V9.11L13 12.58V19.5Z" fill="black"></path>
               </svg>
             </div>
             <div>
-              <p class="text-base font-bold">About Us</p>
-              <p class="text-sm font-monospace">Learn more about our mission and values.</p>
+              <p class="header__section-item-title">About Us</p>
+              <p class="header__section-item-desc">Learn more about our mission and values.</p>
             </div>
           </a>
-          <a class="flex gap-3 cursor-pointer hover:bg-gray-100 p-2 rounded-sm" href="/contact.html" data-discover="true">
+          <a class="header__section-item" href="/contact.html" data-discover="true">
             <div>
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M20.73 7.12L20.59 6.87C20.4094 6.56769 20.1547 6.31643 19.85 6.14L13.14 2.27C12.8362 2.09375 12.4913 2.00062 12.14 2H11.85C11.4987 2.00062 11.1538 2.09375 10.85 2.27L4.14 6.15C3.83697 6.32526 3.58526 6.57697 3.41 6.88L3.27 7.13C3.09375 7.43384 3.00062 7.77874 3 8.13V15.88C3.00062 16.2313 3.09375 16.5762 3.27 16.88L3.41 17.13C3.58979 17.4295 3.84049 17.6802 4.14 17.86L10.86 21.73C11.1623 21.9099 11.5082 22.0033 11.86 22H12.14C12.4913 21.9994 12.8362 21.9063 13.14 21.73L19.85 17.85C20.156 17.6787 20.4087 17.426 20.58 17.12L20.73 16.87C20.9041 16.5653 20.9971 16.221 21 15.87V8.12C20.9994 7.76874 20.9063 7.42384 20.73 7.12ZM11.85 4H12.14L18 7.38L12 10.84L6 7.38L11.85 4ZM13 19.5L18.85 16.12L19 15.87V9.11L13 12.58V19.5Z" fill="black"></path>
               </svg>
             </div>
             <div>
-              <p class="text-base font-bold">Contact</p>
-              <p class="text-sm font-monospace">Get in touch with our support team.</p>
+              <p class="header__section-item-title">Contact</p>
+              <p class="header__section-item-desc">Get in touch with our support team.</p>
             </div>
           </a>
-          <a class="flex gap-3 cursor-pointer hover:bg-gray-100 p-2 rounded-sm" href="/bug-bounty.html" data-discover="true">
+          <a class="header__section-item" href="/bug-bounty.html" data-discover="true">
             <div>
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M20.73 7.12L20.59 6.87C20.4094 6.56769 20.1547 6.31643 19.85 6.14L13.14 2.27C12.8362 2.09375 12.4913 2.00062 12.14 2H11.85C11.4987 2.00062 11.1538 2.09375 10.85 2.27L4.14 6.15C3.83697 6.32526 3.58526 6.57697 3.41 6.88L3.27 7.13C3.09375 7.43384 3.00062 7.77874 3 8.13V15.88C3.00062 16.2313 3.09375 16.5762 3.27 16.88L3.41 17.13C3.58979 17.4295 3.84049 17.6802 4.14 17.86L10.86 21.73C11.1623 21.9099 11.5082 22.0033 11.86 22H12.14C12.4913 21.9994 12.8362 21.9063 13.14 21.73L19.85 17.85C20.156 17.6787 20.4087 17.426 20.58 17.12L20.73 16.87C20.9041 16.5653 20.9971 16.221 21 15.87V8.12C20.9994 7.76874 20.9063 7.42384 20.73 7.12ZM11.85 4H12.14L18 7.38L12 10.84L6 7.38L11.85 4ZM13 19.5L18.85 16.12L19 15.87V9.11L13 12.58V19.5Z" fill="black"></path>
               </svg>
             </div>
             <div>
-              <p class="text-base font-bold">Bug Bounty</p>
-              <p class="text-sm font-monospace">Report bugs for crypto.</p>
-            </div>
-          </a>
-        </div>
-        <div class="flex flex-col gap-2">
-          <p class="px-2 text-sm font-bold">Additional Resources</p>
-          <a class="flex gap-3 cursor-pointer hover:bg-gray-100 p-2 rounded-sm" href="/affiliate.html" data-discover="true">
-            <div>
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M20.73 7.12L20.59 6.87C20.4094 6.56769 20.1547 6.31643 19.85 6.14L13.14 2.27C12.8362 2.09375 12.4913 2.00062 12.14 2H11.85C11.4987 2.00062 11.1538 2.09375 10.85 2.27L4.14 6.15C3.83697 6.32526 3.58526 6.57697 3.41 6.88L3.27 7.13C3.09375 7.43384 3.00062 7.77874 3 8.13V15.88C3.00062 16.2313 3.09375 16.5762 3.27 16.88L3.41 17.13C3.58979 17.4295 3.84049 17.6802 4.14 17.86L10.86 21.73C11.1623 21.9099 11.5082 22.0033 11.86 22H12.14C12.4913 21.9994 12.8362 21.9063 13.14 21.73L19.85 17.85C20.156 17.6787 20.4087 17.426 20.58 17.12L20.73 16.87C20.9041 16.5653 20.9971 16.221 21 15.87V8.12C20.9994 7.76874 20.9063 7.42384 20.73 7.12ZM11.85 4H12.14L18 7.38L12 10.84L6 7.38L11.85 4ZM13 19.5L18.85 16.12L19 15.87V9.11L13 12.58V19.5Z" fill="black"></path>
-              </svg>
-            </div>
-            <div>
-              <p class="text-base font-bold">Affiliate Program</p>
-              <p class="text-sm font-monospace">Join us and earn rewards.</p>
-            </div>
-          </a>
-          <a rel="noopener noreferrer" class="flex gap-3 cursor-pointer hover:bg-gray-100 p-2 rounded-sm" href="https://docs.google.com/document/d/1ySsqMlCpJAbFRlUOupzNIYQ3N7lmrnfaVtQvqFE5Vj4/edit?tab=t.0" target="_blank">
-            <div>
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M20.73 7.12L20.59 6.87C20.4094 6.56769 20.1547 6.31643 19.85 6.14L13.14 2.27C12.8362 2.09375 12.4913 2.00062 12.14 2H11.85C11.4987 2.00062 11.1538 2.09375 10.85 2.27L4.14 6.15C3.83697 6.32526 3.58526 6.57697 3.41 6.88L3.27 7.13C3.09375 7.43384 3.00062 7.77874 3 8.13V15.88C3.00062 16.2313 3.09375 16.5762 3.27 16.88L3.41 17.13C3.58979 17.4295 3.84049 17.6802 4.14 17.86L10.86 21.73C11.1623 21.9099 11.5082 22.0033 11.86 22H12.14C12.4913 21.9994 12.8362 21.9063 13.14 21.73L19.85 17.85C20.156 17.6787 20.4087 17.426 20.58 17.12L20.73 16.87C20.9041 16.5653 20.9971 16.221 21 15.87V8.12C20.9994 7.76874 20.9063 7.42384 20.73 7.12ZM11.85 4H12.14L18 7.38L12 10.84L6 7.38L11.85 4ZM13 19.5L18.85 16.12L19 15.87V9.11L13 12.58V19.5Z" fill="black"></path>
-              </svg>
-            </div>
-            <div>
-              <p class="text-base font-bold">API Documentation</p>
-              <p class="text-sm font-monospace">Learn how to incorporate your project with the NightTrader Exchange.</p>
-            </div>
-          </a>
-          <a class="flex gap-3 cursor-pointer hover:bg-gray-100 p-2 rounded-sm" href="/legal.html" data-discover="true">
-            <div>
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M20.73 7.12L20.59 6.87C20.4094 6.56769 20.1547 6.31643 19.85 6.14L13.14 2.27C12.8362 2.09375 12.4913 2.00062 12.14 2H11.85C11.4987 2.00062 11.1538 2.09375 10.85 2.27L4.14 6.15C3.83697 6.32526 3.58526 6.57697 3.41 6.88L3.27 7.13C3.09375 7.43384 3.00062 7.77874 3 8.13V15.88C3.00062 16.2313 3.09375 16.5762 3.27 16.88L3.41 17.13C3.58979 17.4295 3.84049 17.6802 4.14 17.86L10.86 21.73C11.1623 21.9099 11.5082 22.0033 11.86 22H12.14C12.4913 21.9994 12.8362 21.9063 13.14 21.73L19.85 17.85C20.156 17.6787 20.4087 17.426 20.58 17.12L20.73 16.87C20.9041 16.5653 20.9971 16.221 21 15.87V8.12C20.9994 7.76874 20.9063 7.42384 20.73 7.12ZM11.85 4H12.14L18 7.38L12 10.84L6 7.38L11.85 4ZM13 19.5L18.85 16.12L19 15.87V9.11L13 12.58V19.5Z" fill="black"></path>
-              </svg>
-            </div>
-            <div>
-              <p class="text-base font-bold">Legal</p>
-              <p class="text-sm font-monospace">Learn about out Terms of Use, Risk Policy, and more.</p>
+              <p class="header__section-item-title">Bug Bounty</p>
+              <p class="header__section-item-desc">Report bugs for crypto.</p>
             </div>
           </a>
         </div>
-        <div class="flex flex-col gap-2">
-          <p class="px-2 text-sm font-bold">Stay Connected</p>
-          <a rel="noopener noreferrer" class="flex gap-3 cursor-pointer hover:bg-gray-100 p-2 rounded-sm" href="https://t.me/Nighttrader_org_Chat" target="_blank">
+        <div class="header__section">
+          <p class="header__section-title">Additional Resources</p>
+          <a class="header__section-item" href="/affiliate.html" data-discover="true">
             <div>
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M20.73 7.12L20.59 6.87C20.4094 6.56769 20.1547 6.31643 19.85 6.14L13.14 2.27C12.8362 2.09375 12.4913 2.00062 12.14 2H11.85C11.4987 2.00062 11.1538 2.09375 10.85 2.27L4.14 6.15C3.83697 6.32526 3.58526 6.57697 3.41 6.88L3.27 7.13C3.09375 7.43384 3.00062 7.77874 3 8.13V15.88C3.00062 16.2313 3.09375 16.5762 3.27 16.88L3.41 17.13C3.58979 17.4295 3.84049 17.6802 4.14 17.86L10.86 21.73C11.1623 21.9099 11.5082 22.0033 11.86 22H12.14C12.4913 21.9994 12.8362 21.9063 13.14 21.73L19.85 17.85C20.156 17.6787 20.4087 17.426 20.58 17.12L20.73 16.87C20.9041 16.5653 20.9971 16.221 21 15.87V8.12C20.9994 7.76874 20.9063 7.42384 20.73 7.12ZM11.85 4H12.14L18 7.38L12 10.84L6 7.38L11.85 4ZM13 19.5L18.85 16.12L19 15.87V9.11L13 12.58V19.5Z" fill="black"></path>
               </svg>
             </div>
             <div>
-              <p class="text-base font-bold">Feedback</p>
-              <p class="text-sm font-monospace">Share your thoughts and suggestions.</p>
+              <p class="header__section-item-title">Affiliate Program</p>
+              <p class="header__section-item-desc">Join us and earn rewards.</p>
             </div>
           </a>
-          <a class="flex gap-3 cursor-pointer hover:bg-gray-100 p-2 rounded-sm" href="/blog.html" data-discover="true">
+          <a class="header__section-item" rel="noopener noreferrer" href="https://docs.google.com/document/d/1ySsqMlCpJAbFRlUOupzNIYQ3N7lmrnfaVtQvqFE5Vj4/edit?tab=t.0" target="_blank">
             <div>
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M20.73 7.12L20.59 6.87C20.4094 6.56769 20.1547 6.31643 19.85 6.14L13.14 2.27C12.8362 2.09375 12.4913 2.00062 12.14 2H11.85C11.4987 2.00062 11.1538 2.09375 10.85 2.27L4.14 6.15C3.83697 6.32526 3.58526 6.57697 3.41 6.88L3.27 7.13C3.09375 7.43384 3.00062 7.77874 3 8.13V15.88C3.00062 16.2313 3.09375 16.5762 3.27 16.88L3.41 17.13C3.58979 17.4295 3.84049 17.6802 4.14 17.86L10.86 21.73C11.1623 21.9099 11.5082 22.0033 11.86 22H12.14C12.4913 21.9994 12.8362 21.9063 13.14 21.73L19.85 17.85C20.156 17.6787 20.4087 17.426 20.58 17.12L20.73 16.87C20.9041 16.5653 20.9971 16.221 21 15.87V8.12C20.9994 7.76874 20.9063 7.42384 20.73 7.12ZM11.85 4H12.14L18 7.38L12 10.84L6 7.38L11.85 4ZM13 19.5L18.85 16.12L19 15.87V9.11L13 12.58V19.5Z" fill="black"></path>
               </svg>
             </div>
             <div>
-              <p class="text-base font-bold">Blog</p>
-              <p class="text-sm font-monospace">Articles covering the latest and greatest.</p>
+              <p class="header__section-item-title">API Documentation</p>
+              <p class="header__section-item-desc">Learn how to incorporate your project with the NightTrader Exchange.</p>
             </div>
           </a>
-        </div>
-        <div class="flex flex-col gap-2">
-          <p class="px-2 text-sm font-bold">Get Started</p>
-          <a class="flex gap-3 cursor-pointer hover:bg-gray-100 p-2 rounded-sm" href="/faq.html" data-discover="true">
+          <a class="header__section-item" href="/legal.html" data-discover="true">
             <div>
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M20.73 7.12L20.59 6.87C20.4094 6.56769 20.1547 6.31643 19.85 6.14L13.14 2.27C12.8362 2.09375 12.4913 2.00062 12.14 2H11.85C11.4987 2.00062 11.1538 2.09375 10.85 2.27L4.14 6.15C3.83697 6.32526 3.58526 6.57697 3.41 6.88L3.27 7.13C3.09375 7.43384 3.00062 7.77874 3 8.13V15.88C3.00062 16.2313 3.09375 16.5762 3.27 16.88L3.41 17.13C3.58979 17.4295 3.84049 17.6802 4.14 17.86L10.86 21.73C11.1623 21.9099 11.5082 22.0033 11.86 22H12.14C12.4913 21.9994 12.8362 21.9063 13.14 21.73L19.85 17.85C20.156 17.6787 20.4087 17.426 20.58 17.12L20.73 16.87C20.9041 16.5653 20.9971 16.221 21 15.87V8.12C20.9994 7.76874 20.9063 7.42384 20.73 7.12ZM11.85 4H12.14L18 7.38L12 10.84L6 7.38L11.85 4ZM13 19.5L18.85 16.12L19 15.87V9.11L13 12.58V19.5Z" fill="black"></path>
               </svg>
             </div>
             <div>
-              <p class="text-base font-bold">User Guide</p>
-              <p class="text-sm font-monospace">Navigate our platform with ease.</p>
-            </div>
-          </a>
-          <a class="flex gap-3 cursor-pointer hover:bg-gray-100 p-2 rounded-sm" href="/faq.html" data-discover="true">
-            <div>
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M20.73 7.12L20.59 6.87C20.4094 6.56769 20.1547 6.31643 19.85 6.14L13.14 2.27C12.8362 2.09375 12.4913 2.00062 12.14 2H11.85C11.4987 2.00062 11.1538 2.09375 10.85 2.27L4.14 6.15C3.83697 6.32526 3.58526 6.57697 3.41 6.88L3.27 7.13C3.09375 7.43384 3.00062 7.77874 3 8.13V15.88C3.00062 16.2313 3.09375 16.5762 3.27 16.88L3.41 17.13C3.58979 17.4295 3.84049 17.6802 4.14 17.86L10.86 21.73C11.1623 21.9099 11.5082 22.0033 11.86 22H12.14C12.4913 21.9994 12.8362 21.9063 13.14 21.73L19.85 17.85C20.156 17.6787 20.4087 17.426 20.58 17.12L20.73 16.87C20.9041 16.5653 20.9971 16.221 21 15.87V8.12C20.9994 7.76874 20.9063 7.42384 20.73 7.12ZM11.85 4H12.14L18 7.38L12 10.84L6 7.38L11.85 4ZM13 19.5L18.85 16.12L19 15.87V9.11L13 12.58V19.5Z" fill="black"></path>
-              </svg>
-            </div>
-            <div>
-              <p class="text-base font-bold">FAQ</p>
-              <p class="text-sm font-monospace">Explore common questions and answers.</p>
+              <p class="header__section-item-title">Legal</p>
+              <p class="header__section-item-desc">Learn about out Terms of Use, Risk Policy, and more.</p>
             </div>
           </a>
         </div>
-      </div>
-      <div class="h-full"></div>
-      <div class="bg-black">
-        <div class="text-white px-16 py-4 w-full max-w-360 m-auto">
-          <p>Ready to trade with us? <u>Sign up for free</u></p>
+        <div class="header__section">
+          <p class="header__section-title">Stay Connected</p>
+          <a class="header__section-item" rel="noopener noreferrer" href="https://t.me/Nighttrader_org_Chat" target="_blank">
+            <div>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M20.73 7.12L20.59 6.87C20.4094 6.56769 20.1547 6.31643 19.85 6.14L13.14 2.27C12.8362 2.09375 12.4913 2.00062 12.14 2H11.85C11.4987 2.00062 11.1538 2.09375 10.85 2.27L4.14 6.15C3.83697 6.32526 3.58526 6.57697 3.41 6.88L3.27 7.13C3.09375 7.43384 3.00062 7.77874 3 8.13V15.88C3.00062 16.2313 3.09375 16.5762 3.27 16.88L3.41 17.13C3.58979 17.4295 3.84049 17.6802 4.14 17.86L10.86 21.73C11.1623 21.9099 11.5082 22.0033 11.86 22H12.14C12.4913 21.9994 12.8362 21.9063 13.14 21.73L19.85 17.85C20.156 17.6787 20.4087 17.426 20.58 17.12L20.73 16.87C20.9041 16.5653 20.9971 16.221 21 15.87V8.12C20.9994 7.76874 20.9063 7.42384 20.73 7.12ZM11.85 4H12.14L18 7.38L12 10.84L6 7.38L11.85 4ZM13 19.5L18.85 16.12L19 15.87V9.11L13 12.58V19.5Z" fill="black"></path>
+              </svg>
+            </div>
+            <div>
+              <p class="header__section-item-title">Feedback</p>
+              <p class="header__section-item-desc">Share your thoughts and suggestions.</p>
+            </div>
+          </a>
+          <a class="header__section-item" href="/blog.html" data-discover="true">
+            <div>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M20.73 7.12L20.59 6.87C20.4094 6.56769 20.1547 6.31643 19.85 6.14L13.14 2.27C12.8362 2.09375 12.4913 2.00062 12.14 2H11.85C11.4987 2.00062 11.1538 2.09375 10.85 2.27L4.14 6.15C3.83697 6.32526 3.58526 6.57697 3.41 6.88L3.27 7.13C3.09375 7.43384 3.00062 7.77874 3 8.13V15.88C3.00062 16.2313 3.09375 16.5762 3.27 16.88L3.41 17.13C3.58979 17.4295 3.84049 17.6802 4.14 17.86L10.86 21.73C11.1623 21.9099 11.5082 22.0033 11.86 22H12.14C12.4913 21.9994 12.8362 21.9063 13.14 21.73L19.85 17.85C20.156 17.6787 20.4087 17.426 20.58 17.12L20.73 16.87C20.9041 16.5653 20.9971 16.221 21 15.87V8.12C20.9994 7.76874 20.9063 7.42384 20.73 7.12ZM11.85 4H12.14L18 7.38L12 10.84L6 7.38L11.85 4ZM13 19.5L18.85 16.12L19 15.87V9.11L13 12.58V19.5Z" fill="black"></path>
+              </svg>
+            </div>
+            <div>
+              <p class="header__section-item-title">Blog</p>
+              <p class="header__section-item-desc">Articles covering the latest and greatest.</p>
+            </div>
+          </a>
+        </div>
+        <div class="header__section">
+          <p class="header__section-title">Get Started</p>
+          <a class="header__section-item" href="/faq.html" data-discover="true">
+            <div>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M20.73 7.12L20.59 6.87C20.4094 6.56769 20.1547 6.31643 19.85 6.14L13.14 2.27C12.8362 2.09375 12.4913 2.00062 12.14 2H11.85C11.4987 2.00062 11.1538 2.09375 10.85 2.27L4.14 6.15C3.83697 6.32526 3.58526 6.57697 3.41 6.88L3.27 7.13C3.09375 7.43384 3.00062 7.77874 3 8.13V15.88C3.00062 16.2313 3.09375 16.5762 3.27 16.88L3.41 17.13C3.58979 17.4295 3.84049 17.6802 4.14 17.86L10.86 21.73C11.1623 21.9099 11.5082 22.0033 11.86 22H12.14C12.4913 21.9994 12.8362 21.9063 13.14 21.73L19.85 17.85C20.156 17.6787 20.4087 17.426 20.58 17.12L20.73 16.87C20.9041 16.5653 20.9971 16.221 21 15.87V8.12C20.9994 7.76874 20.9063 7.42384 20.73 7.12ZM11.85 4H12.14L18 7.38L12 10.84L6 7.38L11.85 4ZM13 19.5L18.85 16.12L19 15.87V9.11L13 12.58V19.5Z" fill="black"></path>
+              </svg>
+            </div>
+            <div>
+              <p class="header__section-item-title">User Guide</p>
+              <p class="header__section-item-desc">Navigate our platform with ease.</p>
+            </div>
+          </a>
+          <a class="header__section-item" href="/faq.html" data-discover="true">
+            <div>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M20.73 7.12L20.59 6.87C20.4094 6.56769 20.1547 6.31643 19.85 6.14L13.14 2.27C12.8362 2.09375 12.4913 2.00062 12.14 2H11.85C11.4987 2.00062 11.1538 2.09375 10.85 2.27L4.14 6.15C3.83697 6.32526 3.58526 6.57697 3.41 6.88L3.27 7.13C3.09375 7.43384 3.00062 7.77874 3 8.13V15.88C3.00062 16.2313 3.09375 16.5762 3.27 16.88L3.41 17.13C3.58979 17.4295 3.84049 17.6802 4.14 17.86L10.86 21.73C11.1623 21.9099 11.5082 22.0033 11.86 22H12.14C12.4913 21.9994 12.8362 21.9063 13.14 21.73L19.85 17.85C20.156 17.6787 20.4087 17.426 20.58 17.12L20.73 16.87C20.9041 16.5653 20.9971 16.221 21 15.87V8.12C20.9994 7.76874 20.9063 7.42384 20.73 7.12ZM11.85 4H12.14L18 7.38L12 10.84L6 7.38L11.85 4ZM13 19.5L18.85 16.12L19 15.87V9.11L13 12.58V19.5Z" fill="black"></path>
+              </svg>
+            </div>
+            <div>
+              <p class="header__section-item-title">FAQ</p>
+              <p class="header__section-item-desc">Explore common questions and answers.</p>
+            </div>
+          </a>
         </div>
       </div>
-      <div class="py-4">
-        <div class="h-8"></div>
+      <div class="header__spacer"></div>
+      <div class="header__cta-container">
+        <div class="header__cta-box">
+          <p class="header__cta-text">Ready to trade with us? <u>Sign up for free</u></p>
+        </div>
+      </div>
+      <div class="header__footer">
+        <div class="header__footer-content"></div>
       </div>
     </div>
   </header>
-  <div class="flex flex-col text-center justify-center gap-3 md:gap-6 py-14 md:py-28 px-8 md:px-16 max-w-360 m-auto">
-    <p class="text-3xl md:text-6xl font-bold">Our Services</p>
-    <p class="text-base md:text-lg">Explore our comprehensive trading solutions designed for both novice and experienced traders alike.</p>
-  </div>
-  <div class="flex flex-col gap-5 md:gap-10 py-14 md:py-28 px-8 md:px-16 max-w-360 m-auto">
-    <p class="text-2xl md:text-4xl font-semibold w-full text-center ">Unlock the Power of Our Advanced Trading Services</p>
-    <div class="flex flex-col md:flex-row gap-6 md:gap-12">
-      <div class="w-full flex flex-col gap-8">
-        <div class="aspect-3/2 empty-image"></div>
-        <div class="flex flex-col gap-4">
-          <p class="text-2xl font-semibold">Fast Transactions</p>
-          <p class="text-base">NightTrader offers lightning-fast transactions and high scalability, addressing common performance issues in other exchanges.</p>
-        </div>
-      </div>
-      <div class="w-full flex flex-col gap-8">
-        <div class="aspect-3/2 empty-image"></div>
-        <div class="flex flex-col gap-4">
-          <p class="text-2xl font-semibold">Unmatched Security</p>
-          <p class="text-base">Through multi-signature technology and non-custodial trading, NightTrader significantly reduces the risk of hacks and theft, a common issue with centralized exchanges.</p>
-        </div>
-      </div>
-      <div class="w-full flex flex-col gap-8">
-        <div class="aspect-3/2 empty-image"></div>
-        <div class="flex flex-col gap-4">
-          <p class="text-2xl font-semibold">Cost-Effective</p>
-          <p class="text-base">NightTrader maintains competitive trading fees, making it more affordable for users seeking efficient cryptocurrency exchange solutions.</p>
-        </div>
-      </div>
+  <div class="section empty-image">
+    <div class="section__content text-white col-5 md:col-6">
+      <p class="text-h-2">Welcome to NightTrader</p>
+      <p class="text-md fw-normal">At NightTrader.exchange, we empower traders with innovative solutions for a seamless trading experience.</p>
     </div>
   </div>
-  <div class="flex flex-col gap-10 md:gap-20 pt-7 pb-14 md:py-28 px-8 md:px-16 max-w-360 m-auto">
-    <div class="flex flex-col md:flex-row gap-5 md:gap-20">
-      <div class="w-full flex flex-col gap-2 md:gap-4">
-        <p class="text-base font-semibold">Empower</p>
-        <p class="text-3xl md:text-5xl font-semibold">Unlock New Opportunities with Our Coin Listings</p>
+  <div class="section">
+    <div class="section__content col-5 md:row-20">
+      <div class="col-4">
+        <p class="text-tagline">Innovative</p>
+        <p class="text-h-2">Our Journey: The Birth of NightTrader.exchange</p>
       </div>
-      <div class="w-full flex flex-col gap-5 md:gap-8">
-        <p class="text-base md:text-lg">At NightTrader, we provide a seamless platform for listing your cryptocurrency. Our extensive network and robust technology ensure that your coin reaches a wider audience, enhancing its visibility and potential for growth. Join us to leverage our expertise and take your project to the next level.</p>
-        <a class="group relative inline-block" href="mailto:coinlisting@nighttrader.exchange">
-          <div class="bg-white relative transition-transform duration-300 group-hover:translate-x-2 group-hover:translate-y-2 z-2 flex gap-3 items-center justify-between py-3 px-6 border border-black">
-            <p>coinlisting@nighttrader.exchange</p>
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M20 4H6C4.897 4 4 4.897 4 6V11H6V8L12.4 12.8C12.5732 12.9297 12.7837 12.9998 13 12.9998C13.2163 12.9998 13.4268 12.9297 13.6 12.8L20 8V17H12V19H20C21.103 19 22 18.103 22 17V6C22 4.897 21.103 4 20 4ZM13 10.75L6.666 6H19.334L13 10.75Z" fill="black"></path>
-              <path d="M2 12H9V14H2V12ZM4 15H10V17H4V15ZM7 18H11V20H7V18Z" fill="black"></path>
+      <div class="col-6 md:col-8">
+        <p>NightTrader.Exchange was founded with a vision to revolutionize the trading experience. Inspired by the need for a user-friendly and secure platform, we set out to empower traders of all levels.</p>
+        <div>
+          <a class="button-link" rel="noopener noreferrer" href="https://my2.nighttrader.exchange/auth/register" target="_blank">
+            <span>Sign Up</span>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="size-4">
+              <path d="M13 3L16.293 6.293L9.29303 13.293L10.707 14.707L17.707 7.707L21 11V3H13Z" fill="black"></path>
+              <path d="M19 19H5V5H12L10 3H5C3.897 3 3 3.897 3 5V19C3 20.103 3.897 21 5 21H19C20.103 21 21 20.103 21 19V14L19 12V19Z" fill="black"></path>
             </svg>
-          </div>
-          <div class="absolute top-0 left-0 w-full h-full bg-black transition-all duration-300 opacity-0 group-hover:opacity-100 z-1"></div>
-        </a>
-      </div>
-    </div>
-    <div class="aspect-3/2 w-full empty-image"></div>
-  </div>
-  <footer class="py-10 md:py-20 px-8 md:px-16 max-w-360 m-auto">
-    <div class="flex flex-col md:flex-row gap-6 justify-between pb-20">
-      <div>
-        <p class="text-lg font-semibold">Subscribe to Our News Letter</p>
-        <p class="text-base">Stay informed with the latest news and offers.</p>
-      </div>
-      <div class="flex flex-col gap-3">
-        <div class="flex flex-col md:flex-row gap-3">
-          <div class="border border-black p-3">
-            <input id="newsletter-input" class="outline-none" placeholder="Your Email Here">
-          </div>
-          <button id="newsletter-button" type="button" class="flex gap-2 cursor-pointer items-center border border-black px-6 py-3 transition duration-300 hover:bg-black hover:text-white">Join</button>
+          </a>
         </div>
-        <p id="newsletter-message" class="text-xs">By subscribing, you accept our Privacy Policy.</p>
       </div>
     </div>
-    <div class="flex flex-col md:flex-row gap-10 border-t border-b border-black justify-between py-20">
-      <div class="flex flex-col gap-4">
-        <p class="text-sm font-bold">Quick Links</p>
-        <a rel="noopener noreferrer" class="text-sm" href="https://my2.nighttrader.exchange" target="_blank">Exchange</a>
-        <a class="text-sm" href="/services.html" data-discover="true">Our Services</a>
-        <a class="text-sm" href="/about.html" data-discover="true">About Us</a>
-        <a class="text-sm" href="/bug-bounty.html" data-discover="true">Bug Bounty</a>
+  </div>
+  <div class="section">
+    <div class="section__content col-12 md:row-20 items-center">
+      <div class="col-6">
+        <p class="text-h-3">NightTrader: Born from a passion for secure, decentralized cryptocurrency exchanges.</p>
+        <p class="text-md fw-normal">At NightTrader, we are dedicated to providing a secure and user-friendly platform for cryptocurrency trading. Our mission is to empower traders with the tools they need to succeed in the dynamic world of digital assets.</p>
       </div>
-      <div class="flex flex-col gap-4">
-        <p class="text-sm font-bold">Resources</p>
-        <a rel="noopener noreferrer" class="text-sm" href="https://docs.google.com/document/d/1ySsqMlCpJAbFRlUOupzNIYQ3N7lmrnfaVtQvqFE5Vj4/edit?tab=t.0" target="_blank">API Documentation</a>
-        <a class="text-sm" href="/legal.html" data-discover="true">Legal</a>
-      </div>
-      <div class="flex flex-col gap-4">
-        <p class="text-sm font-bold">Follow Us</p>
-        <a rel="noopener noreferrer" class="text-sm" href="https://x.com/nighttraderO" target="_blank">Twitter Feed</a>
-        <a rel="noopener noreferrer" class="text-sm" href="https://www.linkedin.com/company/nighttrader/" target="_blank">LinkedIn Profile</a>
-        <a rel="noopener noreferrer" class="text-sm" href="https://www.youtube.com/@NightTrader.Exchange" target="_blank">YouTube Channel</a>
-        <a class="text-sm" href="/blog.html" data-discover="true">Blog</a>
-      </div>
-      <div class="flex flex-col gap-4">
-        <p class="text-sm font-bold">Support</p>
-        <a rel="noopener noreferrer" class="text-sm" href="https://t.me/Nighttrader_org_Chat" target="_blank">Help Center</a>
-        <a rel="noopener noreferrer" class="text-sm" href="https://t.me/Nighttrader_org_Chat" target="_blank">Feedback</a>
-        <a class="text-sm" href="/faq.html" data-discover="true">FAQ</a>
-      </div>
-      <div class="flex flex-col gap-4">
-        <p class="text-sm font-bold">Business</p>
-        <a class="text-sm" href="/listing.html" data-discover="true">Listing Request</a>
-        <a class="text-sm" href="/advertising.html" data-discover="true">Advertising Request</a>
-        <a class="text-sm" href="/careers.html" data-discover="true">Careers</a>
-      </div>
-      <div class="flex flex-col gap-4">
-        <p class="text-sm font-bold">Contact</p>
-        <a class="text-sm" href="/contact.html" data-discover="true">General Inquiries</a>
+      <div class="w-full aspect-square">
+        <img src="../imgs/bg/img.png" class="cover">
       </div>
     </div>
-    <div class="flex flex-col md:flex-row gap-10 items-center justify-between pt-8">
+  </div>
+  <div class="section">
+    <div class="section__content col-8 md:row-20">
+      <div class="col-6">
+        <div class="col-4">
+          <p class="text-tagline">Milestones</p>
+          <p class="text-h-2">Our Journey - Key Milestones Achieved at NightTrader.exchange</p>
+        </div>
+        <p class="text-regular fw-normal">At NightTrader.Exchange, your protection and safeguard is our top priority. We utilize advanced technologies to ensure a secure trading environment.</p>
+      </div>
+      <div class="stepper">
+        <div class="stepper__step">
+          <div class="stepper__step-line">
+            <div class="stepper__step-line__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M20.73 7.12L20.59 6.87C20.4094 6.56769 20.1547 6.31643 19.85 6.14L13.14 2.27C12.8362 2.09375 12.4913 2.00062 12.14 2H11.85C11.4987 2.00062 11.1538 2.09375 10.85 2.27L4.14 6.15C3.83697 6.32526 3.58526 6.57697 3.41 6.88L3.27 7.13C3.09375 7.43384 3.00062 7.77874 3 8.13V15.88C3.00062 16.2313 3.09375 16.5762 3.27 16.88L3.41 17.13C3.58979 17.4295 3.84049 17.6802 4.14 17.86L10.86 21.73C11.1623 21.9099 11.5082 22.0033 11.86 22H12.14C12.4913 21.9994 12.8362 21.9063 13.14 21.73L19.85 17.85C20.156 17.6787 20.4087 17.426 20.58 17.12L20.73 16.87C20.9041 16.5653 20.9971 16.221 21 15.87V8.12C20.9994 7.76874 20.9063 7.42384 20.73 7.12ZM11.85 4H12.14L18 7.38L12 10.84L6 7.38L11.85 4ZM13 19.5L18.85 16.12L19 15.87V9.11L13 12.58V19.5Z" fill="black"></path>
+              </svg>
+            </div>
+            <div class="stepper__step-line__visualizer"></div>
+          </div>
+          <div class="stepper__step-content">
+            <div class="col-4">
+              <p class="text-h-6">Launch Year</p>
+              <p class="text-regular fw-normal">Conceived in 2014, the NightTrader Decentralized Exchange was designed to revolutionize trading with innovative, cutting-edge solutions. It remains the only DEX in the world that supports high-speed Bitcoin trading.</p>
+            </div>
+            <div class="stepper__step-content__footer"></div>
+          </div>
+        </div>
+        <div class="stepper__step">
+          <div class="stepper__step-line">
+            <div class="stepper__step-line__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="size-8 md:size-12">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M20.73 7.12L20.59 6.87C20.4094 6.56769 20.1547 6.31643 19.85 6.14L13.14 2.27C12.8362 2.09375 12.4913 2.00062 12.14 2H11.85C11.4987 2.00062 11.1538 2.09375 10.85 2.27L4.14 6.15C3.83697 6.32526 3.58526 6.57697 3.41 6.88L3.27 7.13C3.09375 7.43384 3.00062 7.77874 3 8.13V15.88C3.00062 16.2313 3.09375 16.5762 3.27 16.88L3.41 17.13C3.58979 17.4295 3.84049 17.6802 4.14 17.86L10.86 21.73C11.1623 21.9099 11.5082 22.0033 11.86 22H12.14C12.4913 21.9994 12.8362 21.9063 13.14 21.73L19.85 17.85C20.156 17.6787 20.4087 17.426 20.58 17.12L20.73 16.87C20.9041 16.5653 20.9971 16.221 21 15.87V8.12C20.9994 7.76874 20.9063 7.42384 20.73 7.12ZM11.85 4H12.14L18 7.38L12 10.84L6 7.38L11.85 4ZM13 19.5L18.85 16.12L19 15.87V9.11L13 12.58V19.5Z" fill="black"></path>
+              </svg>
+            </div>
+            <div class="stepper__step-line__visualizer"></div>
+          </div>
+          <div class="stepper__step-content">
+            <div class="col-4">
+              <p class="text-h-6">1st Real World Concept of Viability Milestone</p>
+              <p class="text-regular fw-normal">Achieved 10,000 registered users within the first three months of operation.</p>
+            </div>
+            <div class="stepper__step-content__footer"></div>
+          </div>
+        </div>
+        <div class="stepper__step">
+          <div class="stepper__step-line">
+            <div class="stepper__step-line__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="size-8 md:size-12">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M20.73 7.12L20.59 6.87C20.4094 6.56769 20.1547 6.31643 19.85 6.14L13.14 2.27C12.8362 2.09375 12.4913 2.00062 12.14 2H11.85C11.4987 2.00062 11.1538 2.09375 10.85 2.27L4.14 6.15C3.83697 6.32526 3.58526 6.57697 3.41 6.88L3.27 7.13C3.09375 7.43384 3.00062 7.77874 3 8.13V15.88C3.00062 16.2313 3.09375 16.5762 3.27 16.88L3.41 17.13C3.58979 17.4295 3.84049 17.6802 4.14 17.86L10.86 21.73C11.1623 21.9099 11.5082 22.0033 11.86 22H12.14C12.4913 21.9994 12.8362 21.9063 13.14 21.73L19.85 17.85C20.156 17.6787 20.4087 17.426 20.58 17.12L20.73 16.87C20.9041 16.5653 20.9971 16.221 21 15.87V8.12C20.9994 7.76874 20.9063 7.42384 20.73 7.12ZM11.85 4H12.14L18 7.38L12 10.84L6 7.38L11.85 4ZM13 19.5L18.85 16.12L19 15.87V9.11L13 12.58V19.5Z" fill="black"></path>
+              </svg>
+            </div>
+            <div class="stepper__step-line__visualizer"></div>
+          </div>
+          <div>
+            <div class="col-4">
+              <p class="text-h-6">Partnership Growth</p>
+              <p class="text-regular fw-normal">Forged strategic partnerships with top blockchain projects to expand and enhance our service offerings.</p>
+            </div>
+            <div class="stepper__step-content__footer"></div>
+          </div>
+        </div>
+        <div class="stepper__step">
+          <div class="stepper__step-line">
+            <div class="stepper__step-line__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="size-8 md:size-12">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M20.73 7.12L20.59 6.87C20.4094 6.56769 20.1547 6.31643 19.85 6.14L13.14 2.27C12.8362 2.09375 12.4913 2.00062 12.14 2H11.85C11.4987 2.00062 11.1538 2.09375 10.85 2.27L4.14 6.15C3.83697 6.32526 3.58526 6.57697 3.41 6.88L3.27 7.13C3.09375 7.43384 3.00062 7.77874 3 8.13V15.88C3.00062 16.2313 3.09375 16.5762 3.27 16.88L3.41 17.13C3.58979 17.4295 3.84049 17.6802 4.14 17.86L10.86 21.73C11.1623 21.9099 11.5082 22.0033 11.86 22H12.14C12.4913 21.9994 12.8362 21.9063 13.14 21.73L19.85 17.85C20.156 17.6787 20.4087 17.426 20.58 17.12L20.73 16.87C20.9041 16.5653 20.9971 16.221 21 15.87V8.12C20.9994 7.76874 20.9063 7.42384 20.73 7.12ZM11.85 4H12.14L18 7.38L12 10.84L6 7.38L11.85 4ZM13 19.5L18.85 16.12L19 15.87V9.11L13 12.58V19.5Z" fill="black"></path>
+              </svg>
+            </div>
+          </div>
+          <div class="stepper__step-content">
+            <div class="col-4">
+              <p class="text-h-6">Global Expansion</p>
+              <p class="text-md fw-normal">Extended our reach to over 30 countries, bringing trading accessibility to a worldwide audience.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="footer">
+    <div class="footer__newsletter-container">
+      <div class="footer__newsletter-intro">
+        <p class="footer__heading">Subscribe to Our News Letter</p>
+        <p class="footer__subtitle">Stay informed with the latest news and offers.</p>
+      </div>
+      <div class="footer__newsletter-form">
+        <div>
+          <div>
+            <input id="newsletter-input" placeholder="Your Email Here">
+          </div>
+          <button id="newsletter-button" type="button">Join</button>
+        </div>
+        <p id="newsletter-message" class="footer__privacy-notice">By subscribing, you accept our Privacy Policy.</p>
+      </div>
+    </div>
+    <div class="footer__links-container">
+      <div class="footer__quick-links">
+        <p class="footer__quick-links-heading">Quick Links</p>
+        <a rel="noopener noreferrer" href="https://my2.nighttrader.exchange" target="_blank">Exchange</a>
+        <a href="/services.html" data-discover="true">Our Services</a>
+        <a href="/about.html" data-discover="true">About Us</a>
+        <a href="/bug-bounty.html" data-discover="true">Bug Bounty</a>
+      </div>
+      <div class="footer__resources">
+        <p class="footer__resources-heading">Resources</p>
+        <a rel="noopener noreferrer" href="https://docs.google.com/document/d/1ySsqMlCpJAbFRlUOupzNIYQ3N7lmrnfaVtQvqFE5Vj4/edit?tab=t.0" target="_blank">API Documentation</a>
+        <a href="/legal.html" data-discover="true">Legal</a>
+      </div>
+      <div class="footer__social">
+        <p class="footer__social-heading">Follow Us</p>
+        <a rel="noopener noreferrer" href="https://x.com/nighttraderO" target="_blank">Twitter Feed</a>
+        <a rel="noopener noreferrer" href="https://www.linkedin.com/company/nighttrader/" target="_blank">LinkedIn Profile</a>
+        <a rel="noopener noreferrer" href="https://www.youtube.com/@NightTrader.Exchange" target="_blank">YouTube Channel</a>
+        <a href="/blog.html" data-discover="true">Blog</a>
+      </div>
+      <div class="footer__support">
+        <p class="footer__support-heading">Support</p>
+        <a rel="noopener noreferrer" href="https://t.me/Nighttrader_org_Chat" target="_blank">Help Center</a>
+        <a rel="noopener noreferrer" href="https://t.me/Nighttrader_org_Chat" target="_blank">Feedback</a>
+        <a href="/faq.html" data-discover="true">FAQ</a>
+      </div>
+      <div class="footer__business">
+        <p class="footer__business-heading">Business</p>
+        <a href="/listing.html" data-discover="true">Listing Request</a>
+        <a href="/advertising.html" data-discover="true">Advertising Request</a>
+        <a href="/careers.html" data-discover="true">Careers</a>
+      </div>
+      <div class="footer__contact">
+        <p class="footer__contact-heading">Contact</p>
+        <a href="/contact.html" data-discover="true">General Inquiries</a>
+      </div>
+    </div>
+    <div class="footer__copyright">
       <svg width="32" height="32" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M94.2721 16.2818C93.2654 17.0885 93.3854 17.3252 94.6321 16.9918C98.9854 15.8385 103.482 15.2818 108.122 15.3218C108.18 15.3208 108.237 15.334 108.288 15.3603C108.339 15.3866 108.383 15.425 108.415 15.472C108.447 15.5191 108.466 15.5731 108.471 15.629C108.476 15.685 108.466 15.741 108.442 15.7918L104.652 23.8918C104.596 24.0121 104.493 24.1061 104.362 24.1559C104.232 24.2057 104.082 24.2078 103.942 24.1618C100.549 22.9485 96.7088 22.5452 92.4221 22.9518C91.1954 23.0652 91.1054 23.4518 92.1521 24.1118C99.0121 28.4118 103.199 33.8652 104.712 40.4718C110.602 66.1318 76.8521 77.0318 61.1421 59.4918C60.9843 59.3158 60.7919 59.1741 60.5767 59.0756C60.3615 58.9771 60.1282 58.9239 59.8911 58.9192C59.654 58.9145 59.4182 58.9585 59.1982 59.0484C58.9782 59.1382 58.7788 59.2722 58.6121 59.4418C51.8321 66.4618 45.9021 68.7018 36.0721 67.9618C12.0121 66.1318 7.20211 34.3718 27.8021 24.5418C29.0954 23.9218 29.0388 23.4652 27.6321 23.1718C23.6988 22.3718 19.8654 22.6752 16.1321 24.0818C15.9994 24.1337 15.8531 24.1357 15.7231 24.0874C15.593 24.0391 15.489 23.9441 15.4321 23.8218L11.7721 15.8918C11.749 15.8408 11.7389 15.7849 11.7426 15.729C11.7464 15.6731 11.7639 15.619 11.7936 15.5715C11.8233 15.524 11.8642 15.4846 11.9128 15.4567C11.9614 15.4289 12.0161 15.4134 12.0721 15.4118C16.8521 15.2185 21.2054 15.7118 25.1321 16.8918C25.4054 16.9785 25.6021 16.9718 25.7221 16.8718C25.7616 16.8408 25.7886 16.7976 25.8009 16.7456C25.8132 16.6936 25.8107 16.6341 25.7933 16.5715C25.776 16.509 25.7444 16.445 25.7009 16.3845C25.6574 16.3239 25.6031 16.2683 25.5421 16.2218C20.8021 12.5285 15.4221 10.4718 9.40211 10.0518C9.2477 10.0426 9.09927 9.99308 8.97253 9.90858C8.84578 9.82409 8.74544 9.70773 8.68211 9.57183L5.19211 2.14183C5.14756 2.04571 5.12796 1.93976 5.1352 1.83409C5.14243 1.72843 5.17626 1.62659 5.23344 1.53831C5.29062 1.45003 5.36925 1.37826 5.46181 1.32985C5.55436 1.28145 5.65776 1.25803 5.76211 1.26183C18.1888 1.5885 29.0988 5.89516 38.4921 14.1818C38.6113 14.2856 38.7521 14.3633 38.9053 14.4098C39.0586 14.4563 39.221 14.4706 39.3821 14.4518C44.1821 13.9118 49.3121 11.4718 52.6621 16.3818C52.6931 16.425 52.712 16.4755 52.7171 16.5284C52.7221 16.5813 52.7132 16.6349 52.6912 16.684C52.6691 16.7332 52.6346 16.7763 52.591 16.8091C52.5474 16.842 52.4961 16.8636 52.4421 16.8718C50.6321 17.1318 38.2721 19.9818 37.9721 21.5018C37.9601 21.5596 37.9687 21.6175 37.9972 21.6704C38.0257 21.7234 38.0732 21.7697 38.1356 21.8053C38.1979 21.841 38.2731 21.8647 38.3545 21.8746C38.4359 21.8845 38.5209 21.8801 38.6021 21.8618C44.4354 20.4885 50.3388 19.6918 56.3121 19.4718C56.6018 19.4592 56.9092 19.5735 57.1721 19.7918L60.9521 22.8418C61.0555 22.926 61.1902 22.9671 61.3327 22.9579C61.4751 22.9488 61.6165 22.89 61.7321 22.7918L65.2721 19.8018C65.5158 19.5963 65.838 19.4925 66.1721 19.5118C71.4121 19.8785 76.5754 20.6385 81.6621 21.7918C82.0221 21.8718 82.1488 21.7685 82.0421 21.4818C81.4921 20.0218 71.3521 17.5418 69.6021 17.2518C68.7421 17.1118 68.6688 16.7618 69.3821 16.2018L72.5021 13.7618C72.6408 13.6545 72.7897 13.5741 72.9395 13.5259C73.0892 13.4777 73.2366 13.4627 73.3721 13.4818L80.6021 14.6218C80.7616 14.6468 80.9226 14.6372 81.0733 14.5939C81.2239 14.5506 81.3603 14.4747 81.4721 14.3718C90.8321 6.0385 101.839 1.6585 114.492 1.23183C114.549 1.22916 114.606 1.24042 114.658 1.26469C114.709 1.28897 114.755 1.32556 114.79 1.37145C114.825 1.41734 114.849 1.47123 114.86 1.52867C114.871 1.58611 114.868 1.64546 114.852 1.70183C114.032 4.58183 112.769 7.26517 111.062 9.75183C110.975 9.87966 110.858 9.9858 110.721 10.0621C110.584 10.1384 110.43 10.1827 110.272 10.1918C104.132 10.6452 98.7988 12.6752 94.2721 16.2818ZM57.0111 44.5788C56.9614 39.8397 54.9743 35.3151 51.4869 32.0002C47.9995 28.6853 43.2974 26.8517 38.4151 26.9028C35.9975 26.928 33.6084 27.4152 31.3841 28.3365C29.1599 29.2578 27.1442 30.5953 25.452 32.2725C23.7598 33.9498 22.4243 35.9339 21.5219 38.1117C20.6194 40.2894 20.1675 42.6181 20.1921 44.9648C20.2418 49.7039 22.2289 54.2286 25.7163 57.5435C29.2038 60.8584 33.9058 62.6919 38.7881 62.6408C41.2058 62.6158 43.5951 62.1287 45.8194 61.2074C48.0437 60.2861 50.0596 58.9487 51.7519 57.2715C53.4442 55.5942 54.7797 53.61 55.6823 51.4322C56.5848 49.2544 57.0357 46.9256 57.0111 44.5788ZM99.9611 45.0288C99.9938 42.6849 99.5503 40.3573 98.6559 38.1789C97.7614 36.0005 96.4336 34.0139 94.7482 32.3327C93.0628 30.6515 91.0529 29.3085 88.8331 28.3805C86.6133 27.4524 84.2273 26.9574 81.8111 26.9238C76.9317 26.8558 72.226 28.6709 68.729 31.9698C65.2321 35.2688 63.2303 39.7813 63.1641 44.5148C63.0981 49.2483 64.9729 53.815 68.3763 57.2103C71.7797 60.6056 76.4328 62.5514 81.3121 62.6198C86.1915 62.6879 90.8972 60.8728 94.3942 57.5738C97.8912 54.2749 99.8929 49.7623 99.9591 45.0288H99.9611Z" fill="black"></path>
         <path d="M37.7921 56.5518C37.6206 56.5421 37.4528 56.4974 37.299 56.4204C37.1452 56.3434 37.0086 56.2357 36.8973 56.1039C36.7861 55.9721 36.7026 55.8189 36.6518 55.6535C36.6011 55.4881 36.5842 55.3141 36.6021 55.1418C37.4121 47.8918 42.6321 42.9518 49.9721 43.0418C51.8588 43.0618 52.4421 44.3118 51.7221 46.7918C49.7088 53.7118 45.0654 56.9652 37.7921 56.5518Z" fill="black"></path>
@@ -307,7 +370,7 @@
         <path d="M75.1601 108.799L72.6002 108.826C72.0314 108.831 71.5751 109.297 71.5811 109.866L71.6634 117.726C71.6694 118.295 72.1353 118.751 72.7041 118.745L75.264 118.718C75.8328 118.712 76.2891 118.246 76.2831 117.677L76.2008 109.818C76.1949 109.249 75.7289 108.793 75.1601 108.799Z" fill="black"></path>
         <path d="M81.9185 108.752L79.5386 108.772C78.8869 108.778 78.3633 109.311 78.3689 109.963L78.4354 117.582C78.4411 118.234 78.974 118.758 79.6257 118.752L82.0056 118.731C82.6573 118.726 83.181 118.193 83.1753 117.541L83.1088 109.921C83.1031 109.27 82.5702 108.746 81.9185 108.752Z" fill="black"></path>
       </svg>
-      <p class="text-sm">© 2014-2025 NightTrader. All rights reserved.</p>
+      <p>© 2014-2025 NightTrader. All rights reserved.</p>
     </div>
   </footer>
 </body>

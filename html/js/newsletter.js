@@ -41,9 +41,9 @@
   function resetUi() {
     messageBox.innerText = 'By subscribing, you accept our Privacy Policy.';
     
-    messageBox.classList.remove('text-red-500');
-    messageBox.classList.remove('text-green-500');
-    messageBox.classList.remove('text-gray-300');
+    messageBox.classList.remove('text-red');
+    messageBox.classList.remove('text-green');
+    messageBox.classList.remove('text-gray');
 
     button.disabled = false;
   }
@@ -59,7 +59,7 @@
 
     button.disabled = true;
     messageBox.innerText = 'Processing...';
-    messageBox.classList.add('text-gray-300');
+    messageBox.classList.add('text-gray');
     
     const value = input.value;
 
@@ -67,14 +67,15 @@
       await createSubscription(value);
 
       messageBox.innerText = 'Subscribed!';
-      messageBox.classList.add('text-green-500');
+      messageBox.classList.add('text-green');
     } catch {
       messageBox.innerText = 'Failed to subscribe!';
-      messageBox.classList.add('text-red-500');
+      messageBox.classList.add('text-red');
     } finally {
       setTimeout(resetUi, 5000);
 
       isProcessing = false;
+      messageBox.classList.remove('text-gray');
     }
   })
 })();
