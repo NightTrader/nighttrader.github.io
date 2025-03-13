@@ -23,7 +23,7 @@
     z-index: 99;
     background-color: transparent;
     padding: 0 15px;
-    border-bottom: 1px solid #442d76;
+    border-bottom: 1px solid #2c2b2f;
     @media #{$md} {
     	padding: 5px 0;
     }
@@ -35,7 +35,7 @@
 		top: 0;
 		left: 0;
 		right: 0;
-		background: #442d76;
+		background: #2c2b2f;
 		box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.04);
 		z-index: 999;
 		animation: sticky  1.2s;
