@@ -36,7 +36,513 @@
 
     <!--====== Style css ======-->
     <link rel="stylesheet" href="assets/css/style.css">
-<!-- Google tag (gtag.js) -->
+
+    <style>
+    #character {
+      position: absolute;
+      max-width: 45px;
+      height: 45px;
+      width: 45px;
+      top: 10px;
+      background-image: url('follow-1.png');
+      background-size: cover;
+      pointer-events: none; /* Ensure the mouse moves over without blocking */
+    }
+    #langSelect {
+      position: relative;
+      max-width: 50px;
+      width: 50px;
+      background-image: url('language.png');
+      background-size: cover;
+      pointer-events: none; /* Ensure the mouse moves over without blocking */
+    }
+    #languageDropdown {
+      background-color: white;
+      border: 1px solid #ccc;
+      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+    }
+    #languageDropdown li {
+      padding: 8px;
+      cursor: pointer;
+    }
+    #languageDropdown li:hover {
+      background-color: #f1f1f1;
+    }
+    #languageDropdown li a {
+      color: black; /* Override the default blue color for links */
+      text-decoration: none; /* Remove underline from links */
+    }
+    .swal2-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 1.8em; }
+
+    .swal2-title {
+      position: relative;
+      max-width: 100%;
+      margin: 0 0 0.4em;
+      padding: 0;
+      color: #595959;
+      font-size: 1.875em;
+      font-weight: 600;
+      text-align: center;
+      text-transform: none;
+      word-wrap: break-word; }
+
+    .swal2-actions {
+      display: flex;
+      z-index: 1;
+      box-sizing: border-box;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      margin: 1.25em auto 0;
+      padding: 0; }
+      .swal2-actions:not(.swal2-loading) .swal2-styled[disabled] {
+        opacity: .4; }
+      .swal2-actions:not(.swal2-loading) .swal2-styled:hover {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)); }
+      .swal2-actions:not(.swal2-loading) .swal2-styled:active {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)); }
+
+    .swal2-loader {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 2.2em;
+      height: 2.2em;
+      margin: 0 1.875em;
+      -webkit-animation: swal2-rotate-loading 1.5s linear 0s infinite normal;
+              animation: swal2-rotate-loading 1.5s linear 0s infinite normal;
+      border-width: 0.25em;
+      border-style: solid;
+      border-radius: 100%;
+      border-color: #2778c4 transparent #2778c4 transparent; }
+
+    .swal2-styled {
+      margin: 0.3125em;
+      padding: 0.625em 1.1em;
+      box-shadow: none;
+      font-weight: 500; }
+      .swal2-styled:not([disabled]) {
+        cursor: pointer; }
+      .swal2-styled.swal2-confirm {
+        border: 0;
+        border-radius: 0;
+        background: initial;
+        background-color: #2778c4;
+        color: #fff;
+        font-size: 1em; }
+      .swal2-styled.swal2-deny {
+        border: 0;
+        border-radius: 0.25em;
+        background: initial;
+        background-color: #d14529;
+        color: #fff;
+        font-size: 1em; }
+      .swal2-styled.swal2-cancel {
+        border: 0;
+        border-radius: 0;
+        background: initial;
+        background-color: #757575;
+        color: #fff;
+        font-size: 1em; }
+      .swal2-styled:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(100, 150, 200, 0.5); }
+      .swal2-styled::-moz-focus-inner {
+        border: 0; }
+
+    .swal2-footer {
+      justify-content: center;
+      margin: 1.25em 0 0;
+      padding: 1em 0 0;
+      border-top: 1px solid #eee;
+      color: #545454;
+      font-size: 1em; }
+
+    .swal2-timer-progress-bar-container {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      height: 0.25em;
+      overflow: hidden;
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0; }
+
+    .swal2-timer-progress-bar {
+      width: 100%;
+      height: 0.25em;
+      background: rgba(0, 0, 0, 0.2); }
+
+    .swal2-image {
+      max-width: 100%;
+      margin: 1.25em auto; }
+
+    .swal2-close {
+      position: absolute;
+      z-index: 2;
+      top: 0;
+      right: 0;
+      align-items: center;
+      justify-content: center;
+      width: 1.2em;
+      height: 1.2em;
+      padding: 0;
+      overflow: hidden;
+      transition: initial;
+      border: none;
+      border-radius: 5px;
+      background: transparent;
+      color: #cccccc;
+      font-family: serif;
+      font-size: 2.5em;
+      line-height: 1.2;
+      cursor: pointer; }
+      .swal2-close:hover {
+        transform: none;
+        background: transparent;
+        color: #f27474; }
+      .swal2-close:focus {
+        outline: none;
+        box-shadow: inset 0 0 0 3px rgba(100, 150, 200, 0.5); }
+      .swal2-close::-moz-focus-inner {
+        border: 0; }
+
+    .swal2-content {
+      z-index: 1;
+      justify-content: center;
+      margin: 0;
+      padding: 0 1.6em;
+      color: #545454;
+      font-size: 1.125em;
+      font-weight: normal;
+      line-height: normal;
+      text-align: center;
+      word-wrap: break-word; }
+
+    .swal2-input,
+    .swal2-file,
+    .swal2-textarea,
+    .swal2-select,
+    .swal2-radio,
+    .swal2-checkbox {
+      margin: 1em auto; }
+
+    .swal2-input,
+    .swal2-file,
+    .swal2-textarea {
+      box-sizing: border-box;
+      width: 100%;
+      transition: initial;
+      border: 1px solid #d9d9d9;
+      border-radius: 0;
+      background: inherit;
+      box-shadow: none;
+      color: inherit;
+      font-size: 1.125em; }
+      .swal2-input.swal2-inputerror,
+      .swal2-file.swal2-inputerror,
+      .swal2-textarea.swal2-inputerror {
+        border-color: #f27474 !important;
+        box-shadow: 0 0 2px #f27474 !important; }
+      .swal2-input:focus,
+      .swal2-file:focus,
+      .swal2-textarea:focus {
+        border: 1px solid #b4dbed;
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(100, 150, 200, 0.5); }
+      .swal2-input::-moz-placeholder, .swal2-file::-moz-placeholder, .swal2-textarea::-moz-placeholder {
+        color: #7e7e7e; }
+      .swal2-input:-ms-input-placeholder, .swal2-file:-ms-input-placeholder, .swal2-textarea:-ms-input-placeholder {
+        color: #7e7e7e; }
+      .swal2-input::placeholder,
+      .swal2-file::placeholder,
+      .swal2-textarea::placeholder {
+        color: #7e7e7e; }
+
+    .swal2-range {
+      margin: 1em auto;
+      background: #fff; }
+      .swal2-range input {
+        width: 80%; }
+      .swal2-range output {
+        width: 20%;
+        color: inherit;
+        font-weight: 600;
+        text-align: center; }
+      .swal2-range input,
+      .swal2-range output {
+        height: 2.625em;
+        padding: 0;
+        font-size: 1.125em;
+        line-height: 2.625em; }
+
+    .swal2-input {
+      height: 2.625em;
+      padding: 0 0.75em; }
+      .swal2-input[type='number'] {
+        max-width: 10em; }
+
+    .swal2-file {
+      background: inherit;
+      font-size: 1.125em; }
+
+    .swal2-textarea {
+      height: 6.75em;
+      padding: 0.75em; }
+
+    .swal2-select {
+      min-width: 50%;
+      max-width: 100%;
+      padding: .375em .625em;
+      background: inherit;
+      color: inherit;
+      font-size: 1.125em; }
+
+    .swal2-radio,
+    .swal2-checkbox {
+      align-items: center;
+      justify-content: center;
+      background: #fff;
+      color: inherit; }
+      .swal2-radio label,
+      .swal2-checkbox label {
+        margin: 0 .6em;
+        font-size: 1.125em; }
+      .swal2-radio input,
+      .swal2-checkbox input {
+        margin: 0 .4em; }
+
+    .swal2-input-label {
+      display: flex;
+      justify-content: center;
+      margin: 1em auto; }
+
+    .swal2-validation-message {
+      max-width: 90%;
+      margin: 0; /* Adjusted to avoid overlap issues */
+      padding: 0.625em;
+      overflow: hidden;
+      background: #f0f0f0;
+      color: #545454;
+      font-size: 1em;
+      font-weight: 300;
+      text-align: center; /* Center content horizontally */
+      box-sizing: border-box; /* Ensure padding doesn’t cause overflow */
+    }
+
+    .swal2-validation-message::before {
+      max-width: 90%;
+      content: '!';
+      display: inline-block;
+      width: 1.5em;
+      height: 1.5em;
+      margin: 0 0.625em;
+      border-radius: 50%;
+      background-color: #f27474;
+      color: #fff;
+      font-weight: 600;
+      line-height: 1.5em;
+      text-align: center;
+    }
+
+    .swal2-icon {
+      position: relative;
+      box-sizing: content-box;
+      justify-content: center;
+      width: 5em;
+      height: 5em;
+      margin: 1.25em auto 1.875em;
+      border: 0.25em solid transparent;
+      border-radius: 50%;
+      border-color: #000;
+      font-family: inherit;
+      line-height: 5em;
+      cursor: default;
+      -webkit-user-select: none;
+         -moz-user-select: none;
+          -ms-user-select: none;
+              user-select: none; }
+      .swal2-icon .swal2-icon-content {
+        display: flex;
+        align-items: center;
+        font-size: 3.75em; }
+      .swal2-icon.swal2-error {
+        border-color: #f27474;
+        color: #f27474; }
+        .swal2-icon.swal2-error .swal2-x-mark {
+          position: relative;
+          flex-grow: 1; }
+        .swal2-icon.swal2-error [class^='swal2-x-mark-line'] {
+          display: block;
+          position: absolute;
+          top: 2.3125em;
+          width: 2.9375em;
+          height: .3125em;
+          border-radius: .125em;
+          background-color: #f27474; }
+          .swal2-icon.swal2-error [class^='swal2-x-mark-line'][class$='left'] {
+            left: 1.0625em;
+            transform: rotate(45deg); }
+          .swal2-icon.swal2-error [class^='swal2-x-mark-line'][class$='right'] {
+            right: 1em;
+            transform: rotate(-45deg); }
+      .swal2-icon.swal2-warning {
+        border-color: #facea8;
+        color: #f8bb86; }
+      .swal2-icon.swal2-info {
+        border-color: #9de0f6;
+        color: #3fc3ee; }
+      .swal2-icon.swal2-question {
+        border-color: #c9dae1;
+        color: #87adbd; }
+      .swal2-icon.swal2-success {
+        border-color: #a5dc86;
+        color: #a5dc86; }
+        .swal2-icon.swal2-success [class^='swal2-success-circular-line'] {
+          position: absolute;
+          width: 3.75em;
+          height: 7.5em;
+          transform: rotate(45deg);
+          border-radius: 50%; }
+          .swal2-icon.swal2-success [class^='swal2-success-circular-line'][class$='left'] {
+            top: -.4375em;
+            left: -2.0635em;
+            transform: rotate(-45deg);
+            transform-origin: 3.75em 3.75em;
+            border-radius: 7.5em 0 0 7.5em; }
+          .swal2-icon.swal2-success [class^='swal2-success-circular-line'][class$='right'] {
+            top: -.6875em;
+            left: 1.875em;
+            transform: rotate(-45deg);
+            transform-origin: 0 3.75em;
+            border-radius: 0 7.5em 7.5em 0; }
+        .swal2-icon.swal2-success .swal2-success-ring {
+          position: absolute;
+          z-index: 2;
+          top: -.25em;
+          left: -.25em;
+          box-sizing: content-box;
+          width: 100%;
+          height: 100%;
+          border: 0.25em solid rgba(165, 220, 134, 0.3);
+          border-radius: 50%; }
+        .swal2-icon.swal2-success .swal2-success-fix {
+          position: absolute;
+          z-index: 1;
+          top: .5em;
+          left: 1.625em;
+          width: .4375em;
+          height: 5.625em;
+          transform: rotate(-45deg); }
+        .swal2-icon.swal2-success [class^='swal2-success-line'] {
+          display: block;
+          position: absolute;
+          z-index: 2;
+          height: .3125em;
+          border-radius: .125em;
+          background-color: #a5dc86; }
+          .swal2-icon.swal2-success [class^='swal2-success-line'][class$='tip'] {
+            top: 2.875em;
+            left: .8125em;
+            width: 1.5625em;
+            transform: rotate(45deg); }
+          .swal2-icon.swal2-success [class^='swal2-success-line'][class$='long'] {
+            top: 2.375em;
+            right: .5em;
+            width: 2.9375em;
+            transform: rotate(-45deg); }
+
+    .swal2-progress-steps {
+      flex-wrap: wrap;
+      align-items: center;
+      max-width: 100%;
+      margin: 0 0 1.25em;
+      padding: 0;
+      background: inherit;
+      font-weight: 600; }
+      .swal2-progress-steps li {
+        display: inline-block;
+        position: relative; }
+      .swal2-progress-steps .swal2-progress-step {
+        z-index: 20;
+        flex-shrink: 0;
+        width: 2em;
+        height: 2em;
+        border-radius: 2em;
+        background: #2778c4;
+        color: #fff;
+        line-height: 2em;
+        text-align: center; }
+        .swal2-progress-steps .swal2-progress-step.swal2-active-progress-step {
+          background: #2778c4; }
+          .swal2-progress-steps .swal2-progress-step.swal2-active-progress-step ~ .swal2-progress-step {
+            background: #add8e6;
+            color: #fff; }
+          .swal2-progress-steps .swal2-progress-step.swal2-active-progress-step ~ .swal2-progress-step-line {
+            background: #add8e6; }
+      .swal2-progress-steps .swal2-progress-step-line {
+        z-index: 10;
+        flex-shrink: 0;
+        width: 2.5em;
+        height: .4em;
+        margin: 0 -1px;
+        background: #2778c4; }
+
+    /* Custom Swal */
+    .swal2-popup {
+      position: fixed;
+      background-color: #ededed; /* Background color */
+      color: #000000; /* Text color */
+      border: 2px solid #3d0064; /* Border color */
+      border-radius: 4px; /* Border radius */
+      font-size: 11px;
+      font-family: 'Courier New', monospace; /* Custom font */
+      font-weight: normal;
+      z-index: 1000;
+      transform: none;
+      transition: none;
+      animation: none;
+      padding: 1.25em;
+      width: 32em;
+      box-sizing: border-box;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .swal2-popup:focus {
+      outline: none; }
+    .swal2-popup.swal2-loading {
+      overflow-y: hidden; }
+    .swal2-title {
+      color: #3d0064; /* Title text color */
+    }
+    .swal2-content {
+      color: #3d0064; /* Content text color */
+    }
+    .swal2-confirm,
+    .swal2-cancel {
+      background-color: #ededed; /* Confirm and cancel button background color */
+      color: #3d0064; /* Button text color */
+    }
+    /* Hover effect for buttons */
+    .swal2-confirm:hover,
+    .swal2-cancel:hover {
+      background-color: #0086e3;
+    }
+    /* Icon color */
+    .swal2-icon {
+      color: #3d0064;
+    }
+    .swal2-range {
+      background-color: #ededed; /* Set your desired background color */
+      border: 2px solid #3d0064;
+    }
+    </style>
+
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-QZCBMGGCC2"></script>
 <script>
@@ -60,7 +566,7 @@
                     <div class="col-lg-12">
                         <div class="navigation">
                             <nav class="navbar navbar-expand-lg navbar-light ">
-                                <a class="navbar-brand" href="index.html"><img src="assets/images/logo.png" style="max-width: 50px;" alt=""></a>
+                                <a class="navbar-brand" href="index.html"><img id="character" src="assets/images/follow-1.png"></img></a>
                                 <!-- logo -->
                                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -71,26 +577,28 @@
                                 </button> <!-- navbar toggler -->
 
                                 <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
-                                    <ul class="navbar-nav m-auto" > 
+                                    <ul class="navbar-nav m-auto" >
+                                        <li class="nav-item" id="langSelectLink2" style="display:none">
+                                            <img id="langSelect" src="assets/images/language.png"></img>
+                                        </li>
                                         <li class="nav-item">
-                                            <a class="nav-link active" href="index.html">Home <i
+                                            <a class="nav-link active" style="white-space: nowrap;" href="index.html">Home<i
                                                     class="fal fa-angle-down"></i></a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#5tier">5 Tiers</a>
+                                            <a class="nav-link" style="white-space: nowrap;" href="#5tier">5 Tiers</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#Earnings">Maximize</a>
+                                            <a class="nav-link" style="white-space: nowrap;" href="#Earnings">Maximize</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#FAQs">FAQs</a>
-                                        </li>
-
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#Contact">Contact</a>
+                                            <a class="nav-link" style="white-space: nowrap;"  href="#FAQs">FAQs</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="https://nighttrader.exchange/support/">Support</a>
+                                            <a class="nav-link" style="white-space: nowrap;"  href="#Contact">Contact</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" style="white-space: nowrap;"  href="https://nighttrader.exchange/support/">Support</a>
                                         </li>
                                       <!--   <li class="nav-item">
                                             <a class="nav-link" href="contact-us.html">Pages <i
@@ -106,7 +614,21 @@
                                     </ul>
                                 </div> <!-- navbar collapse -->
                                 <div class="navbar-btn d-none d-sm-flex">
-                                    <ul>
+                                    <ul style="white-space: nowrap;">
+                                        <li id="langSelectLink" style=""><img id="langSelect" src="assets/images/language.png"></img></li>
+                                        <ul id="languageDropdown" style="white-space: normal; display: none; position: absolute; list-style-type: none; padding: 0; margin: 0;">
+                                          <li><a href="#" onclick="changeLanguage('en')">English</a></li>
+                                          <li><a href="#" onclick="changeLanguage('ar')">Arabic</a></li>
+                                          <li><a href="#" onclick="changeLanguage('ch')">Chinese</a></li>
+                                          <li><a href="#" onclick="changeLanguage('fr')">French</a></li>
+                                          <li><a href="#" onclick="changeLanguage('ge')">German</a></li>
+                                          <li><a href="#" onclick="changeLanguage('it')">Italian</a></li>
+                                          <li><a href="#" onclick="changeLanguage('ja')">Japanese</a></li>
+                                          <li><a href="#" onclick="changeLanguage('ko')">Korean</a></li>
+                                          <li><a href="#" onclick="changeLanguage('pt')">Portuguese</a></li>
+                                          <li><a href="#" onclick="changeLanguage('ru')">Russian</a></li>
+                                          <li><a href="#" onclick="changeLanguage('sp')">Spanish</a></li>
+                                        </ul>
                                         <li><a class="main-btn" href="https://my.nighttrader.exchange/#login">login</a></li>
                                         <li><a class="main-btn-2 main-btn" href="https://my.nighttrader.exchange/#register-vaJBgtzFBgBaEWLreAc6qRCuKLG">signup</a></li>
                                     </ul>
@@ -129,7 +651,11 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8 col-md-8">
                     <div class="banner-content text-center">
-                        <h1 class="title">5 Tier Referral Program:<br>Your Friends, Your Earnings!</h1>
+                        <a class="title3" style="font-size: 45px; color: ivory;">5 Tier Referral Program:</a>
+                        <br>
+                        <a class="title2" style="font-size: 30px; color: ivory;">Your Friends, Your Earnings!</a>
+                        <br>
+                        <br>
                         <ul>
                             <li><a class="main-btn main-btn-2" href="https://github.com/NightTrader/nighttrader.github.io/blob/4b2ddfd7a2069bf88922832db6e2cde0bc056c57/Nighttrader_A_Decentralized_Multisignature_Electronic_Cash_Wallet.pdf">Whitepaper </a></li>
                             <li><a class="main-btn" href="https://my.nighttrader.exchange/#register-vaJBgtzFBgBaEWLreAc6qRCuKLG">Start Referrals Now!</a></li>
@@ -205,32 +731,41 @@
                                 <img src="assets/images/icon/trade-icon-1.png" alt="">
                                 <h5 class="title">CryptoKnight (Tier 1)</h5>
                                 <p>
-                                    <i class="far fa-check-double"></i>Earnings: 60% of 1/10th of trade fees generated by your direct referrals<Br>
-                                    <i class="far fa-check-double"></i>Requirement: At least one direct referral<Br>
+                                    <i class="far fa-check-double"></i>Earnings: 60% of 1/10th of trade fees generated by your direct referrals<Br></p>
+                                <p>
+                                    <i class="far fa-check-double"></i>Requirement: At least one direct referral<Br></p>
                             </div>
                             <div class="trade-item mt-30">
                                 <img src="assets/images/icon/trade-icon-2.png" alt="">
                                 <h5 class="title">CryptoBaron (Tier 2)</h5>
-                                <p><i class="far fa-check-double"></i>Earnings: 24% of trade fees from your referrals' referrals<Br>
-                                    <i class="far fa-check-double"></i>Requirement: Your direct referrals must have their own referrals</p>
+                                <p>
+                                    <i class="far fa-check-double"></i>Earnings: 24% of trade fees from your referrals' referrals<Br></p>
+                                <p>
+                                    <i class="far fa-check-double"></i>Requirement: Your direct referrals must have their own referrals<Br></p>
                             </div>
                             <div class="trade-item mt-30">
                                 <img src="assets/images/icon/trade-icon-3.png" alt="">
                                 <h5 class="title">CryptoEarl (Tier 3)</h5>
-                                <p><i class="far fa-check-double"></i>Earnings: 9.6% of trade fees from third-level referrals<Br>
-                                    <i class="far fa-check-double"></i>Requirement: Your CryptoBaron referrals must have their own referrals</p>
+                                <p>
+                                    <i class="far fa-check-double"></i>Earnings: 9.6% of trade fees from third-level referrals<Br></p>
+                                <p>
+                                    <i class="far fa-check-double"></i>Requirement: Your CryptoBaron referrals must have their own referrals<Br></p>
                             </div>
                             <div class="trade-item mt-30">
                                 <img src="assets/images/icon/trade-icon-3.png" alt="">
                                 <h5 class="title">CryptoDuke (Tier 4)</h5>
-                                <p><i class="far fa-check-double"></i>Earnings: 3.84% of trade fees from fourth-level referrals<Br>
-                                    <i class="far fa-check-double"></i>Requirement: Your CryptoEarl referrals must have their own referrals</p>
+                                <p>
+                                    <i class="far fa-check-double"></i>Earnings: 3.84% of trade fees from fourth-level referrals<Br></p>
+                                <p>
+                                    <i class="far fa-check-double"></i>Requirement: Your CryptoEarl referrals must have their own referrals<Br></p>
                             </div>
                             <div class="trade-item mt-30">
                                 <img src="assets/images/icon/trade-icon-3.png" alt="">
                                 <h5 class="title">CryptoPrince (Tier 5)</h5>
-                                <p><i class="far fa-check-double"></i>Earnings: 2.56% of trade fees from fifth-level referrals<Br>
-                                    <i class="far fa-check-double"></i>Requirement: Your CryptoDuke referrals must have their own referrals</p>
+                                <p>
+                                    <i class="far fa-check-double"></i>Earnings: 2.56% of trade fees from fifth-level referrals<Br></p>
+                                <p>
+                                    <i class="far fa-check-double"></i>Requirement: Your CryptoDuke referrals must have their own referrals<Br></p>
                             </div>
                         </div>
                     </div>
@@ -296,24 +831,23 @@
                     <div class="col-lg-6">
                         <div class="crypten-trade-content">
                             <span>How to </span>
-                            <h3 class="title">
-                                Maximize Your Earnings</p>
+                            <h3 class="title">Maximize Your Earnings</p>
                             <div class="trade-contracts mt-30">
                                 
                                 <i class="far fa-check-double"></i>
-                                <p>Invite Active Traders:<br>Your earnings depend on your referrals' trading activity.</p>
+                                <p>Invite Active Traders:<br></p><p>Your earnings depend on your referrals' trading activity.</p>
                             </div>
                             <div class="trade-contracts mt-30">
                                 <i class="far fa-check-double"></i>
-                                <p>Encourage Referrals:<br>Help your referrals understand the system so they can refer others.</p>
+                                <p>Encourage Referrals:<br></p><p>Help your referrals understand the system so they can refer others.</p>
                             </div>
                             <div class="trade-contracts mt-30">
                                 <i class="far fa-check-double"></i>
-                                <p>Climb the Tiers:<br>The higher your tier, the more levels of referrals you can earn from.</p>
+                                <p>Climb the Tiers:<br></p><p>The higher your tier, the more levels of referrals you can earn from.</p>
                             </div>
                             <div class="trade-contracts mt-30">
                                 <i class="far fa-check-double"></i>
-                                <p>Stay Engaged: <br>Keep in touch with your referrals to maintain an active network.</p>
+                                <p>Stay Engaged:<br></p><p>Keep in touch with your referrals to maintain an active network.</p>
                             </div>                            
                         </div>
                     </div>
@@ -588,11 +1122,7 @@
                                             </div>
                                             <div class="accrodion-content">
                                                 <div class="inner">
-                                                    <p>To maximize your earnings:
-                                                        Invite active traders
-                                                        Encourage your referrals to refer others
-                                                        Aim to climb to higher tiers
-                                                        Stay engaged with your referral network</p>
+                                                    <p>To maximize your earnings: Invite active traders, encourage your referrals to refer others, aim to climb to higher tiers and stay engaged with your referral network.</p>
                                                 </div><!-- /.inner -->
                                             </div>
                                         </div><!-- /.accrodion-inner -->
@@ -843,7 +1373,7 @@
                         <h4 class="title">Menu</h4>
                         <ul>
                             <li><a href="#5tier">5 Tiers</a></li>
-                            <li><a href="#Earnings">Maximise</a></li>
+                            <li><a href="#Earnings">Maximize</a></li>
                             <li><a href="#faq">Faq</a></li>
                             <li><a href="https://nighttrader.exchange/support/">Support</a></li>
                         </ul>
@@ -934,6 +1464,336 @@
 
     <!--====== Main js ======-->
     <script src="assets/js/main.js"></script>
+
+
+    <script src="assets/js/translate.js"></script>
+
+    <script src="assets/js/sweetalert211.js"></script>
+
+<script>
+    const character = document.getElementById('character');
+
+    function getCharacterCenter() {
+      const rect = character.getBoundingClientRect();
+      return {
+        x: rect.left + rect.width / 2,
+        y: rect.top + rect.height / 2,
+        width: rect.width,
+        height: rect.height
+      };
+    }
+
+    function getMouseAngle(mouseX, mouseY, centerX, centerY) {
+      const dx = mouseX - centerX;
+      const dy = mouseY - centerY;
+      return Math.atan2(dy, dx) * (180 / Math.PI); // Convert to degrees
+    }
+
+    function isMouseOverCharacter(mouseX, mouseY, rect) {
+      return (
+        mouseX >= rect.x - rect.width / 2 &&
+        mouseX <= rect.x + rect.width / 2 &&
+        mouseY >= rect.y - rect.height / 2 &&
+        mouseY <= rect.y + rect.height / 2
+      );
+    }
+
+    function updateCharacterImage(mouseX, mouseY) {
+      const rect = getCharacterCenter();
+
+      // If the mouse is over the character, reset to center
+      if (isMouseOverCharacter(mouseX, mouseY, rect)) {
+        character.src = `./assets/images/follow-1.png`;
+        return;
+      }
+
+      const angle = getMouseAngle(mouseX, mouseY, rect.x, rect.y);
+
+      let imageIndex = 1; // Default to center
+
+      // Assign images based on direction
+      if (angle >= -22.5 && angle < 22.5) {
+        imageIndex = 2; // Right
+      } else if (angle >= 22.5 && angle < 67.5) {
+        imageIndex = 3; // Lower Right
+      } else if (angle >= 67.5 && angle < 112.5) {
+        imageIndex = 4; // Down
+      } else if (angle >= 112.5 && angle < 157.5) {
+        imageIndex = 5; // Lower Left
+      } else if (angle >= 157.5 || angle < -157.5) {
+        imageIndex = 6; // Left
+      } else if (angle >= -157.5 && angle < -112.5) {
+        imageIndex = 7; // Upper Left
+      } else if (angle >= -112.5 && angle < -67.5) {
+        imageIndex = 8; // Up
+      } else if (angle >= -67.5 && angle < -22.5) {
+        imageIndex = 9; // Upper Right
+      }
+
+      // Update the character image
+      character.src = `./assets/images/follow-${imageIndex}.png`;
+    }
+
+    document.addEventListener('mousemove', function(event) {
+      updateCharacterImage(event.clientX, event.clientY);
+    });
+
+    var walker;
+    var setValues = {};
+
+    function getVisibleText(lang="ch") {
+      walker = document.createTreeWalker(
+        document.body, 
+        NodeFilter.SHOW_TEXT, 
+        {
+          acceptNode: function(node) {
+            // Only include text nodes that are not inside hidden elements
+            const style = window.getComputedStyle(node.parentNode);
+            if (style.display === 'none' || style.visibility === 'hidden' || style.opacity === '0') {
+              return NodeFilter.FILTER_REJECT;
+            }
+            return NodeFilter.FILTER_ACCEPT;
+          }
+        },
+        false
+      );
+    };
+
+    function translateVisibleText(lang="ch") {
+      // Traverse the DOM to collect text nodes
+      const textNodes = [];
+      let walker2 = walker;
+
+      while (walker2.nextNode()) {
+        const text = walker2.currentNode.nodeValue.trim();
+        if (text && text.replace(/[\s\r\n]+/g, '').length > 0) {
+          if (!(walker2.currentNode.nodeValue in translatech)) {
+            textNodes.push(walker2.currentNode.nodeValue);
+          }          
+
+          // Store the original text in a data attribute if not already stored
+          if (!(walker2.currentNode.nodeValue in setValues)) {
+            setValues[walker2.currentNode.nodeValue] = 1;
+            // Create a new invisible child node with the original text
+            const originalTextNode = document.createElement('span');
+            originalTextNode.textContent = walker2.currentNode.nodeValue;
+            originalTextNode.style.display = 'none'; // Make it invisible
+            walker2.currentNode.parentNode.appendChild(originalTextNode);
+          }
+
+          // When lang is "ch", check if translation exists and replace the text
+          if (lang === "ch") {
+            if (walker2.currentNode.nodeValue in translatech) {
+              // Replace the text content of the node with the translated text from translatech
+              walker2.currentNode.textContent = translatech[walker2.currentNode.nodeValue];
+            }
+          } else if (lang === "en") {
+            const originalTextNode = walker2.currentNode.parentNode.querySelector('span');
+            if (originalTextNode) {
+              walker2.currentNode.textContent = originalTextNode.textContent;
+            }
+          } else if (lang === "ar") {
+            if (walker2.currentNode.nodeValue in translatear) {
+              // Replace the text content of the node with the translated text from translatech
+              walker2.currentNode.textContent = translatear[walker2.currentNode.nodeValue];
+            }
+          } else if (lang === "fr") {
+            if (walker2.currentNode.nodeValue in translatefr) {
+              // Replace the text content of the node with the translated text from translatech
+              walker2.currentNode.textContent = translatefr[walker2.currentNode.nodeValue];
+            }
+          } else if (lang === "ge") {
+            if (walker2.currentNode.nodeValue in translatege) {
+              // Replace the text content of the node with the translated text from translatech
+              walker2.currentNode.textContent = translatege[walker2.currentNode.nodeValue];
+            }
+          } else if (lang === "it") {
+            if (walker2.currentNode.nodeValue in translateit) {
+              // Replace the text content of the node with the translated text from translatech
+              walker2.currentNode.textContent = translateit[walker2.currentNode.nodeValue];
+            }
+          } else if (lang === "ja") {
+            if (walker2.currentNode.nodeValue in translateja) {
+              // Replace the text content of the node with the translated text from translatech
+              walker2.currentNode.textContent = translateja[walker2.currentNode.nodeValue];
+            }
+          } else if (lang === "ko") {
+            if (walker2.currentNode.nodeValue in translateko) {
+              // Replace the text content of the node with the translated text from translatech
+              walker2.currentNode.textContent = translateko[walker2.currentNode.nodeValue];
+            }
+          } else if (lang === "pt") {
+            if (walker2.currentNode.nodeValue in translatept) {
+              // Replace the text content of the node with the translated text from translatech
+              walker2.currentNode.textContent = translatept[walker2.currentNode.nodeValue];
+            }
+          } else if (lang === "ru") {
+            if (walker2.currentNode.nodeValue in translateru) {
+              // Replace the text content of the node with the translated text from translatech
+              walker2.currentNode.textContent = translateru[walker2.currentNode.nodeValue];
+            }
+          } else if (lang === "sp") {
+            if (walker2.currentNode.nodeValue in translatesp) {
+              // Replace the text content of the node with the translated text from translatech
+              walker2.currentNode.textContent = translatesp[walker2.currentNode.nodeValue];
+            }
+          }
+        }
+      }
+      //console.log(textNodes)
+      return textNodes;
+    }
+
+    function getLanguageFromURL() {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get('l'); // Get the 'l' parameter value, e.g., 'ch' or 'en'
+    }
+
+    // Function to initialize and handle the visible text extraction
+    function initTranslation() {
+      const lang = getLanguageFromURL(); // Get the language from the query parameter
+      console.log(lang)
+      if (lang != "") {
+        getVisibleText();
+        translateVisibleText(lang); // Translate to Chinese
+      }
+    }
+
+    document.getElementById('langSelectLink').addEventListener('click', function(event) {
+      const dropdown = document.getElementById('languageDropdown');
+      const isVisible = dropdown.style.display === 'block';
+      dropdown.style.display = isVisible ? 'none' : 'block';
+      // Prevent the click from bubbling up to the document (so the dropdown doesn't close immediately)
+      event.stopPropagation();
+    });
+
+    function changeLanguage(lang) {
+      Swal.close();
+      console.log('Language changed to: ' + lang);
+      getVisibleText();
+      translateVisibleText("en");
+      getVisibleText();
+      translateVisibleText(lang);
+      document.getElementById('languageDropdown').style.display = 'none';
+    }
+
+    // Close the dropdown if the user clicks outside of it
+    document.addEventListener('click', function(event) {
+      const dropdown = document.getElementById('languageDropdown');
+      if (!dropdown.contains(event.target) && event.target !== document.getElementById('langSelect')) {
+        dropdown.style.display = 'none';
+      }
+    });
+    document.getElementById('langSelectLink2').addEventListener('click', function(event) {
+      event.preventDefault(); // Prevent default anchor action
+
+      // Create the language options for SweetAlert2
+      const languageOptions = [
+        { code: 'en', name: 'English' },
+        { code: 'ar', name: 'Arabic' },
+        { code: 'ch', name: 'Chinese' },
+        { code: 'fr', name: 'French' },
+        { code: 'ge', name: 'German' },
+        { code: 'it', name: 'Italian' },
+        { code: 'ja', name: 'Japanese' },
+        { code: 'ko', name: 'Korean' },
+        { code: 'pt', name: 'Portuguese' },
+        { code: 'ru', name: 'Russian' },
+        { code: 'sp', name: 'Spanish' }
+      ];
+
+      // Build the list of language options for SweetAlert2
+      const buttonsHtml = languageOptions.map(lang => {
+        return `<button class="swal2-styled" style="width: 100%;" onclick="changeLanguage('${lang.code}')">${lang.name}</button>`;
+      }).join('');
+
+      // Use SweetAlert2 to show the options in a popup
+      Swal.fire({
+        title: 'Choose a Language',
+        html: buttonsHtml, // Inject the buttons
+        showConfirmButton: false, // Hide the OK button
+        showCloseButton: false,   // Hide the Close button
+        width: '400px',
+        didOpen: () => {
+          // Disable scrolling when the popup opens
+          document.body.style.overflow = 'hidden';
+        },
+        willClose: () => {
+          // Re-enable scrolling after the popup closes
+          document.body.style.overflow = '';
+        }
+      });
+    });
+    // Function to check visibility of langSelectLinks
+    function checkVisibility() {
+      const langSelectLinks = document.getElementById('langSelectLink');
+      
+      if (langSelectLinks) {
+        const style = window.getComputedStyle(langSelectLinks);
+
+        // Check if the element is completely visible (not hidden by CSS)
+        const isVisible = style.display !== 'none' &&
+                          style.visibility !== 'hidden' &&
+                          style.opacity !== '0';
+
+        // Get the bounding box of the element
+        const rect = langSelectLinks.getBoundingClientRect();
+        
+        // Check if the element is within the viewport and has a positive size
+        const isInViewport = rect.top >= 0 && rect.bottom <= window.innerHeight &&
+                             rect.left >= 0 && rect.right <= window.innerWidth &&
+                             rect.width > 0 && rect.height > 0;
+
+        // Check if the element is actually in the visible portion of the viewport
+        const isFullyVisible = isVisible && isInViewport && !isBehindOtherElements(rect);
+
+        if (isFullyVisible) {
+          document.getElementById('langSelectLink2').style.display = "none";
+        } else {
+          document.getElementById('langSelectLink2').style.display = "block";
+        }
+      }
+    }
+
+    // Check if the element is behind other elements
+    function isBehindOtherElements(rect) {
+      const x = rect.left + rect.width / 2;
+      const y = rect.top + rect.height / 2;
+
+      // Use `document.elementFromPoint` to check if any other element is covering this point
+      const elementAtPoint = document.elementFromPoint(x, y);
+      return elementAtPoint !== null && elementAtPoint !== document.getElementById('langSelectLink');
+    }
+    // Detect when the page is loaded
+    window.addEventListener('DOMContentLoaded', function () {
+      checkVisibility();  // Check visibility once page is loaded
+    });
+    // Detect when the window is resized
+    window.addEventListener('resize', function () {
+      checkVisibility();  // Check visibility after window resize
+    });
+    function centerPopup() {
+        const popup = Swal.getPopup();
+        const rect = popup.getBoundingClientRect();
+        const top = (window.innerHeight - rect.height) / 2 + window.scrollY;
+        const left = (window.innerWidth - rect.width) / 2 + window.scrollX;
+        popup.style.top = `${top}px`;
+        popup.style.left = `${left}px`;
+    }
+    Swal = Swal.mixin({
+        showClass: {
+            popup: '' // Disable show animation
+        },
+        hideClass: {
+            popup: '' // Disable hide animation
+        },
+        didRender: () => {
+            // Call the center function when the popup opens
+            setTimeout(centerPopup, 5);
+        }
+    });
+    initTranslation();
+</script>
 
 </body>
 
