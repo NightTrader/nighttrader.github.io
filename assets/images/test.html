@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Follow Mouse</title>
+  <style>
+    #character {
+      position: absolute;
+      top: 100px;
+      left: 100px;
+      width: 100px;
+      height: 100px;
+      background-image: url('follow-1.png');
+      background-size: cover;
+      pointer-events: none; /* Ensure the mouse moves over without blocking */
+    }
+  </style>
+</head>
+<body style="background: black;">
+
+  <div id="character"></div>
+
+  <script>
+    const character = document.getElementById('character');
+
+    function getCharacterCenter() {
+      const rect = character.getBoundingClientRect();
+      return {
+        x: rect.left + rect.width / 2,
+        y: rect.top + rect.height / 2,
+        width: rect.width,
+        height: rect.height
+      };
+    }
+
+    function getMouseAngle(mouseX, mouseY, centerX, centerY) {
+      const dx = mouseX - centerX;
+      const dy = mouseY - centerY;
+      return Math.atan2(dy, dx) * (180 / Math.PI); // Convert to degrees
+    }
+
+    function isMouseOverCharacter(mouseX, mouseY, rect) {
+      return (
+        mouseX >= rect.x - rect.width / 2 &&
+        mouseX <= rect.x + rect.width / 2 &&
+        mouseY >= rect.y - rect.height / 2 &&
+        mouseY <= rect.y + rect.height / 2
+      );
+    }
+
+    function updateCharacterImage(mouseX, mouseY) {
+      const rect = getCharacterCenter();
+
+      // If the mouse is over the character, reset to center
+      if (isMouseOverCharacter(mouseX, mouseY, rect)) {
+        character.style.backgroundImage = `url('follow-1.png')`;
+        return;
+      }
+
+      const angle = getMouseAngle(mouseX, mouseY, rect.x, rect.y);
+
+      let imageIndex = 1; // Default to center
+
+      // Assign images based on direction
+      if (angle >= -22.5 && angle < 22.5) {
+        imageIndex = 2; // Right
+      } else if (angle >= 22.5 && angle < 67.5) {
+        imageIndex = 3; // Lower Right
+      } else if (angle >= 67.5 && angle < 112.5) {
+        imageIndex = 4; // Down
+      } else if (angle >= 112.5 && angle < 157.5) {
+        imageIndex = 5; // Lower Left
+      } else if (angle >= 157.5 || angle < -157.5) {
+        imageIndex = 6; // Left
+      } else if (angle >= -157.5 && angle < -112.5) {
+        imageIndex = 7; // Upper Left
+      } else if (angle >= -112.5 && angle < -67.5) {
+        imageIndex = 8; // Up
+      } else if (angle >= -67.5 && angle < -22.5) {
+        imageIndex = 9; // Upper Right
+      }
+
+      // Update the character image
+      character.style.backgroundImage = `url('follow-${imageIndex}.png')`;
+    }
+
+    document.addEventListener('mousemove', function(event) {
+      updateCharacterImage(event.clientX, event.clientY);
+    });
+  </script>
+</body>
+</html>
