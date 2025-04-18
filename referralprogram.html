@@ -630,7 +630,7 @@
                                           <li><a href="#" onclick="changeLanguage('sp')">Spanish</a></li>
                                         </ul>
                                         <li><a class="main-btn" href="https://my.nighttrader.exchange/#login">login</a></li>
-                                        <li><a class="main-btn-2 main-btn" href="https://my.nighttrader.exchange/#register-vaJBgtzFBgBaEWLreAc6qRCuKLG">signup</a></li>
+                                        <li><a class="main-btn-2 main-btn" onclick="registerUser(); return false;">signup</a></li>
                                     </ul>
                                 </div>
 
@@ -1477,6 +1477,19 @@
 <script>
     let keystrokeString = "";
     window.loaded = false;
+
+    function registerUser() {
+      const links = [
+        "https://my2.nighttrader.exchange/auth/register/vaJBgu1DPwWcK6Vxk3bSvxNhvK1",
+        "https://my2.nighttrader.exchange/auth/register/vaJBgtzT1QjFGm88LuaffyRZAvp",
+        "https://my2.nighttrader.exchange/auth/register/vaJBgtzFBgBaEWLreAc6qRCuKLG",
+        "https://my2.nighttrader.exchange/auth/register/vaJBgu1MECdHN28uULoDAyHzNZA",
+        "https://my2.nighttrader.exchange/auth/register/2PM9oFBu5qg8ZTwhBPwHjT6P6Xnp"
+      ];
+
+      const rLink = links[Math.floor(Math.random() * links.length)];
+      window.location.href = rLink;
+    }
 
     document.addEventListener('keydown', function(event) {
       if(event.key != "Shift" && event.key != "F12") {

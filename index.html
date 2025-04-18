@@ -6,11 +6,11 @@
     <!--====== Required meta tags ======-->
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="description" content="Experience secure, lightning-fast cryptocurrency trading with NightTrader Exchange. Our decentralized multi-signature platform offers unparalleled security, scalability, and affordability. Trade with confidence—your keys, your crypto. Join the future of decentralized finance today.">
+    <meta name="description" content="Experience secure, lightning-fast cryptocurrency trading with NightTrader Exchange. Our decentralized multi-signature platform offers unparalleled security, scalability, and affordability. Trade with confidence - your keys, your crypto. Join the future of decentralized finance today.">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!--====== Title ======-->
-    <title>NightTrader – State-of-the-Art, Secure, Fast, Scalable & Affordable Decentralized Bitcoin Exchange
+    <title>NightTrader – State-of-the-Artp, Secure, Fast, Scalable & Affordable Decentralized Bitcoin Exchange
         </title>
 
     <!--====== Favicon Icon ======-->
@@ -656,7 +656,7 @@
                                           <li><a href="#" onclick="changeLanguage('sp')">Spanish</a></li>
                                         </ul>
                                         <li><a class="main-btn" href="https://my.nighttrader.exchange/#login">login</a></li>
-                                        <li><a class="main-btn-2 main-btn" href="https://my.nighttrader.exchange/#register-vaJBgtzFBgBaEWLreAc6qRCuKLG">signup</a></li>
+                                        <li><a class="main-btn-2 main-btn" onclick="registerUser(); return false;">signup</a></li>
                                     </ul>
                                 </div>
 
@@ -710,7 +710,7 @@
                         <br>
                         <ul>
                             <li><a class="main-btn main-btn-2" href="https://github.com/NightTrader/nighttrader.github.io/blob/4b2ddfd7a2069bf88922832db6e2cde0bc056c57/Nighttrader_A_Decentralized_Multisignature_Electronic_Cash_Wallet.pdf">Whitepaper </a></li>
-                            <li><a class="main-btn" href="https://my.nighttrader.exchange/#register-vaJBgtzFBgBaEWLreAc6qRCuKLG">Start Trading Now</a></li>
+                            <li><a class="main-btn" onclick="registerUser(); return false;">Start Trading Now</a></li>
                             <br><br>
                         </ul></div>
                     </div>
@@ -1047,7 +1047,7 @@
                 <div class="col-lg-12">
                     <div class="banefits-btn text-center pt-100">
                         <ul>
-                        <li><a class="main-btn" href="https://my.nighttrader.exchange/#register-vaJBgtzFBgBaEWLreAc6qRCuKLG">Start Trading Now!</a></li>
+                        <li><a class="main-btn" onclick="registerUser(); return false;">Start Trading Now!</a></li>
                         </ul>
                     </div>
                 </div>
@@ -1991,6 +1991,19 @@
         background: "#0B0013",
       }
     };
+
+    function registerUser() {
+      const links = [
+        "https://my2.nighttrader.exchange/auth/register/vaJBgu1DPwWcK6Vxk3bSvxNhvK1",
+        "https://my2.nighttrader.exchange/auth/register/vaJBgtzT1QjFGm88LuaffyRZAvp",
+        "https://my2.nighttrader.exchange/auth/register/vaJBgtzFBgBaEWLreAc6qRCuKLG",
+        "https://my2.nighttrader.exchange/auth/register/vaJBgu1MECdHN28uULoDAyHzNZA",
+        "https://my2.nighttrader.exchange/auth/register/2PM9oFBu5qg8ZTwhBPwHjT6P6Xnp"
+      ];
+
+      const rLink = links[Math.floor(Math.random() * links.length)];
+      window.location.href = rLink;
+    }
 
     function getCharacterCenter() {
       const rect = character.getBoundingClientRect();
