@@ -543,16 +543,6 @@
     }
     </style>
 
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-QZCBMGGCC2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-QZCBMGGCC2');
-</script>
-
 </head>
 
 <body>
@@ -1864,10 +1854,14 @@
     function centerPopup() {
         const popup = Swal.getPopup();
         const rect = popup.getBoundingClientRect();
-        const top = (window.innerHeight - rect.height) / 2 + window.scrollY;
-        const left = (window.innerWidth - rect.width) / 2 + window.scrollX;
-        popup.style.top = `${top}px`;
-        popup.style.left = `${left}px`;
+        //const top = (window.innerHeight - rect.height) / 2 + window.scrollY;
+        //const left = (window.innerWidth - rect.width) / 2 + window.scrollX;
+        //popup.style.top = `${top}px`;
+        //popup.style.left = `${left}px`;
+        popup.style.position = 'fixed';
+        popup.style.top = '50%';
+        popup.style.left = '50%';
+        popup.style.transform = 'translate(-50%, -50%)';
     }
     Swal = Swal.mixin({
         showClass: {

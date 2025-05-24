@@ -574,13 +574,13 @@
                                                     class="fal fa-angle-down"></i></a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" style="white-space: nowrap;"  href="#about">About</a>
+                                            <a class="nav-link" style="white-space: nowrap;"  href="index.html#about">About</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" style="white-space: nowrap;"  href="#Benefits">Benefits</a>
+                                            <a class="nav-link" style="white-space: nowrap;"  href="index.html#Benefits">Benefits</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" style="white-space: nowrap;"  href="#Downloads">Downloads</a>
+                                            <a class="nav-link" style="white-space: nowrap;"  href="index.html#Downloads">Downloads</a>
                                         </li>
                                         <!--
                                         <li class="nav-item">
@@ -591,16 +591,16 @@
                                         </li>
                                         -->
                                         <li class="nav-item">
-                                            <a class="nav-link" style="white-space: nowrap;"  href="#FAQs">FAQs</a>
+                                            <a class="nav-link" style="white-space: nowrap;"  href="index.html#FAQs">FAQs</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" style="white-space: nowrap;"  href="#blog">Blog</a>
+                                            <a class="nav-link" style="white-space: nowrap;"  href="index.html#blog">Blog</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" style="white-space: nowrap;" href="referralprogram.html">Referral Program</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" style="white-space: nowrap;"  href="#Contact">Contact</a>
+                                            <a class="nav-link" style="white-space: nowrap;"  href="index.html#Contact">Contact</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" style="white-space: nowrap;"  href="https://nighttrader.exchange/support/">Support</a>
@@ -1157,10 +1157,14 @@
     function centerPopup() {
         const popup = Swal.getPopup();
         const rect = popup.getBoundingClientRect();
-        const top = (window.innerHeight - rect.height) / 2 + window.scrollY;
-        const left = (window.innerWidth - rect.width) / 2 + window.scrollX;
-        popup.style.top = `${top}px`;
-        popup.style.left = `${left}px`;
+        //const top = (window.innerHeight - rect.height) / 2 + window.scrollY;
+        //const left = (window.innerWidth - rect.width) / 2 + window.scrollX;
+        //popup.style.top = `${top}px`;
+        //popup.style.left = `${left}px`;
+        popup.style.position = 'fixed';
+        popup.style.top = '50%';
+        popup.style.left = '50%';
+        popup.style.transform = 'translate(-50%, -50%)';
     }
     Swal = Swal.mixin({
         showClass: {

@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!--====== Title ======-->
-    <title>NightTrader – State-of-the-Artp, Secure, Fast, Scalable & Affordable Decentralized Bitcoin Exchange
+    <title>NightTrader – Decentralized Bitcoin Exchange
         </title>
 
     <!--====== Favicon Icon ======-->
@@ -551,17 +551,6 @@
       }
     </style>
 
-<!-- Google tag (gtag.js) -->
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-QZCBMGGCC2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-QZCBMGGCC2');
-</script>
-
 </head>
 
 <body>
@@ -641,7 +630,7 @@
                                 </div> <!-- navbar collapse -->
                                 <div class="navbar-btn d-none d-sm-flex">
                                     <ul style="white-space: nowrap;">
-                                        <li id="langSelectLink" style=""><img id="langSelect" src="assets/images/language.png"></img></li>
+                                        <li id="langSelectLink" style="cursor: pointer;"><img id="langSelect" src="assets/images/language.png"></img></li>
                                         <ul id="languageDropdown" style="white-space: normal; display: none; position: absolute; list-style-type: none; padding: 0; margin: 0;">
                                           <li><a href="#" onclick="changeLanguage('en')">English</a></li>
                                           <li><a href="#" onclick="changeLanguage('ar')">Arabic</a></li>
@@ -1876,6 +1865,7 @@
                             <li><a href="#about">About</a></li>
                             <li><a href="#Benefits">Benefits</a></li>
                             <li><a href="referralprogram.html">Referral Program</a></li>
+                            <li><a href="./listing.html">Listing</a></li>
                             <li><a href="https://nighttrader.exchange/support/">Support</a></li>
                         </ul>
                     </div>
@@ -1979,6 +1969,28 @@
     <script src="assets/js/seedrandom.min.js"></script>
 
 <script>
+    document.querySelectorAll('.navbar-nav .nav-link[href^="#"]').forEach(link => {
+      link.addEventListener('click', function () {
+        // Collapse the menu
+        const navbar = document.getElementById('navbarSupportedContent');
+        if (navbar.classList.contains('show')) {
+          new bootstrap.Collapse(navbar).toggle();
+        }
+      });
+    });
+
+    window.addEventListener('load', function () {
+      document.querySelectorAll('img').forEach(function(img) {
+        img.onerror = function () {
+          const defaultBase64 = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+P+/HgAFhAJ/wlseKgAAAABJRU5ErkJggg==";
+          this.src = defaultBase64;
+          this.style.width = img.width + 'px';
+          this.style.height = img.height + 'px';
+          this.onerror = null;
+        };
+      });
+    });
+
     const character = document.getElementById('character');
 
     window.SubstackFeedWidget = {
@@ -2325,10 +2337,14 @@
     function centerPopup() {
         const popup = Swal.getPopup();
         const rect = popup.getBoundingClientRect();
-        const top = (window.innerHeight - rect.height) / 2 + window.scrollY;
-        const left = (window.innerWidth - rect.width) / 2 + window.scrollX;
-        popup.style.top = `${top}px`;
-        popup.style.left = `${left}px`;
+        //const top = (window.innerHeight - rect.height) / 2 + window.scrollY;
+        //const left = (window.innerWidth - rect.width) / 2 + window.scrollX;
+        //popup.style.top = `${top}px`;
+        //popup.style.left = `${left}px`;
+        popup.style.position = 'fixed';
+        popup.style.top = '50%';
+        popup.style.left = '50%';
+        popup.style.transform = 'translate(-50%, -50%)';
     }
     Swal = Swal.mixin({
         showClass: {
