@@ -1,13 +1,3024 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React + TS</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+
+<head>
+
+    <!--====== Required meta tags ======-->
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="Experience secure, lightning-fast cryptocurrency trading with NightTrader Exchange. Our decentralized multi-signature platform offers unparalleled security, scalability, and affordability. Trade with confidence - your keys, your crypto. Join the future of decentralized finance today.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="./open-sans.css">
+    <!--====== Title ======-->
+    <title>NightTrader – Decentralized Bitcoin Exchange
+        </title>
+
+    <!--====== Favicon Icon ======-->
+    <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/png">
+
+    <!--====== Bootstrap css ======-->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+
+    <!--====== Fontawesome css ======-->
+    <link rel="stylesheet" href="assets/css/all.css">
+
+    <!--====== nice select css ======-->
+    <link rel="stylesheet" href="assets/css/nice-select.css">
+
+    <!--====== Slick css ======-->
+    <link rel="stylesheet" href="assets/css/slick.css">
+
+    <!--====== Swiper css ======-->
+    <link rel="stylesheet" href="assets/css/swiper.min.css">
+
+    <!--====== Default css ======-->
+    <link rel="stylesheet" href="assets/css/default.css">
+
+    <!--====== Style css ======-->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <style>
+      #character {
+        position: absolute;
+        max-width: 45px;
+        height: 45px;
+        width: 45px;
+        top: 10px;
+        background-image: url('follow-1.png');
+        background-size: cover;
+      }
+      #langSelect {
+        position: relative;
+        max-width: 50px;
+        width: 50px;
+        background-image: url('language.png');
+        background-size: cover;
+        pointer-events: none; /* Ensure the mouse moves over without blocking */
+      }
+      #langSelect2 {
+        position: relative;
+        max-width: 50px;
+        width: 50px;
+        background-image: url('language.png');
+        background-size: cover;
+        pointer-events: none; /* Ensure the mouse moves over without blocking */
+      }
+      #languageDropdown {
+        background-color: white;
+        border: 1px solid #ccc;
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+      }
+      #languageDropdown li {
+        padding: 8px;
+        cursor: pointer;
+      }
+      #languageDropdown li:hover {
+        background-color: #f1f1f1;
+      }
+      #languageDropdown li a {
+        color: black; /* Override the default blue color for links */
+        text-decoration: none; /* Remove underline from links */
+      }
+
+      .swal2-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0 1.8em; }
+
+      .swal2-title {
+        position: relative;
+        max-width: 100%;
+        margin: 0 0 0.4em;
+        padding: 0;
+        color: #595959;
+        font-size: 1.875em;
+        font-weight: 600;
+        text-align: center;
+        text-transform: none;
+        word-wrap: break-word; }
+
+      .swal2-actions {
+        display: flex;
+        z-index: 1;
+        box-sizing: border-box;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        margin: 1.25em auto 0;
+        padding: 0; }
+        .swal2-actions:not(.swal2-loading) .swal2-styled[disabled] {
+          opacity: .4; }
+        .swal2-actions:not(.swal2-loading) .swal2-styled:hover {
+          background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)); }
+        .swal2-actions:not(.swal2-loading) .swal2-styled:active {
+          background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)); }
+
+      .swal2-loader {
+        display: none;
+        align-items: center;
+        justify-content: center;
+        width: 2.2em;
+        height: 2.2em;
+        margin: 0 1.875em;
+        -webkit-animation: swal2-rotate-loading 1.5s linear 0s infinite normal;
+                animation: swal2-rotate-loading 1.5s linear 0s infinite normal;
+        border-width: 0.25em;
+        border-style: solid;
+        border-radius: 100%;
+        border-color: #2778c4 transparent #2778c4 transparent; }
+
+      .swal2-styled {
+        margin: 0.3125em;
+        padding: 0.625em 1.1em;
+        box-shadow: none;
+        font-weight: 500; }
+        .swal2-styled:not([disabled]) {
+          cursor: pointer; }
+        .swal2-styled.swal2-confirm {
+          border: 0;
+          border-radius: 0;
+          background: initial;
+          background-color: #2778c4;
+          color: #fff;
+          font-size: 1em; }
+        .swal2-styled.swal2-deny {
+          border: 0;
+          border-radius: 0.25em;
+          background: initial;
+          background-color: #d14529;
+          color: #fff;
+          font-size: 1em; }
+        .swal2-styled.swal2-cancel {
+          border: 0;
+          border-radius: 0;
+          background: initial;
+          background-color: #757575;
+          color: #fff;
+          font-size: 1em; }
+        .swal2-styled:focus {
+          outline: none;
+          box-shadow: 0 0 0 3px rgba(100, 150, 200, 0.5); }
+        .swal2-styled::-moz-focus-inner {
+          border: 0; }
+
+      .swal2-footer {
+        justify-content: center;
+        margin: 1.25em 0 0;
+        padding: 1em 0 0;
+        border-top: 1px solid #eee;
+        color: #545454;
+        font-size: 1em; }
+
+      .swal2-timer-progress-bar-container {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        height: 0.25em;
+        overflow: hidden;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0; }
+
+      .swal2-timer-progress-bar {
+        width: 100%;
+        height: 0.25em;
+        background: rgba(0, 0, 0, 0.2); }
+
+      .swal2-image {
+        max-width: 100%;
+        margin: 1.25em auto; }
+
+      .swal2-close {
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        right: 0;
+        align-items: center;
+        justify-content: center;
+        width: 1.2em;
+        height: 1.2em;
+        padding: 0;
+        overflow: hidden;
+        transition: initial;
+        border: none;
+        border-radius: 5px;
+        background: transparent;
+        color: #cccccc;
+        font-family: serif;
+        font-size: 2.5em;
+        line-height: 1.2;
+        cursor: pointer; }
+        .swal2-close:hover {
+          transform: none;
+          background: transparent;
+          color: #f27474; }
+        .swal2-close:focus {
+          outline: none;
+          box-shadow: inset 0 0 0 3px rgba(100, 150, 200, 0.5); }
+        .swal2-close::-moz-focus-inner {
+          border: 0; }
+
+      .swal2-content {
+        z-index: 1;
+        justify-content: center;
+        margin: 0;
+        padding: 0 1.6em;
+        color: #545454;
+        font-size: 1.125em;
+        font-weight: normal;
+        line-height: normal;
+        text-align: center;
+        word-wrap: break-word; }
+
+      .swal2-input,
+      .swal2-file,
+      .swal2-textarea,
+      .swal2-select,
+      .swal2-radio,
+      .swal2-checkbox {
+        margin: 1em auto; }
+
+      .swal2-input,
+      .swal2-file,
+      .swal2-textarea {
+        box-sizing: border-box;
+        width: 100%;
+        transition: initial;
+        border: 1px solid #d9d9d9;
+        border-radius: 0;
+        background: inherit;
+        box-shadow: none;
+        color: inherit;
+        font-size: 1.125em; }
+        .swal2-input.swal2-inputerror,
+        .swal2-file.swal2-inputerror,
+        .swal2-textarea.swal2-inputerror {
+          border-color: #f27474 !important;
+          box-shadow: 0 0 2px #f27474 !important; }
+        .swal2-input:focus,
+        .swal2-file:focus,
+        .swal2-textarea:focus {
+          border: 1px solid #b4dbed;
+          outline: none;
+          box-shadow: 0 0 0 3px rgba(100, 150, 200, 0.5); }
+        .swal2-input::-moz-placeholder, .swal2-file::-moz-placeholder, .swal2-textarea::-moz-placeholder {
+          color: #7e7e7e; }
+        .swal2-input:-ms-input-placeholder, .swal2-file:-ms-input-placeholder, .swal2-textarea:-ms-input-placeholder {
+          color: #7e7e7e; }
+        .swal2-input::placeholder,
+        .swal2-file::placeholder,
+        .swal2-textarea::placeholder {
+          color: #7e7e7e; }
+
+      .swal2-range {
+        margin: 1em auto;
+        background: #fff; }
+        .swal2-range input {
+          width: 80%; }
+        .swal2-range output {
+          width: 20%;
+          color: inherit;
+          font-weight: 600;
+          text-align: center; }
+        .swal2-range input,
+        .swal2-range output {
+          height: 2.625em;
+          padding: 0;
+          font-size: 1.125em;
+          line-height: 2.625em; }
+
+      .swal2-input {
+        height: 2.625em;
+        padding: 0 0.75em; }
+        .swal2-input[type='number'] {
+          max-width: 10em; }
+
+      .swal2-file {
+        background: inherit;
+        font-size: 1.125em; }
+
+      .swal2-textarea {
+        height: 6.75em;
+        padding: 0.75em; }
+
+      .swal2-select {
+        min-width: 50%;
+        max-width: 100%;
+        padding: .375em .625em;
+        background: inherit;
+        color: inherit;
+        font-size: 1.125em; }
+
+      .swal2-radio,
+      .swal2-checkbox {
+        align-items: center;
+        justify-content: center;
+        background: #fff;
+        color: inherit; }
+        .swal2-radio label,
+        .swal2-checkbox label {
+          margin: 0 .6em;
+          font-size: 1.125em; }
+        .swal2-radio input,
+        .swal2-checkbox input {
+          margin: 0 .4em; }
+
+      .swal2-input-label {
+        display: flex;
+        justify-content: center;
+        margin: 1em auto; }
+
+      .swal2-validation-message {
+        max-width: 90%;
+        margin: 0; /* Adjusted to avoid overlap issues */
+        padding: 0.625em;
+        overflow: hidden;
+        background: #f0f0f0;
+        color: #545454;
+        font-size: 1em;
+        font-weight: 300;
+        text-align: center; /* Center content horizontally */
+        box-sizing: border-box; /* Ensure padding doesn’t cause overflow */
+      }
+
+      .swal2-validation-message::before {
+        max-width: 90%;
+        content: '!';
+        display: inline-block;
+        width: 1.5em;
+        height: 1.5em;
+        margin: 0 0.625em;
+        border-radius: 50%;
+        background-color: #f27474;
+        color: #fff;
+        font-weight: 600;
+        line-height: 1.5em;
+        text-align: center;
+      }
+
+      .swal2-icon {
+        position: relative;
+        box-sizing: content-box;
+        justify-content: center;
+        width: 5em;
+        height: 5em;
+        margin: 1.25em auto 1.875em;
+        border: 0.25em solid transparent;
+        border-radius: 50%;
+        border-color: #000;
+        font-family: inherit;
+        line-height: 5em;
+        cursor: default;
+        -webkit-user-select: none;
+           -moz-user-select: none;
+            -ms-user-select: none;
+                user-select: none; }
+        .swal2-icon .swal2-icon-content {
+          display: flex;
+          align-items: center;
+          font-size: 3.75em; }
+        .swal2-icon.swal2-error {
+          border-color: #f27474;
+          color: #f27474; }
+          .swal2-icon.swal2-error .swal2-x-mark {
+            position: relative;
+            flex-grow: 1; }
+          .swal2-icon.swal2-error [class^='swal2-x-mark-line'] {
+            display: block;
+            position: absolute;
+            top: 2.3125em;
+            width: 2.9375em;
+            height: .3125em;
+            border-radius: .125em;
+            background-color: #f27474; }
+            .swal2-icon.swal2-error [class^='swal2-x-mark-line'][class$='left'] {
+              left: 1.0625em;
+              transform: rotate(45deg); }
+            .swal2-icon.swal2-error [class^='swal2-x-mark-line'][class$='right'] {
+              right: 1em;
+              transform: rotate(-45deg); }
+        .swal2-icon.swal2-warning {
+          border-color: #facea8;
+          color: #f8bb86; }
+        .swal2-icon.swal2-info {
+          border-color: #9de0f6;
+          color: #3fc3ee; }
+        .swal2-icon.swal2-question {
+          border-color: #c9dae1;
+          color: #87adbd; }
+        .swal2-icon.swal2-success {
+          border-color: #a5dc86;
+          color: #a5dc86; }
+          .swal2-icon.swal2-success [class^='swal2-success-circular-line'] {
+            position: absolute;
+            width: 3.75em;
+            height: 7.5em;
+            transform: rotate(45deg);
+            border-radius: 50%; }
+            .swal2-icon.swal2-success [class^='swal2-success-circular-line'][class$='left'] {
+              top: -.4375em;
+              left: -2.0635em;
+              transform: rotate(-45deg);
+              transform-origin: 3.75em 3.75em;
+              border-radius: 7.5em 0 0 7.5em; }
+            .swal2-icon.swal2-success [class^='swal2-success-circular-line'][class$='right'] {
+              top: -.6875em;
+              left: 1.875em;
+              transform: rotate(-45deg);
+              transform-origin: 0 3.75em;
+              border-radius: 0 7.5em 7.5em 0; }
+          .swal2-icon.swal2-success .swal2-success-ring {
+            position: absolute;
+            z-index: 2;
+            top: -.25em;
+            left: -.25em;
+            box-sizing: content-box;
+            width: 100%;
+            height: 100%;
+            border: 0.25em solid rgba(165, 220, 134, 0.3);
+            border-radius: 50%; }
+          .swal2-icon.swal2-success .swal2-success-fix {
+            position: absolute;
+            z-index: 1;
+            top: .5em;
+            left: 1.625em;
+            width: .4375em;
+            height: 5.625em;
+            transform: rotate(-45deg); }
+          .swal2-icon.swal2-success [class^='swal2-success-line'] {
+            display: block;
+            position: absolute;
+            z-index: 2;
+            height: .3125em;
+            border-radius: .125em;
+            background-color: #a5dc86; }
+            .swal2-icon.swal2-success [class^='swal2-success-line'][class$='tip'] {
+              top: 2.875em;
+              left: .8125em;
+              width: 1.5625em;
+              transform: rotate(45deg); }
+            .swal2-icon.swal2-success [class^='swal2-success-line'][class$='long'] {
+              top: 2.375em;
+              right: .5em;
+              width: 2.9375em;
+              transform: rotate(-45deg); }
+
+      .swal2-progress-steps {
+        flex-wrap: wrap;
+        align-items: center;
+        max-width: 100%;
+        margin: 0 0 1.25em;
+        padding: 0;
+        background: inherit;
+        font-weight: 600; }
+        .swal2-progress-steps li {
+          display: inline-block;
+          position: relative; }
+        .swal2-progress-steps .swal2-progress-step {
+          z-index: 20;
+          flex-shrink: 0;
+          width: 2em;
+          height: 2em;
+          border-radius: 2em;
+          background: #2778c4;
+          color: #fff;
+          line-height: 2em;
+          text-align: center; }
+          .swal2-progress-steps .swal2-progress-step.swal2-active-progress-step {
+            background: #2778c4; }
+            .swal2-progress-steps .swal2-progress-step.swal2-active-progress-step ~ .swal2-progress-step {
+              background: #add8e6;
+              color: #fff; }
+            .swal2-progress-steps .swal2-progress-step.swal2-active-progress-step ~ .swal2-progress-step-line {
+              background: #add8e6; }
+        .swal2-progress-steps .swal2-progress-step-line {
+          z-index: 10;
+          flex-shrink: 0;
+          width: 2.5em;
+          height: .4em;
+          margin: 0 -1px;
+          background: #2778c4; }
+
+      /* Custom Swal */
+      .swal2-popup {
+        position: fixed;
+        background-color: #ededed; /* Background color */
+        color: #000000; /* Text color */
+        border: 2px solid #3d0064; /* Border color */
+        border-radius: 4px; /* Border radius */
+        font-size: 11px;
+        font-family: 'Courier New', monospace; /* Custom font */
+        font-weight: normal;
+        z-index: 1000;
+        transform: none;
+        transition: none;
+        animation: none;
+        padding: 1.25em;
+        width: 32em;
+        box-sizing: border-box;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .swal2-popup:focus {
+        outline: none; }
+      .swal2-popup.swal2-loading {
+        overflow-y: hidden; }
+      .swal2-title {
+        color: #3d0064; /* Title text color */
+      }
+      .swal2-content {
+        color: #3d0064; /* Content text color */
+      }
+      .swal2-confirm,
+      .swal2-cancel {
+        background-color: #ededed; /* Confirm and cancel button background color */
+        color: #3d0064; /* Button text color */
+      }
+      /* Hover effect for buttons */
+      .swal2-confirm:hover,
+      .swal2-cancel:hover {
+        background-color: #0086e3;
+      }
+      /* Icon color */
+      .swal2-icon {
+        color: #3d0064;
+      }
+      .swal2-range {
+        background-color: #ededed; /* Set your desired background color */
+        border: 2px solid #3d0064;
+      }
+      .dos-crypto-tracker {
+        font-family: 'Courier New', monospace;
+        background-color: #001f3f; /* DOS blue */
+        color: #ffffff;
+        padding: 20px;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .dos-crypto-tracker h1 {
+        background-color: #003366;
+        color: #ffffff;
+        text-align: center;
+        padding: 10px;
+        border-bottom: 2px solid #cccccc;
+        font-size: 1.4rem;
+        text-shadow: 1px 1px #000;
+        margin: 0 0 20px 0;
+      }
+
+      .dos-crypto-tracker table {
+        width: 100%;
+        border-collapse: collapse;
+        border: 2px solid #cccccc;
+      }
+
+      .dos-crypto-tracker th,
+      .dos-crypto-tracker td {
+        padding: 6px 8px;
+        text-align: left;
+        border: 1px solid #999;
+        font-size: 13px;
+      }
+
+      .dos-crypto-tracker th {
+        background-color: #003366;
+        color: #fff;
+      }
+
+      .dos-crypto-tracker tbody tr:nth-child(odd) {
+        background-color: #121212; /* very dark gray */
+      }
+
+      .dos-crypto-tracker tbody tr:nth-child(even) {
+        background-color: #1e1e1e; /* dark gray */
+      }
+
+      .dos-crypto-tracker tr:hover {
+        background-color: #003366;
+      }
+
+      .dos-crypto-tracker .green {
+        color: #00ff99;
+        font-weight: bold;
+      }
+
+      .dos-crypto-tracker .red {
+        color: #ff5555;
+        font-weight: bold;
+      }
+
+      .dos-crypto-tracker .mini-chart {
+        width: 100px !important;
+        height: 30px !important;
+      }
+
+      .dos-crypto-tracker .asset-cell {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .dos-crypto-tracker .asset-cell img {
+        width: 16px;
+        height: 16px;
+        vertical-align: middle;
+      }
+
+      /* General styles */
+      .title2 {
+        text-align: center;
+        border-radius: 10px;
+        color: #fff;
+        font-family: sans-serif;
+        font-weight: 300;
+        font-size: 2.2em;
+        position: absolute;
+        left: 15%;
+        top: 50%;
+        transform: translate(-50%, -90%);
+      }
+
+      .title3 {
+        text-align: center;
+        border-radius: 10px;
+        color: #fff;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 1.5em;
+        position: absolute;
+        left: 15%;
+        top: 60%;
+        transform: translate(-50%, -50%);
+      }
+
+      .calltoaction {
+        text-align: center;
+        border-radius: 10px;
+        color: #fff;
+        font-family: sans-serif;
+        font-size: 1.75em;
+        position: absolute;
+        left: 15%;
+        top: 80%;
+        transform: translate(-50%, 0%);
+        list-style: none;
+        padding: 0;
+      }
+
+      .calltoaction li {
+        margin-bottom: 15px;
+      }
+
+      #phone {
+        position: absolute;
+        top: 15%;
+        left: 75%;
+        width: 250px;
+        max-width: 100%;
+        height: auto;
+        z-index: 10;
+      }
+
+      .video-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 49vh;
+      }
+
+      /* Responsive changes for screen width below 1095px */
+      @media (max-width: 1095px) {
+        .dos-crypto-tracker .asset-cell {
+          display: flex;
+          align-items: center;
+          gap: 4px;
+          font-size: 11px;
+        }
+        .title2 {
+          position: absolute; /* Cancel absolute positioning */
+          transform: none;  /* Remove centering transform */
+          top: 30%;
+          left: center;       /* Cancel left offset */
+          text-align: center;
+          max-width: 90vw;  /* Allows it to expand almost full width */
+          word-break: normal;
+          white-space: normal;
+        }
+        .title3 {
+          position: absolute; /* Cancel absolute positioning */
+          margin-top: 20px;
+          transform: none;  /* Remove centering transform */
+          top: 50%;
+          left: 30%;       /* Cancel left offset */
+          max-width: 90vw;  /* Allows it to expand almost full width */
+          word-break: normal;
+          white-space: normal;
+        }
+        .calltoaction {
+          left: 50%;
+        }
+
+        .calltoaction {
+          padding-top: 1em;
+        }
+
+        #phone {
+          display: none;
+        }
+
+        .video-container {
+          margin-top: 2em;
+        }
+
+        .dos-crypto-tracker table {
+          margin: 0 auto;
+        }
+      }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!--====== HEADER PART START ======-->
+
+    <header class="header-area">
+        <div class="header-nav">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="navigation">
+                            <nav class="navbar navbar-expand-lg navbar-light ">
+                                <a class="navbar-brand"><img id="character" src="assets/images/follow-1.png"></img></a>
+                                <!-- logo -->
+                                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                    aria-expanded="false" aria-label="Toggle navigation">
+                                    <span class="toggler-icon"></span>
+                                    <span class="toggler-icon"></span>
+                                    <span class="toggler-icon"></span>
+                                </button> <!-- navbar toggler -->
+
+                                <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                                    <ul class="navbar-nav m-auto" >
+                                        <li class="nav-item" id="langSelectLink2" style="display:none">
+                                            <img id="langSelect2" src="assets/images/language.png"></img>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link active" style="white-space: nowrap;" href="index.html">Home<i
+                                                    class="fal fa-angle-down"></i></a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" style="white-space: nowrap;"  href="#about">About</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" style="white-space: nowrap;"  href="#Benefits">Benefits</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" style="white-space: nowrap;"  href="#Downloads">Downloads</a>
+                                        </li>
+                                        <!--
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#Roadmap">Roadmap</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#Team">Team</a>
+                                        </li>
+                                        -->
+                                        <li class="nav-item">
+                                            <a class="nav-link" style="white-space: nowrap;"  href="#FAQs">FAQs</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" style="white-space: nowrap;"  href="#blog">Blog</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" style="white-space: nowrap;" href="referralprogram.html">Referral Program</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" style="white-space: nowrap;"  href="#Contact">Contact</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" style="white-space: nowrap;"  href="https://nighttrader.exchange/support/">Support</a>
+                                        </li>
+                                      <!--   <li class="nav-item">
+                                            <a class="nav-link" href="contact-us.html">Pages <i
+                                                    class="fal fa-angle-down"></i></a>
+                                            <ul class="sub-menu">
+                                                <li><a href="blog.html">Blog</a></li>
+                                                <li><a href="blog-post.html">Blog Post</a></li>
+                                                <li><a href="login.html">Login</a></li>
+                                                <li><a href="singup.html">Singup</a></li>
+                                                <li><a href="404.html">Error</a></li>
+                                            </ul>
+                                        </li> -->
+                                    </ul>
+                                </div> <!-- navbar collapse -->
+                                <div class="navbar-btn d-none d-sm-flex">
+                                    <ul style="white-space: nowrap;">
+                                        <li id="langSelectLink" style="cursor: pointer;"><img id="langSelect" src="assets/images/language.png"></img></li>
+                                        <ul id="languageDropdown" style="white-space: normal; display: none; position: absolute; list-style-type: none; padding: 0; margin: 0;">
+                                          <li><a href="#" onclick="changeLanguage('en')">English</a></li>
+                                          <li><a href="#" onclick="changeLanguage('ar')">Arabic</a></li>
+                                          <li><a href="#" onclick="changeLanguage('ch')">Chinese</a></li>
+                                          <li><a href="#" onclick="changeLanguage('fr')">French</a></li>
+                                          <li><a href="#" onclick="changeLanguage('ge')">German</a></li>
+                                          <li><a href="#" onclick="changeLanguage('it')">Italian</a></li>
+                                          <li><a href="#" onclick="changeLanguage('ja')">Japanese</a></li>
+                                          <li><a href="#" onclick="changeLanguage('ko')">Korean</a></li>
+                                          <li><a href="#" onclick="changeLanguage('pt')">Portuguese</a></li>
+                                          <li><a href="#" onclick="changeLanguage('ru')">Russian</a></li>
+                                          <li><a href="#" onclick="changeLanguage('sp')">Spanish</a></li>
+                                        </ul>
+                                        <li><a class="main-btn" href="https://my.nighttrader.exchange/#login">login</a></li>
+                                        <li><a class="main-btn-2 main-btn" onclick="registerUser(); return false;">signup</a></li>
+                                    </ul>
+                                </div>
+
+                            </nav>
+                        </div> <!-- navigation -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!--====== HEADER PART ENDS ======-->
+
+    <!--====== BANNER PART START ======-->
+
+    <section id="id-1" class="banner-area bg_cover" style="position: relative;">
+        <div style="
+          background-image: url('assets/images/banner-bg.jpg');
+          background-size: cover;
+          background-position: center;
+          opacity: 0.2;
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;">
+        </div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 col-md-8">
+                    <div class="banner-content text-center">
+                        <h1 class="title2">Decentralized Bitcoin Exchange:</h1>
+
+                        <h1 class="title3">Your keys, your crypto</h1>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <ul class="calltoaction">
+                            <li><a class="main-btn main-btn-2" href="https://github.com/NightTrader/nighttrader.github.io/blob/4b2ddfd7a2069bf88922832db6e2cde0bc056c57/Nighttrader_A_Decentralized_Multisignature_Electronic_Cash_Wallet.pdf">Whitepaper </a></li>
+                            <li><a class="main-btn" onclick="registerUser(); return false;">Start Trading Now</a></li>
+                            <br><br>
+                            <div class="dos-crypto-tracker">
+                              <table>
+                                <thead>
+                                  <tr>
+                                    <th>Asset</th>
+                                    <th>Price</th>
+                                    <th>Volume</th>
+                                    <th>24h %</th>
+                                    <th>Chart</th>
+                                  </tr>
+                                </thead>
+                                <tbody id="cryptoTable">
+                                  <!-- JS populates this -->
+                                </tbody>
+                              </table>
+                              <div style="text-align: center; margin-top: .5em;">
+                                <button style="
+                                  width: 100%;
+                                  max-width: 800px;
+                                  padding: 2px 0;
+                                  font-size: .5em;
+                                  background-color: #3d5d86;
+                                  color: white;
+                                  border: none;
+                                  border-radius: 2px;
+                                  cursor: pointer;
+                                " onclick="browseThis()">Browse the exchange</button>
+                              </div>
+                            </div>
+                            <br>
+                            <br>
+                        </ul></div>
+                    </div>
+                    <div id="commercial" style="position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); z-index: 0;">
+                      <iframe
+                        width="560"
+                        height="315"
+                        src="https://www.youtube.com/embed/Vm-NKUG-I9k?si=kakfA1NAol6a4cIa"
+                        title="Introduction Video"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                      </iframe>
+                    </div>
+                    <img id="phone" src="./nt-phone.png" alt=""  style="
+                      position: absolute;
+                      top: 15%;
+                      left: 75%;
+                      width: 250px;
+                      max-width: 100%;
+                      height: auto;
+                    ">
+            </div>
+        </div>
+        <div class="social">
+            <ul>
+                <li><a href="https://www.facebook.com/profile.php?id=100068695556611"><i class="fab fa-facebook-square"></i></a></li>
+                <li><a href="https://t.me/Nighttrader_org_Chat"><i class="fab fa-telegram"></i></a></li>
+                <li><a href="https://www.twitter.com/nighttraderO"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="https://www.linkedin.com/company/11866948/"><i class="fab fa-linkedin"></i></a></li>
+                <li><a href="https://github.com/NightTrader/"><i class="fab fa-github"></i></a></li>
+                <li><a href="https://www.tiktok.com/@nighttradero"><i class="fab fa-tiktok"></i></a></li>
+            </ul>
+        </div>
+    </section>
+
+    <!--====== BANNER PART ENDS ======-->
+
+    <!--====== CRYPTEN FEATURES PART START ======-->
+
+    <section class="crypten-features-area">
+        <div class="container-fluid" data-scroll-nav="2">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="crypten-features-item text-center mt-30">
+                        <img id="id-2" src="assets/images/icon/features-icon-1.png" alt="icon">
+                        <h3 class="title">Fast Transactions</h3>
+                        <p>NightTrader offers lightning-fast transactions and high scalability, addressing common performance issues in other exchanges. The only DEX in the world to support high speed Bitcoin trading.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="crypten-features-item text-center mt-30">
+                        <img id="id-3" src="assets/images/icon/features-icon-2.png" alt="icon">
+                        <h3 class="title">Unmatched Security</h3>
+                        <p>Unlike central exchanges prone to hacks, on NightTrader you hold your keys giving you full control over your funds. During trades, NightTrader uses a joint account with signature-hashes to route debt with a locktime back to the user with threshold signatures on the backend split between nodes all over the world. The one and only exchange to use this ultra-secure method!</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="crypten-features-item text-center mt-30 item-3">
+                        <img id="id-4" src="assets/images/icon/features-icon-3.png" alt="icon">
+                        <h3 class="title">Cost-Effective</h3>
+                        <p>NightTrader maintains competitive trading fees, making it more affordable for users seeking efficient cryptocurrency exchange solutions. It can do this because half-signed transactions can get routed on multiple high speed trades by the decentralized system of nodes that validate it before it is broadcasted and cleared.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--====== CRYPTEN FEATURES PART ENDS ======-->
+
+    <!--====== CRYPTEN TRADE PART START ======-->
+    <section id="about">
+        <!-- About content -->
+    </section>
+    <section class="crypten-trade-area pt-190">
+        <div class="item-1">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <div class="crypten-trade-thumb">
+                            <img src="assets/images/benefits-1.png" alt="" id="owlGif">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="crypten-trade-content">
+                            <span>what is nighttrader</span>
+                            <h3 class="title">Unparalleled Innovation in Cryptocurrency Trading</h3>
+                            <p>The first open source decentralized exchange that supports all types of coins including Bitcoin, UTXO style currencies(Litecoin, Bitcoin cash, etc), Ethereum tokens and more! All of this without using 'middle coins', gimmicks, wrapped tokens or anything else which has shown to not give the user proper security. We care about our users security!</p>
+                            <div class="trade-item mt-30">
+                                <img id="id-6" src="assets/images/icon/trade-icon-1.png" alt="">
+                                <h5 class="title">Our Mission</h5>
+                                <p>Reduce fraud in the cryptocurrency space and provide an on- and off-ramp to cryptocurrency markets.</p>
+                            </div>
+                            <div class="trade-item mt-30">
+                                <img id="id-7" src="assets/images/icon/trade-icon-2.png" alt="">
+                                <h5 class="title">Our Vision</h5>
+                                <p>Create a platform that safely integrates cryptocurrency into escrow services and a currency exchange, while providing unprecedented security and reliability for professional traders and citizens alike.</p>
+                            </div>
+                            <div class="trade-item mt-30">
+                                <img id="id-8" src="assets/images/icon/trade-icon-3.png" alt="">
+                                <h5 class="title">The Future of Cryptocurrency Exchange</h5>
+                                <p>By addressing critical pains in the crypto space, NightTrader.Exchange not only safeguards potential losses but also revolutionizes e-commerce and cryptocurrency trading, setting new standards in the industry.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="crypten-color">
+                <!-- <img src="assets/images/shape/color-bg.png" alt=""> -->
+            </div>
+        </div>
+        <div class="item-1 item-2 mt-180">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 order-lg-1 order-2">
+                        <div class="crypten-trade-content">
+                            <span>about us</span>
+                            <h3 class="title">Deep dive into the technology</h3>
+
+                            <div class="trade-contracts mt-30">
+                                <i class="far fa-check-double"></i>
+                                <p>Multisignature DEX: (User holds one key, nodes hold the other)</p>
+                            </div>
+                            <div class="trade-contracts mt-30">
+                                <i class="far fa-check-double"></i>
+                                <p>Proof of reserves. Accounts publicly verified. Full transparency with privacy in tact</p>
+                            </div>
+                            <div class="trade-contracts mt-30">
+                                <i class="far fa-check-double"></i>
+                                <p>Uses threshold keys(a single key that is actually a giant multisignature) allowing for decentralized consensus</p>
+                            </div>
+                            <div class="trade-contracts mt-30">
+                                <i class="far fa-check-double"></i>
+                                <p>Open source! Run JavaScript locally with a few clicks. Audit the entire front end.</p>
+                            </div>
+                            <div class="trade-contracts mt-30">
+                                <i class="far fa-check-double"></i>
+                                <p>Provides Deadmans Switch(checklocktimeverify) & backup solution in case of a Force Majeure</p>
+                            </div>
+                            <div class="trade-contracts mt-30">
+                                <i class="far fa-check-double"></i>
+                                <p>Protected from hacking phishing and supply chain attacks</p>
+                            </div>
+                            <div class="trade-contracts mt-30">
+                                <i class="far fa-check-double"></i>
+                                <p>Supports Bitcoin, Ethereum and altcoins and can even support Monero</p>
+                            </div>
+                            <div class="trade-contracts mt-30">
+                                <i class="far fa-check-double"></i>
+                                <p>High speed trading! Uses signature hashes to route debts between users.</p>
+                            </div>
+                            
+                            <div class="trade-about-follow mt-30">
+                                <p>NightTrader was proposed in 2014 so it has been 10 years in the making! See what all the talk is about and visit our community on social media.</p>
+                                <h4 class="title">Follow us</h4>
+                                <ul>
+                                    <li><a href="https://www.facebook.com/profile.php?id=100068695556611"><i class="fab fa-facebook-square"></i></a></li>
+                                    <li><a href="https://t.me/Nighttrader_org_Chat"><i class="fab fa-telegram"></i></a></li>
+                                    <li><a href="https://www.twitter.com/nighttraderO"><i class="fab fa-twitter"></i></a></li>
+                                    <li><a href="https://www.linkedin.com/company/11866948/"><i class="fab fa-linkedin"></i></a></li>
+                                    <li><a href="https://github.com/NightTrader/"><i class="fab fa-github"></i></a></li>
+                                    <li><a href="https://www.tiktok.com/@nighttradero"><i class="fab fa-tiktok"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                   
+                    <div class="col-lg-6 order-lg-2 order-1">
+                        <div class="crypten-trade-thumb">
+                            <img id="id-9" src="assets/images/benefits-2.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="crypten-color">
+                <img id="id-10" src="assets/images/shape/color-bg-2.png" alt="">
+            </div>
+        </div> <section id="Benefits">
+            <!-- Benefits content -->
+        </section>
+        <div class="item-1 mt-165">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <div class="crypten-trade-thumb">
+                            <img id="id-11" src="assets/images/benefits-3.png" alt="">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="crypten-trade-content">
+                            <span>Clear Advantages</span>
+                            <h3 class="title">Compare to competition</p>
+                            <div class="trade-contracts mt-30">
+                                
+                                <i class="far fa-check-double"></i>
+                                <p>Unlike atomic trades, these trades are much faster and cheaper</p>
+                            </div>
+                            <div class="trade-contracts mt-30">
+                                <i class="far fa-check-double"></i>
+                                <p>Automated market makers(AMMs) don't support native Bitcoin or use risky wrapped assets and don't support spot exchange. NightTrader does all this and more!</p>
+                            </div>
+                            <div class="trade-contracts mt-30">
+                                <i class="far fa-check-double"></i>
+                                <p>Wrapped coins and wrapped coin networks don't give the user a key. So their multisignature may not be real or eventually compromised. If their funds are frozen users have no defense. NightTrader has no such problem because funds are timelocked back to the users.</p>
+                            </div>
+                            <div class="trade-contracts mt-30">
+                                <i class="far fa-check-double"></i>
+                                <p>ZK rollups are great for spot exchange however they also lack Bitcoin support and support for other coin types. NightTrader can in theory support almost any type of coin while giving high levels of security.</p>
+                            </div>                            
+                            <div class="trade-contracts mt-30">
+                                <i class="far fa-check-double"></i>
+                                <p>Double Deposit Escrow can also be used by our partners for the ability to transact peer to peer. This works as a perfect crypto on ramp and the only way to on ramp fully decentralized and securely without a single middle man or arbiter. It could be combined in conjunction with other services.</p>
+                            </div>
+                            <div class="trade-contracts mt-30">
+                                <i class="far fa-check-double"></i>
+                                <p>Is NightTrader perfect? There is still a small risk during a trade if all the nodes are compromised however the risk is extremely low and the users balance(other than the trade) would still be in tact. Also if the exchange gets lot's of users and volume things like atomic trades and rollups and AMMs could also be used.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="crypten-color">
+                <!-- <img src="assets/images/shape/color-bg.png" alt=""> -->
+            </div>
+        </div>
+        <div class="item-1 item-4 mt-185">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 order-2 order-lg-1">
+                        <div class="crypten-trade-content">
+                            <span>Simply the best!</span>
+                            <h3 class="title">Discounts, Referrals, Recovery</h3>
+                            
+                                <div class="trade-item mt-30">
+                                    <img id="id-12" src="assets/images/icon/trade-icon-4.png" alt="">
+                                    <h5 class="title">Market Maker Discounts</h5>
+                                    <p>Provide Liquidity and make our Markets to receive special discounts on trading.</p>
+                                </div>
+                                <div class="trade-item mt-30">
+                                    <img id="id-13" src="assets/images/icon/trade-icon-3.png" alt="">
+                                    <h5 class="title">Referrals</h5>
+                                    <p>Our 5 Tier Referral System give 10% commission up to 5 Levels down. Make a passive income cash cow with inviting your friends. Find out<li href="referralprogram.html">more here!</a></li></p>
+                                </div>
+                                <div class="trade-item mt-30">
+                                    <img id="id-14" src="assets/images/icon/trade-icon-5.png" alt="">
+                                    <h5 class="title">Wallet Recovery System</h5>
+                                    <p>Unlike most competitors, NightTrader provides a unique wallet recovery option, ensuring users never lose access to their funds. </p>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 order-1 order-lg-2">
+                        <div class="crypten-trade-thumb">
+                            <img id="id-15" src="assets/images/benefits-5.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div> 
+            <div class="crypten-color">
+                <img id="id-16" src="assets/images/shape/color-bg-2.png" alt="">
+            </div>
+        </div>
+  <!--        <div class="item-1 mt-185 mb-195">
+          <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <div class="crypten-trade-thumb">
+                            <img src="assets/images/benefits-5.png" alt="">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="crypten-trade-content">
+                            <span>Tokenization</span>
+                            <h3 class="title">Powerful and Absolutely Secure Tokenization</h3>
+                            <p>Crypten is one of the highly rated secure platfrom for ICO and any type of in hendrerit
+                                justo quisque quis rhons exeget semper semlamat lobortis velit estibulum ante ipsum
+                                primis in faucibus.</p>
+                            <div class="trade-item mt-30">
+                                <img src="assets/images/icon/trade-icon-4.png" alt="">
+                                <h5 class="title">100% Secure</h5>
+                                <p>Yellentesque vestibulum fermentum velit non placerat aecenase in hendrerit justo
+                                    quisque quis.</p>
+                            </div>
+                            <div class="trade-item mt-30">
+                                <img src="assets/images/icon/trade-icon-3.png" alt="">
+                                <h5 class="title">Automated</h5>
+                                <p>Bellentesque vestibulum fermentum velit non placerat aecenase in hendrerit justo
+                                    quisque quis.</p>
+                            </div>
+                            <div class="trade-item mt-30">
+                                <img src="assets/images/icon/trade-icon-5.png" alt="">
+                                <h5 class="title">encryption</h5>
+                                <p>Tellentesque vestibulum fermentum velit non placerat aecenase in hendrerit justo
+                                    quisque quis.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>  
+            </div>
+            <div class="crypten-color">
+                <img src="assets/images/shape/color-bg.png" alt="">
+            </div>
+        </div>-->
+    </section>
+
+    <!--====== CRYPTEN TRADE PART ENDS ======-->
+
+    <!--====== BENEFITS PART START ======-->
+
+    <section class="banefits-area">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-7">
+                    <div class="section-title text-center">
+                        <span>benefits </span>
+                        <h3 class="title">Other Key Features & Benefits</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-6 col-md-9">
+                    <div class="banefits-item mt-30">
+                        <img id="id-18" src="assets/images/icon/banefits-1.png" alt="icon">
+                        <h4 class="title">Simplicity</h4>
+                        <p>User-friendly app and account creation, intuitive also for casual bettors.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-9">
+                    <div class="banefits-item mt-30">
+                        <img id="id-19" src="assets/images/icon/banefits-2.png" alt="icon">
+                        <h4 class="title">Highly advanced user interface</h4>
+                        <p>The platform has advanced charting, a sleek design and many great trading features giving the same feel of a top tier exchange.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-9">
+                    <div class="banefits-item mt-30">
+                        <img id="id-20" src="assets/images/icon/banefits-3.png" alt="icon">
+                        <h4 class="title">Non-Custodial</h4>
+                        <p>Yours truly. Hold your own key to your crypto.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-9">
+                    <div class="banefits-item mt-30">
+                        <img id="id-21" src="assets/images/icon/banefits-4.png" alt="icon">
+                        <h4 class="title">Proof of funds</h4>
+                        <p>Every account has their dedicated wallets. No Mixing with others. Proof of funds made easy.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="banefits-btn text-center pt-100">
+                        <ul>
+                        <li><a class="main-btn" onclick="registerUser(); return false;">Start Trading Now!</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="banefits-color">
+            <img id="id-22" src="assets/images/shape/color-bg-3.png" alt="">
+        </div>
+        <div class="banefits-color-2">
+            <img id="id-23" src="assets/images/shape/color-bg-4.png" alt="">
+        </div>
+    </section>
+
+    <!--====== BENEFITS PART ENDS ======-->
+
+    <!--====== TOKEN SALE PART START ======
+
+    <section class="token-sale-area">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-7">
+                    <div class="section-title text-center">
+                        <span>token sale </span>
+                        <h3 class="title">Token Sale Rounds</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row token-sale-active">
+                <div class="col-lg-3">
+                    <div class="token-sale-item mt-30 text-center">
+                        <div class="circle-1">
+                            <strong></strong>
+                        </div>
+                        <span>Pre sale</span>
+                        <p>35% bonus</p>
+                        <div class="item">
+                            <ul>
+                                <li>21 AUG</li>
+                                <li>31 AUG</li>
+                            </ul>
+                            <ul>
+                                <li>2018</li>
+                                <li>2018</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="token-sale-start mt-20">
+                        <span>START</span>
+                        <p>Soft Cap $2M</p>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="token-sale-item mt-30 text-center">
+                        <div class="circle-1">
+                            <strong></strong>
+                        </div>
+                        <span>Stage 1</span>
+                        <p>30% bonus</p>
+                        <div class="item">
+                            <ul>
+                                <li>21 AUG</li>
+                                <li>31 AUG</li>
+                            </ul>
+                            <ul>
+                                <li>2018</li>
+                                <li>2018</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="token-sale-item mt-30 text-center">
+                        <div class="circle-3">
+                            <strong></strong>
+                        </div>
+                        <span>Stage 2</span>
+                        <p>25% bonus</p>
+                        <div class="item">
+                            <ul>
+                                <li>21 AUG</li>
+                                <li>31 AUG</li>
+                            </ul>
+                            <ul>
+                                <li>2018</li>
+                                <li>2018</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="token-sale-start mt-20">
+                        <span>Stage 2</span>
+                        <p>hard Cap $5M</p>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="token-sale-item mt-30 text-center">
+                        <div class="circle-4">
+                            <strong></strong>
+                        </div>
+                        <span>Stage 3</span>
+                        <p>20% bonus</p>
+                        <div class="item">
+                            <ul>
+                                <li>21 AUG</li>
+                                <li>31 AUG</li>
+                            </ul>
+                            <ul>
+                                <li>2018</li>
+                                <li>2018</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="token-sale-item mt-30 text-center">
+                        <div class="circle-3">
+                            <strong></strong>
+                        </div>
+                        <span>Stage 4</span>
+                        <p>15% bonus</p>
+                        <div class="item">
+                            <ul>
+                                <li>21 AUG</li>
+                                <li>31 AUG</li>
+                            </ul>
+                            <ul>
+                                <li>2018</li>
+                                <li>2018</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="token-sale-start mt-20">
+                        <span>Stage 4</span>
+                        <p>hard Cap $10M</p>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="token-sale-item mt-30 text-center">
+                        <div class="circle-4">
+                            <strong></strong>
+                        </div>
+                        <span>Stage 5</span>
+                        <p>10% bonus</p>
+                        <div class="item">
+                            <ul>
+                                <li>21 AUG</li>
+                                <li>31 AUG</li>
+                            </ul>
+                            <ul>
+                                <li>2018</li>
+                                <li>2018</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="token-sale-btn d-flex justify-content-center mt-50">
+                        <ul>
+                            <li><a class="main-btn main-btn-2" href="#">Whitepaper</a></li>
+                            <li><a class="main-btn main-btn-3" href="#">tech paper</a></li>
+                            <li><a class="main-btn" href="#">buy tokens</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="banefits-color-2">
+            <img src="assets/images/shape/color-bg-4.png" alt="">
+        </div>
+    </section>
+
+    ====== TOKEN SALE PART ENDS ======-->
+
+    <!--====== STAKEHOLDERS PART START ======
+
+    <section class="stakeholders-area">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-7">
+                    <div class="section-title text-center">
+                        <span>stakeholders </span>
+                        <h3 class="title">Token Distribution</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="stakeholders-btn mt-30">
+                        <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist"
+                            aria-orientation="vertical">
+                            <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home"
+                                role="tab" aria-controls="v-pills-home" aria-selected="true">Tokensale</a>
+                            <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile"
+                                role="tab" aria-controls="v-pills-profile" aria-selected="false">Team</a>
+                            <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages"
+                                role="tab" aria-controls="v-pills-messages" aria-selected="false">Partners &
+                                Advisors</a>
+                            <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings"
+                                role="tab" aria-controls="v-pills-settings" aria-selected="false">First Purchasers</a>
+                            <a class="nav-link" id="v-pills-5-tab" data-toggle="pill" href="#v-pills-5" role="tab"
+                                aria-controls="v-pills-5" aria-selected="false">Referral Program</a>
+                        </div>
+                    </div>
+                    <div class="stakeholders-price">
+                        <ul>
+                            <li>
+                                <span>Price Now</span>
+                                <p>1 BC = 2 $</p>
+                            </li>
+                            <li>
+                                <span>Total Supply Limit</span>
+                                <p>36 000 000 BC</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="tab-content" id="v-pills-tabContent">
+                        <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel"
+                            aria-labelledby="v-pills-home-tab">
+                            <div class="stakeholders-thumb mt-55">
+                                <img src="assets/images/stakeholders-1.png" alt="">
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="v-pills-profile" role="tabpanel"
+                            aria-labelledby="v-pills-profile-tab">
+                            <div class="stakeholders-thumb mt-55">
+                                <img src="assets/images/stakeholders-2.png" alt="">
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="v-pills-messages" role="tabpanel"
+                            aria-labelledby="v-pills-messages-tab">
+                            <div class="stakeholders-thumb mt-55">
+                                <img src="assets/images/stakeholders-3.png" alt="">
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="v-pills-settings" role="tabpanel"
+                            aria-labelledby="v-pills-settings-tab">
+                            <div class="stakeholders-thumb mt-55">
+                                <img src="assets/images/stakeholders-4.png" alt="">
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="v-pills-5" role="tabpanel" aria-labelledby="v-pills-5-tab">
+                            <div class="stakeholders-thumb mt-55">
+                                <img src="assets/images/stakeholders-5.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="banefits-color-2">
+            <img src="assets/images/shape/color-bg-4.png" alt="">
+        </div>
+    </section>
+
+    ====== STAKEHOLDERS PART ENDS ======-->
+
+    <!--====== DOCUMENTS PART START ======-->
+    <section id="Downloads">
+        <!-- Downloads content -->
+    </section>
+    <section class="documents-area">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="section-title text-center">
+                        <span>documents </span>
+                        <h3 class="title">Download & Read Our Documents</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-3 col-md-6 col-sm-7">
+                    <div class="documents-item mt-30">
+                        <div class="documents-top">
+                            <h3 class="title">White</h3>
+                            <h3 class="title">Paper</h3>
+                            <img id="id-24" src="assets/images/icon/download.png" alt="">
+                        </div>
+                        <div class="documents-thumb text-center">
+                            <img id="id-25" src="assets/images/documents-1.png" alt="">
+                            <a class="main-btn" href="https://github.com/NightTrader/nighttrader.github.io/blob/4b2ddfd7a2069bf88922832db6e2cde0bc056c57/Nighttrader_A_Decentralized_Multisignature_Electronic_Cash_Wallet.pdf">download</a>
+                            <div class="documents-hover-image">
+                                <img id="id-26" src="assets/images/documents-5.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               <!-- <div class="col-lg-3 col-md-6 col-sm-7">
+                    <div class="documents-item mt-30">
+                        <div class="documents-top">
+                            <h3 class="title">Pitch <br> Deck</h3>
+                            <img src="assets/images/icon/download.png" alt="">
+                        </div>
+                        <div class="documents-thumb text-center">
+                            <img src="assets/images/documents-2.png" alt="">
+                            <a class="main-btn" href="https://github.com/NightTrader/nighttrader.github.io/blob/master/NightTrader.Exchange%20Pitchdeck%20November%202024.pdf">download</a>
+                            <div class="documents-hover-image">
+                                <img src="assets/images/documents-6.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-7">
+                    <div class="documents-item mt-30">
+                        <div class="documents-top">
+                            <h3 class="title">Elevator <br> Pitch</h3>
+                            <img src="assets/images/icon/download.png" alt="">
+                        </div>
+                        <div class="documents-thumb text-center">
+                            <img src="assets/images/documents-3.png" alt="">
+                            <a class="main-btn" href="https://github.com/NightTrader/nighttrader.github.io/blob/master/Elevator%20Pitch%20of%20NightTrader.Exchange%20November%202024%20(1).pdf">download</a>
+                            <div class="documents-hover-image">
+                                <img src="assets/images/documents-7.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-7">
+                    <div class="documents-item mt-30">
+                        <div class="documents-top">
+                            <h3 class="title">privacy <br> policy</h3>
+                            <img src="assets/images/icon/download.png" alt="">
+                        </div>
+                        <div class="documents-thumb text-center">
+                            <img src="assets/images/documents-4.png" alt="">
+                            <a class="main-btn" href="#">download</a>
+                            <div class="documents-hover-image">
+                                <img src="assets/images/documents-8.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+        <div class="banefits-color-2">
+            <img id="id-29" src="assets/images/shape/color-bg-4.png" alt="">
+        </div>
+    </section>
+
+    <!--====== DOCUMENTS PART ENDS ======-->
+
+    <!--====== FUTURE ROADMAP PART START ======-->
+    <section id="Roadmap">
+        <!-- Roadmap content -->
+    </section>
+    <!--
+    <section class="future-roadmap">
+        <div class="section-title section-title-2 text-center">
+            <span>Future forecast</span>
+            <h3 class="title">Our Future Roadmap</h3>
+        </div>
+        <div class="container">
+            <div class="swiper-custom-pagination"></div>
+            <div class="swiper-container roadmap-main">
+                    <div class="swiper-slide roadmap-main-slide">
+                        <div class="swiper-container roadmap-sec">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide roadmap-sec-slide active">
+                                    <div class="content">
+                                        <div class="content-wrapper">
+                                            <h6>2024</h6>
+                                            <ul>
+                                                <li>Beta Launch</li>
+                                                <li>New Front-end</li>
+                                                <li>Raised 250,000 USD</li>
+                                                <li>Coingecko and CMC listing</li>
+                                                <li>Customer Service Portal</li>
+                                            </ul>
+                                            <div class="progress-bar-wrapper">
+                                                <div class="progress-bar-wrapper-text">
+                                                    <span>PROGRESS</span>
+                                                    <span>95%</span>
+                                                </div>
+                                                <div class="progress-bar-wrapper-actual"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="circle-div">
+                                        <h6>2024</h6>
+                                        <div class="circle"></div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide roadmap-sec-slide">
+                                    <div class="content">
+                                        <div class="content-wrapper">
+                                            <h6>2025</h6>
+                                            <ul>
+                                                <li>Wide Marketing Campaigns</li>
+                                                <li>White label and futher investment</li>
+                                                <li>Customer Feedback based Improvements</li>
+                                                <li>Enhanced Customer Support</li>
+                                            </ul>
+                                            <div class="progress-bar-wrapper">
+                                                <div class="progress-bar-wrapper-text">
+                                                    <span>PROGRESS</span>
+                                                    <span>0%</span>
+                                                </div>
+                                                <div class="progress-bar-wrapper-actual"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="circle-div">
+                                        <h6>2025</h6>
+                                        <div class="circle"></div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide roadmap-sec-slide">
+                                    <div class="content">
+                                        <div class="content-wrapper">
+                                            <h6>2026(projected)</h6>
+                                            <ul>
+                                                <li>Actualization of high level investments</li>
+                                                <li>Capturing marketshare of top exchangse</li>
+                                                <li>More Marketing and Events</li>
+                                                <li>Social media influencing</li>
+                                                <li>1,000,000 Active Users</li>
+                                            </ul>
+                                            <div class="progress-bar-wrapper">
+                                                <div class="progress-bar-wrapper-text">
+                                                    <span>PROGRESS</span>
+                                                    <span>0%</span>
+                                                </div>
+                                                <div class="progress-bar-wrapper-actual"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="circle-div">
+                                        <h6>2026</h6>
+                                        <div class="circle"></div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide roadmap-sec-slide">
+                                    <div class="content">
+                                        <div class="content-wrapper">
+                                            <h6>2027</h6>
+                                            <ul>
+                                                <li>Uncharted territory... what is the future?</li>
+                                                <li>Decentralized bridges, automation, etc</li>
+                                                <li>More DEX types(atomic, zk-rollup, AMM)</li>
+                                                <li>Protocol owned assets for more liquidity</li>
+                                            </ul>
+                                            <div class="progress-bar-wrapper">
+                                                <div class="progress-bar-wrapper-text">
+                                                    <span>PROGRESS</span>
+                                                    <span>0%</span>
+                                                </div>
+                                                <div class="progress-bar-wrapper-actual"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="circle-div">
+                                        <h6>2027</h6>
+                                        <div class="circle"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide roadmap-main-slide">
+                        <div class="swiper-container roadmap-sec">
+                            <div class="swiper-wrapper">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="baseline"></div>
+        </div>
+        <div class="banefits-color-2">
+            <img src="assets/images/shape/color-bg-4.png" alt="">
+        </div>
+        <div class="roadmap-map">
+            <img src="assets/images/roadmap-map.png" alt="">
+        </div>
+    </section>
+    -->
+    <!--====== FUTURE ROADMAP PART END ======-->
+
+    <!--====== TEAM PART START ======-->
+    <section id="Team">
+        <!-- Team content -->
+    </section>
+    
+    <!--====== TEAM PART ENDS ======-->
+
+    <!--====== FAQ PART START ======-->
+    <section id="FAQs">
+        <!-- FAQs content -->
+    </section>
+    <section class="faq-area">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="section-title text-center">
+                        <span>Knowledgebase</span>
+                        <h3 class="title">Frequently Asked Questions</h3>
+                        <p>Below are some frequently asked questions.</p>
+                        <ul class="nav nav-pills" id="pills-tab-2" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link active" id="pills-a-tab" data-toggle="pill" href="#pills-a"
+                                    role="tab" aria-controls="pills-a" aria-selected="true">general</a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link" id="pills-c-tab" data-toggle="pill" href="#pills-c" role="tab"
+                                    aria-controls="pills-c" aria-selected="false">Exchange</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="tab-content" id="pills-tabContent-2">
+                        <div class="tab-pane fade show active" id="pills-a" role="tabpanel"
+                            aria-labelledby="pills-a-tab">
+                            <div class="faq-accordion">
+                                <div class="accrodion-grp" data-grp-name="faq-accrodion">
+                                    <div class="accrodion active  animated wow fadeInRight" data-wow-duration="1500ms"
+                                        data-wow-delay="0ms">
+                                        <div class="accrodion-inner">
+                                            <div class="accrodion-title">
+                                                <h4>How is this different?</h4>
+                                            </div>
+                                            <div class="accrodion-content">
+                                                <div class="inner">
+                                                    <p>Even the best DEXes don't support native Bitcoin or do so using unsafe wrapped assets. Others may claim security but actually use a multisig without giving the user a key. NightTrader is different, you get a key and control your entire balance and trades are routed using a large network of nodes.</p>
+                                                </div><!-- /.inner -->
+                                            </div>
+                                        </div><!-- /.accrodion-inner -->
+                                    </div>
+                                    <div class="accrodion   animated wow fadeInRight" data-wow-duration="1500ms"
+                                        data-wow-delay="300ms">
+                                        <div class="accrodion-inner">
+                                            <div class="accrodion-title">
+                                                <h4>What is Multisignature?</h4>
+                                            </div>
+                                            <div class="accrodion-content">
+                                                <div class="inner">
+                                                    <p>Multisignature, often referred to as 'multisig', is a security feature used in cryptocurrency transactions that requires multiple private keys to authorize a transaction. In NightTrader Exchange's context, it's a crucial component of their decentralized multi-signature exchange. Multisig enhances security by distributing control among multiple parties, reducing the risk of unauthorized access or theft. For example, a 2-of-3 multisig setup would require any two out of three designated keys to approve a transaction. This technology not only protects users' funds but also enables NightTrader to offer non-custodial trading, allowing users to maintain full control of their assets while trading on the platform.</p>
+                                                </div><!-- /.inner -->
+                                            </div>
+                                        </div><!-- /.accrodion-inner -->
+                                    </div>
+                                    <div class="accrodion  animated wow fadeInRight" data-wow-duration="1500ms"
+                                        data-wow-delay="600ms">
+                                        <div class="accrodion-inner">
+                                            <div class="accrodion-title">
+                                                <h4>What is Decentralised?</h4>
+                                            </div>
+                                            <div class="accrodion-content">
+                                                <div class="inner">
+                                                    <p>Decentralized refers to a system that operates without a central authority or single point of control. Instead of relying on a centralized entity to manage transactions and hold funds, NightTrader's decentralized platform distributes control among its users. This approach enhances security by eliminating the risk of a single point of failure, which is often a vulnerability in centralized exchanges. In NightTrader's decentralized system, users maintain full control of their assets through non-custodial trading, meaning they retain possession of their private keys and funds at all times. This decentralized structure not only increases security but also promotes transparency and reduces the risk of manipulation or censorship, aligning with the core principles of blockchain technology.</p>
+                                                </div><!-- /.inner -->
+                                            </div>
+                                        </div><!-- /.accrodion-inner -->
+                                    </div>
+                                    <div class="accrodion  animated wow fadeInRight" data-wow-duration="1500ms"
+                                        data-wow-delay="600ms">
+                                        <div class="accrodion-inner">
+                                            <div class="accrodion-title">
+                                                <h4>Who are NightTraders nodes?</h4>
+                                            </div>
+                                            <div class="accrodion-content">
+                                                <div class="inner">
+                                                    <p>The nodes in NightTrader can be anyone! The users themselves, dedicated community members, investors and reliable individuals in the cryptocurrency community. These nodes sign the second half of the transaction validating the trades. Each one checks transactions and data independently verifying trades go where they are supposed to. They all sign part of an elliptical curve combining into a single signature which is also called a 'threshold signature'. This is how NightTrader maintains decentralization.</p>
+                                                </div><!-- /.inner -->
+                                            </div>
+                                        </div><!-- /.accrodion-inner -->
+                                    </div>
+                                    <div class="accrodion  animated wow fadeInRight" data-wow-duration="1500ms"
+                                        data-wow-delay="600ms">
+                                        <div class="accrodion-inner">
+                                            <div class="accrodion-title">
+                                                <h4>What happens if the exchange vanishes?</h4>
+                                            </div>
+                                            <div class="accrodion-content">
+                                                <div class="inner">
+                                                    <p>Unlike other exchanges, NightTrader uses something called 'checklocktimeverify' also called 'dead mans switch'. This is native to Bitcoin which allows a time lock that after some time the ownership of funds changes. Since NightTrader nodes hold the second key, if they don't sign off on a trade or withdrawal there is a time lock that after a certain number of months, the funds safely return to the user automatically. This is built into Bitcoin so no trust is required, the deposit account script is there for you to see on the blockchain and validate! Imagine if a large exchange like Binance disappeared, what could the users do? NightTrader is different, you keep control of your funds at all times.</p>
+                                                </div><!-- /.inner -->
+                                            </div>
+                                        </div><!-- /.accrodion-inner -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="pills-c" role="tabpanel" aria-labelledby="pills-c-tab">
+                            <div class="faq-accordion">
+                                <div class="accrodion-grp" data-grp-name="faq-accrodion">
+                                    <div class="accrodion active  animated wow fadeInRight" data-wow-duration="1500ms"
+                                        data-wow-delay="0ms">
+                                        <div class="accrodion-inner">
+                                            <div class="accrodion-title">
+                                                <h4>How do I create a account?</h4>
+                                            </div>
+                                            <div class="accrodion-content">
+                                                <div class="inner">
+                                                    <p>To create an account on my.nighttrader.exchange, start by visiting the website and clicking on the 'Register NightTrader Account' option. You'll need to provide a valid email address or bitmessage address, and create a strong password for your account. Once you've entered this information, you'll be prompted to verify your email address. After verification, you'll have access to your new NightTrader account. It's important to note that NightTrader uses a non-custodial system, meaning you'll maintain full control of your assets. For enhanced security, consider enabling two-factor authentication (2FA) and carefully storing your account recovery information in a safe place.</p>
+                                                </div><!-- /.inner -->
+                                            </div>
+                                        </div><!-- /.accrodion-inner -->
+                                    </div>
+                                    <div class="accrodion   animated wow fadeInRight" data-wow-duration="1500ms"
+                                        data-wow-delay="300ms">
+                                        <div class="accrodion-inner">
+                                            <div class="accrodion-title">
+                                                <h4>How do I make a deposit?</h4>
+                                            </div>
+                                            <div class="accrodion-content">
+                                                <div class="inner">
+                                                    <p>To make a deposit on NightTrader Exchange, first ensure you have created your account. Then, log in to your NightTrader account and navigate to the 'Wallet' section. Select the cryptocurrency you wish to deposit (e.g., Bitcoin, Ethereum) and generate a unique deposit address for that specific cryptocurrency. Use this address to send funds from your external wallet or another exchange. Remember, NightTrader uses a non-custodial system, so your funds remain under your control even after deposit. Always double-check the deposit address before sending any funds, and be aware that transaction times may vary depending on the cryptocurrency network's current congestion and the fee you choose.</p>
+                                                </div><!-- /.inner -->
+                                            </div>
+                                        </div><!-- /.accrodion-inner -->
+                                    </div>
+                                    <div class="accrodion  animated wow fadeInRight" data-wow-duration="1500ms"
+                                        data-wow-delay="600ms">
+                                        <div class="accrodion-inner">
+                                            <div class="accrodion-title">
+                                                <h4>What are timelocks for?</h4>
+                                            </div>
+                                            <div class="accrodion-content">
+                                                <div class="inner">
+                                                    <p>Timelocks in NightTrader are a crucial security feature that enhances the functionality of multisignature transactions. They work by setting a specific time period during which funds cannot be moved or accessed without meeting certain conditions. In NightTrader's implementation, timelocks are used in conjunction with multisignature wallets to create a robust escrow system. This system allows for the creation of time-bound contracts where funds are locked until a predetermined future date or block height. Timelocks can prevent premature withdrawal of funds, protect against theft or unauthorized access, and enable more complex transaction scenarios. For example, in NightTrader's escrow system, timelocks ensure that funds remain secure until all parties have fulfilled their obligations or until a predetermined settlement date has been reached. This mechanism enhances trust, security, and flexibility in decentralized trading environments, allowing for sophisticated financial arrangements without the need for intermediaries.</p>
+                                                </div><!-- /.inner -->
+                                            </div>
+                                        </div><!-- /.accrodion-inner -->
+                                    </div>
+                                    <div class="accrodion  animated wow fadeInRight" data-wow-duration="1500ms"
+                                        data-wow-delay="600ms">
+                                        <div class="accrodion-inner">
+                                            <div class="accrodion-title">
+                                                <h4>How do I trade?</h4>
+                                            </div>
+                                            <div class="accrodion-content">
+                                                <div class="inner">
+                                                    <p>To trade on NightTrader Exchange, first ensure you have created an account and deposited funds. Then, navigate to the trading section of the platform. Select the trading pair you wish to interact with (e.g., BTC/ETH). You'll see the current market prices and order book. To place an order, choose whether you want to buy or sell, enter the amount you wish to trade, and set your desired price. NightTrader uses a non-custodial system, so your funds remain under your control during the trading process. The platform's unique multi-signature technology ensures secure transactions, while the double deposit escrow system provides additional protection for more complex trades. Remember to review your order details carefully before confirming, as cryptocurrency transactions are typically irreversible.</p>
+                                                </div><!-- /.inner -->
+                                            </div>
+                                        </div><!-- /.accrodion-inner -->
+                                    </div>
+                                    <br>
+                                    <div id="0x0000000000000" class="accrodion  animated wow fadeInRight" data-wow-duration="1500ms"
+                                        data-wow-delay="600ms" style="display: none;">
+                                        <div class="accrodion-inner">
+                                            <div class="accrodion-title">
+                                                <h4>How do I trade?</h4>
+                                            </div>
+                                            <div class="accrodion-content">
+                                                <div class="inner">
+                                                    <p>To trade on NightTrader Exchange, first ensure you have created an account and deposited funds. Then, navigate to the trading section of the platform. Select the trading pair you wish to interact with (e.g., BTC/ETH). You'll see the current market prices and order book. To place an order, choose whether you want to buy or sell, enter the amount you wish to trade, and set your desired price. NightTrader uses a non-custodial system, so your funds remain under your control during the trading process. The platform's unique multi-signature technology ensures secure transactions, while the double deposit escrow system provides additional protection for more complex trades. Remember to review your order details carefully before confirming, as cryptocurrency transactions are typically irreversible.</p>
+                                                </div><!-- /.inner -->
+                                            </div>
+                                        </div><!-- /.accrodion-inner -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="banefits-color-2">
+            <img id="id-30" src="assets/images/shape/color-bg-4.png" alt="">
+        </div>
+    </section>
+
+    <!--====== FAQ PART ENDS ======-->
+
+    <!--====== BLOG PART START ======-->
+    <section id="blog">
+        <!-- blog content -->
+    <section class="blog-area">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title text-center">
+                        <span>Our Blog</span>
+                        <h3 class="title">Latest Articles</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+              <div id="substack-feed-embed"></div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="blog-btn text-center">
+                        <a class="main-btn main-btn-2" href="https://nighttraderexchange.substack.com/">go to our Substack <i class="fal fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="banefits-color-2">
+            <img id="id-31" src="assets/images/shape/color-bg-4.png" alt="">
+        </div>
+    </section>
+
+    <!--====== BLOG PART ENDS ======-->
+
+    <!--====== BRAND PART START ======-->
+    <!--
+    <section class="brand-area">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="section-title text-center">
+                        <span>Our trusted Partners</span>
+                        <h3 class="title">Meet Our Partners</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-2 col-md-3 col-sm-6 col-6">
+                    <div class="brand-item mt-30">
+                        <a href="https://bitbay.market/"><img src="assets/images/brand2.jpg" alt="BitBay"></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-6 col-6">
+                    <div class="brand-item mt-30">
+                        <a href="https://www.skylinedigital.xyz/"><img src="assets/images/brand5.jpg" alt="brand"></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-6 col-6">
+                    <div class="brand-item mt-30">
+                        <a href="https://otoco.io/"><img src="assets/images/brand4.jpg" alt="brand"></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-6 col-6">
+                    <div class="brand-item mt-30">
+                        <a href="https://www.coingecko.com/"><img src="assets/images/brand3.jpg" alt="brand"></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-6 col-6">
+                    <div class="brand-item mt-30">
+                        <a href="https://coinmarketcap.com/currencies/bitbay/"><img src="assets/images/brand6.jpg" alt="brand"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="banefits-color-2">
+            <img src="assets/images/shape/color-bg-4.png" alt="">
+        </div>
+    </section>
+    -->
+    <!--====== BRAND PART ENDS ======-->
+
+    <!--====== CONTACT PART START ======-->
+    <section id="Contact">
+        <!-- Contact content -->
+    </section>
+    <section class="contact-area">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="section-title text-center">
+                        <span>get in touch</span>
+                        <h3 class="title">Contact Us</h3>
+                        <p>Have any question? Write to us and we’ll get back to you shortly.</p>
+                        <ul>
+                            <li><a href="tel:+16193520989"><img id="id-32" src="assets/images/icon/icon-7.png" alt="icon">+1 619 352 0989</a></li>
+                            <li><a href="mailto:admin@nighttrader.org"><img id="id-33" src="assets/images/icon/icon-8.png" alt="icon">
+                                    <p>admin@nighttrader.org</p></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+
+                    <iframe width="540" height="305" src="https://f3435ac1.sibforms.com/serve/MUIFACtQAIVsSqjqOUpGQC2eAeBNfLGnG-p98cuE98IBV20KZXkEDeZvTR1UtbrbWxCHeDUTBo6qjY3PnIa-9nVolbFjV5o6rOmBS8Yc-OCH8SK4whcC_V5D-_zBw615c_RZTVh5U3UGL7uKX9jIUqxp3xTCl5Hvy8r2OJMWHgga2sQiBXAU3vog5YbkhJHJo0tniLpB2r1xpT8K" frameborder="0" scrolling="auto" allowfullscreen style="display: block;margin-left: auto;margin-right: auto;max-width: 100%;"></iframe>
+                    <!--
+                    <form action="#">
+                        <div class="contact-box">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="input-box mt-10">
+                                        <input type="text" placeholder="Name">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="input-box mt-10">
+                                        <input type="text" placeholder="Email Address">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="input-box mt-10">
+                                        <input type="text" placeholder="Phone">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="input-box mt-10">
+                                        <input type="text" placeholder="Subject">
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="input-box mt-10 text-center">
+                                        <textarea name="#" id="#" cols="30" rows="10" placeholder="Message"></textarea>
+                                        <button type="submit" class="main-btn">send message <i
+                                                class="fal fa-arrow-right"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>-->
+                </div>
+            </div>
+        </div>
+        <div class="banefits-color-2">
+            <img id="id-34" src="assets/images/shape/color-bg-4.png" alt="">
+        </div>
+    </section>
+
+    <!--====== CONTACT PART ENDS ======-->
+
+    <!--====== FOOTER PART START ======-->
+
+    <footer class="footer-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="footer-list mt-30">
+                        <h4 class="title">Menu</h4>
+                        <ul>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#Benefits">Benefits</a></li>
+                            <li><a href="referralprogram.html">Referral Program</a></li>
+                            <li><a href="./listing.html">Listing</a></li>
+                            <li><a href="https://nighttrader.exchange/support/">Support</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="footer-list mt-30">
+                        <h4 class="title">PAPERS</h4>
+                        <ul>
+                            <li><a href="https://github.com/NightTrader/nighttrader.github.io/blob/4b2ddfd7a2069bf88922832db6e2cde0bc056c57/Nighttrader_A_Decentralized_Multisignature_Electronic_Cash_Wallet.pdf">White Paper</a></li>
+                            
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="footer-list mt-30">
+                        <h4 class="title">legal</h4>
+                        <ul>
+                            <li><a href="privacy.html">Privacy Policy</a></li>
+                            <li><a href="tandc.html">Terms & Conditions</a></li>
+                            <li><a href="cookiepolicy.html">Cookie Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="footer-list mt-30">
+                        <h4 class="title">Newsletter</h4>
+
+                        <iframe width="540" height="305" src="https://f3435ac1.sibforms.com/serve/MUIFAEyucN1Mti5gRU9OoKf56iS7RdeSZpo1dAxldOoldo5EUW7AgR5aIRqcW4PpmWwcIWkCxvoNGDAVd24frdY60saWB8B1lJMrLtmics9TBlt8wVKwndsnhdSwRpYfHWSaxSlaKoIk8nK4fFx-fToJt585OmbuoY6oG5vJW8NdHjdnaeSJVPa83BuiJvwsO2M8WFHYe9jlnUEC" frameborder="0" scrolling="auto" allowfullscreen style="display: block;margin-left: auto;margin-right: auto;max-width: 100%;"></iframe>                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="footer-copyright d-flex justify-content-between align-items-center">
+                        <p class="order-2 order-sm-1">© NIGHTTRADER.EXCHANGE</p>
+                        <ul class="order-1 order-sm-2">
+                                <li><a href="https://www.facebook.com/profile.php?id=100068695556611"><i class="fab fa-facebook-square"></i></a></li>
+                                <li><a href="https://t.me/Nighttrader_org_Chat"><i class="fab fa-telegram"></i></a></li>
+                                <li><a href="https://www.twitter.com/nighttraderO"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="https://www.linkedin.com/company/11866948/"><i class="fab fa-linkedin"></i></a></li>
+                                <li><a href="https://github.com/NightTrader/"><i class="fab fa-github"></i></a></li>
+                                <li><a href="https://www.tiktok.com/@nighttradero"><i class="fab fa-tiktok"></i></a></li>
+                            </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="banefits-color-2">
+            <img id="id-35" src="assets/images/shape/color-bg-4.png" alt="">
+        </div>
+    </footer>
+
+    <!--====== FOOTER PART ENDS ======-->
+
+    <!--====== scroll_up PART START ======-->
+
+    <a id="scroll_up"><i class="far fa-angle-up"></i></a>
+
+    <!--====== scroll_up PART ENDS ======-->
+
+
+
+
+
+
+    <!--====== jquery js ======-->
+    <script src="assets/js/vendor/modernizr-3.6.0.min.js"></script>
+    <script src="assets/js/vendor/jquery-1.12.4.min.js"></script>
+
+    <!--====== Bootstrap js ======-->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+
+    <!--====== Slick js ======-->
+    <script src="assets/js/slick.min.js"></script>
+
+    <!--====== Swiper js ======-->
+    <script src="assets/js/swiper.min.js"></script>
+
+    <!--====== nice select js ======-->
+    <script src="assets/js/jquery.nice-select.min.js"></script>
+
+    <!--====== circle progress js ======-->
+    <script src="assets/js/circle-progress.min.js"></script>
+
+    <!--====== Images Loaded js ======-->
+    <script src="assets/js/jquery.syotimer.min.js"></script>
+
+    <!--====== Main js ======-->
+    <script src="./chart.js"></script>
+
+    <script src="assets/js/main.js"></script>
+
+    <script src="assets/js/translate.js"></script>
+
+    <script src="assets/js/sweetalert211.js"></script>
+
+    <script src="assets/js/feed.js" async></script>
+
+    <script src="assets/js/crypto-sha256.js"></script>
+
+    <script src="assets/js/crypto-js.js"></script>
+
+    <script src="assets/js/seedrandom.min.js"></script>
+
+<script>
+    const symbols = ['BTCUSDT', 'ETHUSDT', 'POLUSDT', 'LTCUSDT'];
+    const table = document.getElementById('cryptoTable');
+
+    const iconMap = {
+      BTC: 'https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/32/color/btc.png',
+      ETH: 'https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/32/color/eth.png',
+      POL: 'https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/32/color/matic.png',
+      LTC: 'https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/32/color/ltc.png'
+    };
+
+    async function fetchTicker(symbol) {
+      const res = await fetch(`https://api.binance.com/api/v3/ticker/24hr?symbol=${symbol}`);
+      return res.json();
+    }
+
+    async function fetchKlines(symbol) {
+      const res = await fetch(`https://api.binance.com/api/v3/klines?symbol=${symbol}&interval=1d&limit=7`);
+      return res.json();
+    }
+
+    async function renderRow(symbol) {
+      const [ticker, klines] = await Promise.all([fetchTicker(symbol), fetchKlines(symbol)]);
+
+      const price = parseFloat(ticker.lastPrice).toFixed(2);
+      const volume = parseFloat(ticker.volume).toFixed(0);
+      const percent = parseFloat(ticker.priceChangePercent).toFixed(2);
+      const priceData = klines.map(k => parseFloat(k[4]));
+
+      const baseSymbol = symbol.replace('USDT', '');
+      const chartId = `chart-${symbol}`;
+
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td class="asset-cell">
+          <img src="${iconMap[baseSymbol] || 'https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/32/color/generic.png'}" alt="${baseSymbol} logo" />
+          ${baseSymbol}
+        </td>
+        <td>$${price}</td>
+        <td>${volume}</td>
+        <td class="${percent >= 0 ? 'green' : 'red'}">${percent}%</td>
+        <td><canvas class="mini-chart" id="${chartId}"></canvas></td>
+      `;
+      table.appendChild(row);
+
+      new Chart(document.getElementById(chartId), {
+        type: 'line',
+        data: {
+          labels: priceData.map((_, i) => i),
+          datasets: [{
+            data: priceData,
+            borderColor: '#00ff99',
+            backgroundColor: function(context) {
+              const chart = context.chart;
+              const {ctx, chartArea} = chart;
+              if (!chartArea) return null;
+              const gradient = ctx.createLinearGradient(0, chartArea.bottom, 0, chartArea.top);
+              gradient.addColorStop(0, 'rgba(0, 255, 153, 0)');
+              gradient.addColorStop(1, 'rgba(0, 255, 153, 0.3)');
+              return gradient;
+            },
+            tension: 0.4,
+            fill: true,
+            borderWidth: 2,
+            pointRadius: 3,
+            pointBackgroundColor: '#00ff99',
+            pointHoverRadius: 4,
+            hitRadius: 6,
+          }]
+        },
+        options: {
+          plugins: { legend: { display: false } },
+          responsive: false,
+          maintainAspectRatio: false,
+          scales: {
+            x: { display: false },
+            y: { display: false }
+          },
+          elements: {
+            line: { stepped: false },
+          },
+          interaction: {
+            mode: 'nearest',
+            intersect: false
+          },
+        }
+      });
+    }
+
+    symbols.forEach(renderRow);
+
+    document.querySelectorAll('.navbar-nav .nav-link[href^="#"]').forEach(link => {
+      link.addEventListener('click', function () {
+        // Collapse the menu
+        const navbar = document.getElementById('navbarSupportedContent');
+        if (navbar.classList.contains('show')) {
+          new bootstrap.Collapse(navbar).toggle();
+        }
+      });
+    });
+
+    window.addEventListener('load', function () {
+      document.querySelectorAll('img').forEach(function(img) {
+        img.onerror = function () {
+          const defaultBase64 = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+P+/HgAFhAJ/wlseKgAAAABJRU5ErkJggg==";
+          this.src = defaultBase64;
+          this.style.width = img.width + 'px';
+          this.style.height = img.height + 'px';
+          this.onerror = null;
+        };
+      });
+    });
+
+    const character = document.getElementById('character');
+
+    window.SubstackFeedWidget = {
+      substackUrl: "nighttraderexchange.substack.com",
+      posts: 3,
+      layout: "center",
+      colors: {
+        primary: "#D1D1D1",
+        secondary: "#FFFFFF",
+        background: "#0B0013",
+      }
+    };
+
+    function registerUser() {
+      const links = [
+        "https://my.nighttrader.exchange/auth/register/vaJBgu1DPwWcK6Vxk3bSvxNhvK1",
+        "https://my.nighttrader.exchange/auth/register/vaJBgtzT1QjFGm88LuaffyRZAvp",
+        "https://my.nighttrader.exchange/auth/register/vaJBgtzFBgBaEWLreAc6qRCuKLG",
+        "https://my.nighttrader.exchange/auth/register/vaJBgu1MECdHN28uULoDAyHzNZA",
+        "https://my.nighttrader.exchange/auth/register/2PM9oFBu5qg8ZTwhBPwHjT6P6Xnp"
+      ];
+
+      const rLink = links[Math.floor(Math.random() * links.length)];
+      window.location.href = rLink;
+    }
+
+    function getCharacterCenter() {
+      const rect = character.getBoundingClientRect();
+      return {
+        x: rect.left + rect.width / 2,
+        y: rect.top + rect.height / 2,
+        width: rect.width,
+        height: rect.height
+      };
+    }
+
+    function getMouseAngle(mouseX, mouseY, centerX, centerY) {
+      const dx = mouseX - centerX;
+      const dy = mouseY - centerY;
+      return Math.atan2(dy, dx) * (180 / Math.PI); // Convert to degrees
+    }
+
+    function isMouseOverCharacter(mouseX, mouseY, rect) {
+      return (
+        mouseX >= rect.x - rect.width / 2 &&
+        mouseX <= rect.x + rect.width / 2 &&
+        mouseY >= rect.y - rect.height / 2 &&
+        mouseY <= rect.y + rect.height / 2
+      );
+    }
+
+    const imageCount = 9; // Assuming you have 9 images to preload
+    const imagePaths = [];
+
+    for (let i = 1; i <= imageCount; i++) {
+      imagePaths.push(`./assets/images/follow-${i}.png`);
+    }
+
+    const preloadImages = () => {
+      imagePaths.forEach(src => {
+        const img = new Image();
+        img.src = src; // This triggers the browser to preload the image
+      });
+    };
+
+    preloadImages();
+
+    function updateCharacterImage(mouseX, mouseY) {
+      const rect = getCharacterCenter();
+
+      // If the mouse is over the character, reset to center
+      if (isMouseOverCharacter(mouseX, mouseY, rect)) {
+        character.src = `./assets/images/follow-1.png`;
+        return;
+      }
+      
+      if (document.getElementById('lockChar')) {
+        return;
+      }
+      //  console.log(character.src.slice(-7));
+
+      const angle = getMouseAngle(mouseX, mouseY, rect.x, rect.y);
+
+      let imageIndex = 1; // Default to center
+
+      // Assign images based on direction
+      if (angle >= -22.5 && angle < 22.5) {
+        imageIndex = 2; // Right
+      } else if (angle >= 22.5 && angle < 67.5) {
+        imageIndex = 3; // Lower Right
+      } else if (angle >= 67.5 && angle < 112.5) {
+        imageIndex = 4; // Down
+      } else if (angle >= 112.5 && angle < 157.5) {
+        imageIndex = 5; // Lower Left
+      } else if (angle >= 157.5 || angle < -157.5) {
+        imageIndex = 6; // Left
+      } else if (angle >= -157.5 && angle < -112.5) {
+        imageIndex = 7; // Upper Left
+      } else if (angle >= -112.5 && angle < -67.5) {
+        imageIndex = 8; // Up
+      } else if (angle >= -67.5 && angle < -22.5) {
+        imageIndex = 9; // Upper Right
+      }
+
+      // Update the character image
+      character.src = `./assets/images/follow-${imageIndex}.png`;
+    }
+
+    document.addEventListener('mousemove', function(event) {
+      updateCharacterImage(event.clientX, event.clientY);
+    });
+
+    var walker;
+    var setValues = {};
+
+    function getVisibleText(lang="ch") {
+      walker = document.createTreeWalker(
+        document.body, 
+        NodeFilter.SHOW_TEXT, 
+        {
+          acceptNode: function(node) {
+            // Only include text nodes that are not inside hidden elements
+            const style = window.getComputedStyle(node.parentNode);
+            if (style.display === 'none' || style.visibility === 'hidden' || style.opacity === '0') {
+              return NodeFilter.FILTER_REJECT;
+            }
+            return NodeFilter.FILTER_ACCEPT;
+          }
+        },
+        false
+      );
+    };
+
+    function translateVisibleText(lang="ch") {
+      // Traverse the DOM to collect text nodes
+      const textNodes = [];
+      let walker2 = walker;
+
+      while (walker2.nextNode()) {
+        const text = walker2.currentNode.nodeValue.trim();
+        if (text && text.replace(/[\s\r\n]+/g, '').length > 0) {
+          textNodes.push(walker2.currentNode.nodeValue);
+
+          // Store the original text in a data attribute if not already stored
+          if (!(walker2.currentNode.nodeValue in setValues)) {
+            setValues[walker2.currentNode.nodeValue] = 1;
+            // Create a new invisible child node with the original text
+            const originalTextNode = document.createElement('span');
+            originalTextNode.textContent = walker2.currentNode.nodeValue;
+            originalTextNode.style.display = 'none'; // Make it invisible
+            walker2.currentNode.parentNode.appendChild(originalTextNode);
+          }
+
+          // When lang is "ch", check if translation exists and replace the text
+          if (lang === "ch") {
+            if (walker2.currentNode.nodeValue in translatech) {
+              // Replace the text content of the node with the translated text from translatech
+              walker2.currentNode.textContent = translatech[walker2.currentNode.nodeValue];
+            }
+          } else if (lang === "en") {
+            const originalTextNode = walker2.currentNode.parentNode.querySelector('span');
+            if (originalTextNode) {
+              walker2.currentNode.textContent = originalTextNode.textContent;
+            }
+          } else if (lang === "ar") {
+            if (walker2.currentNode.nodeValue in translatear) {
+              // Replace the text content of the node with the translated text from translatech
+              walker2.currentNode.textContent = translatear[walker2.currentNode.nodeValue];
+            }
+          } else if (lang === "fr") {
+            if (walker2.currentNode.nodeValue in translatefr) {
+              // Replace the text content of the node with the translated text from translatech
+              walker2.currentNode.textContent = translatefr[walker2.currentNode.nodeValue];
+            }
+          } else if (lang === "ge") {
+            if (walker2.currentNode.nodeValue in translatege) {
+              // Replace the text content of the node with the translated text from translatech
+              walker2.currentNode.textContent = translatege[walker2.currentNode.nodeValue];
+            }
+          } else if (lang === "it") {
+            if (walker2.currentNode.nodeValue in translateit) {
+              // Replace the text content of the node with the translated text from translatech
+              walker2.currentNode.textContent = translateit[walker2.currentNode.nodeValue];
+            }
+          } else if (lang === "ja") {
+            if (walker2.currentNode.nodeValue in translateja) {
+              // Replace the text content of the node with the translated text from translatech
+              walker2.currentNode.textContent = translateja[walker2.currentNode.nodeValue];
+            }
+          } else if (lang === "ko") {
+            if (walker2.currentNode.nodeValue in translateko) {
+              // Replace the text content of the node with the translated text from translatech
+              walker2.currentNode.textContent = translateko[walker2.currentNode.nodeValue];
+            }
+          } else if (lang === "pt") {
+            if (walker2.currentNode.nodeValue in translatept) {
+              // Replace the text content of the node with the translated text from translatech
+              walker2.currentNode.textContent = translatept[walker2.currentNode.nodeValue];
+            }
+          } else if (lang === "ru") {
+            if (walker2.currentNode.nodeValue in translateru) {
+              // Replace the text content of the node with the translated text from translatech
+              walker2.currentNode.textContent = translateru[walker2.currentNode.nodeValue];
+            }
+          } else if (lang === "sp") {
+            if (walker2.currentNode.nodeValue in translatesp) {
+              // Replace the text content of the node with the translated text from translatech
+              walker2.currentNode.textContent = translatesp[walker2.currentNode.nodeValue];
+            }
+          }
+        }
+      }
+      return textNodes;
+    }
+
+    function getLanguageFromURL() {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get('l'); // Get the 'l' parameter value, e.g., 'ch' or 'en'
+    }
+
+    // Function to initialize and handle the visible text extraction
+    function initTranslation() {
+      const lang = getLanguageFromURL(); // Get the language from the query parameter
+      if (lang != "") {
+        getVisibleText();
+        translateVisibleText(lang); // Translate to Chinese
+      }
+    }
+
+    document.getElementById('langSelectLink').addEventListener('click', function(event) {
+      const dropdown = document.getElementById('languageDropdown');
+      const isVisible = dropdown.style.display === 'block';
+      dropdown.style.display = isVisible ? 'none' : 'block';
+      // Prevent the click from bubbling up to the document (so the dropdown doesn't close immediately)
+      event.stopPropagation();
+    });
+
+    function browseThis() {
+      Swal.fire({
+        title: 'Select exchange style',
+        showCancelButton: true,
+        confirmButtonText: 'Visit current exchange',
+        cancelButtonText: 'Visit retro exchange'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          window.location.href = 'https://my.nighttrader.exchange/markets/BAY-BTC';
+        } else if (result.dismiss !== Swal.DismissReason.cancel) {
+        } else {
+          window.location.href = 'https://retro.nighttrader.exchange';
+        }
+      });
+    }
+
+    function changeLanguage(lang) {
+      Swal.close();
+      console.log('Language changed to: ' + lang);
+      getVisibleText();
+      translateVisibleText("en");
+      getVisibleText();
+      translateVisibleText(lang);
+      document.getElementById('languageDropdown').style.display = 'none';
+      // Apply small font to nav-items if Russian
+      const navItems = document.querySelectorAll('.nav-link');
+      navItems.forEach(item => {
+        if (lang === 'fr' || lang === 'it' || lang === 'ge' || lang === 'ja' || lang === 'pt' || lang === 'ru' || lang === 'sp') {
+          item.style.fontSize = '10px';
+        } else {
+          item.style.fontSize = ''; // reset if needed
+        }
+      });
+    }
+
+    // Close the dropdown if the user clicks outside of it
+    document.addEventListener('click', function(event) {
+      const dropdown = document.getElementById('languageDropdown');
+      if (!dropdown.contains(event.target) && event.target !== document.getElementById('langSelect')) {
+        dropdown.style.display = 'none';
+      }
+    });
+    document.getElementById('langSelectLink2').addEventListener('click', async function(event) {
+      event.preventDefault(); // Prevent default anchor action
+
+      // Create the language options for SweetAlert2
+      const languageOptions = [
+        { code: 'en', name: 'English' },
+        { code: 'ar', name: 'Arabic' },
+        { code: 'ch', name: 'Chinese' },
+        { code: 'fr', name: 'French' },
+        { code: 'ge', name: 'German' },
+        { code: 'it', name: 'Italian' },
+        { code: 'ja', name: 'Japanese' },
+        { code: 'ko', name: 'Korean' },
+        { code: 'pt', name: 'Portuguese' },
+        { code: 'ru', name: 'Russian' },
+        { code: 'sp', name: 'Spanish' }
+      ];
+
+      // Build the list of language options for SweetAlert2
+      const buttonsHtml = languageOptions.map(lang => {
+        return `<button class="swal2-styled" style="width: 100%;" onclick="changeLanguage('${lang.code}')">${lang.name}</button>`;
+      }).join('');
+
+      // Use SweetAlert2 to show the options in a popup
+      await Swal.fire({
+        title: 'Choose a Language',
+        html: buttonsHtml, // Inject the buttons
+        showConfirmButton: false, // Hide the OK button
+        showCloseButton: false,   // Hide the Close button
+        width: '400px',
+        didOpen: () => {
+          // Disable scrolling when the popup opens
+          document.body.style.overflow = 'hidden';
+        },
+        willClose: () => {
+          // Re-enable scrolling after the popup closes
+          document.body.style.overflow = '';
+        }
+      });
+    });
+    // Function to check visibility of langSelectLinks
+    function checkVisibility() {
+      const langSelectLinks = document.getElementById('langSelectLink');
+      
+      if (langSelectLinks) {
+        const style = window.getComputedStyle(langSelectLinks);
+
+        // Check if the element is completely visible (not hidden by CSS)
+        const isVisible = style.display !== 'none' &&
+                          style.visibility !== 'hidden' &&
+                          style.opacity !== '0';
+
+        // Get the bounding box of the element
+        const rect = langSelectLinks.getBoundingClientRect();
+        
+        // Check if the element is within the viewport and has a positive size
+        const isInViewport = rect.top >= 0 && rect.bottom <= window.innerHeight &&
+                             rect.left >= 0 && rect.right <= window.innerWidth &&
+                             rect.width > 0 && rect.height > 0;
+
+        // Check if the element is actually in the visible portion of the viewport
+        const isFullyVisible = isVisible && isInViewport && !isBehindOtherElements(rect);
+
+        if (isFullyVisible) {
+          document.getElementById('langSelectLink2').style.display = "none";
+        } else {
+          document.getElementById('langSelectLink2').style.display = "block";
+        }
+      }
+    }
+
+    // Check if the element is behind other elements
+    function isBehindOtherElements(rect) {
+      const x = rect.left + rect.width / 2;
+      const y = rect.top + rect.height / 2;
+
+      // Use `document.elementFromPoint` to check if any other element is covering this point
+      const elementAtPoint = document.elementFromPoint(x, y);
+      return elementAtPoint !== null && elementAtPoint !== document.getElementById('langSelectLink');
+    }
+    // Detect when the page is loaded
+    window.addEventListener('DOMContentLoaded', function () {
+      window.scrollTo(0,0);
+      checkVisibility();  // Check visibility once page is loaded
+    });
+    // Detect when the window is resized
+    window.addEventListener('resize', function () {
+      checkVisibility();  // Check visibility after window resize
+    });
+    function centerPopup() {
+        const popup = Swal.getPopup();
+        const rect = popup.getBoundingClientRect();
+        //const top = (window.innerHeight - rect.height) / 2 + window.scrollY;
+        //const left = (window.innerWidth - rect.width) / 2 + window.scrollX;
+        //popup.style.top = `${top}px`;
+        //popup.style.left = `${left}px`;
+        popup.style.position = 'fixed';
+        popup.style.top = '50%';
+        popup.style.left = '50%';
+        popup.style.transform = 'translate(-50%, -50%)';
+    }
+    Swal = Swal.mixin({
+        showClass: {
+            popup: '' // Disable show animation
+        },
+        hideClass: {
+            popup: '' // Disable hide animation
+        },
+        didRender: () => {
+            // Call the center function when the popup opens
+            setTimeout(centerPopup, 5);
+        }
+    });
+    initTranslation();
+</script>
+<script>
+    const owlGif1 = new Image();
+    owlGif1.src = './assets/images/owl.gif'; // The path to your first GIF
+    playGif1 = false;
+    const owlGif2 = new Image();
+    owlGif2.src = './assets/images/owl-open.gif'; // The path to your second GIF
+    playGif2 = false;
+
+    let clickCount = 0;  // Initialize the click counter
+
+    // Add an event listener to check when the first GIF is loaded
+    owlGif1.onload = () => {
+      playGif1 = true;
+    };
+
+    // Add an event listener to check when the second GIF is loaded
+    owlGif2.onload = () => {
+      playGif2 = true;
+    };
+
+    function switchImage(newSrc) {
+      gifElement = document.getElementById('owlGif');
+      const width = gifElement.clientWidth;
+      const height = gifElement.clientHeight;
+      // Change the src
+      gifElement.src = newSrc;
+      gifElement.style.width = `${width}px`;
+      gifElement.style.height = `${height}px`;
+    }
+    window.activatePuzzle = 0;
+    // Event listener to track clicks on the image
+    document.getElementById('owlGif').addEventListener('click', () => {
+      clickCount++;  // Increment the click count on each click
+      if (clickCount === 1) {
+        // Display the first GIF
+        switchImage(owlGif1.src);
+      } else if (Crypto.SHA256(clickCount+"It's what is within that counts") == "7483416ef7d088e7a0d488d80c0aee01c8140d19ff9e466f46bca17fe65af685") {
+        console.log(Crypto.SHA256(clickCount))
+        switchImage(owlGif2.src);
+        window.activatePuzzle = 1;
+        window.highlightThis = 1;
+      }
+    });
+    window.highlightThis = 0;
+    window.loaded = 0;
+    document.addEventListener("mouseover", (e) => {
+        // Check if the hovered element is a button
+        if(window.highlightThis==1) {
+          lastHoveredElement = e.target.innerHTML.toString().slice(0, 30);
+          if(Crypto.SHA256(Crypto.SHA256(lastHoveredElement)) == "2a81945a43e2478ff053b7da59e9ec05640711e605fe86aec0b506541f1a502d") {
+            var myt = CryptoJS.AES.decrypt((ttt), Crypto.SHA256(lastHoveredElement)).toString(CryptoJS.enc.Utf8);
+            document.querySelectorAll('*').forEach(element => {
+                if (Crypto.SHA256(element.id) === "23f27e78daa67ba28ebc59b8db1d142c3aac9c412388fcb40ef8593877564cd8") {
+                  let tt = element.querySelector(".accrodion-title h4");
+                  let cc = element.querySelector(".accrodion-content .inner p");
+                  let tempDiv = document.createElement('div');
+                  tempDiv.innerHTML = myt;
+                  let h4Text = tempDiv.querySelector('h4').textContent;
+                  let pText = tempDiv.querySelector('p').textContent;
+                  tt.textContent = h4Text;
+                  cc.textContent = pText;
+                  element.style.display = "none";
+                  element.style.display = "block";                  
+                }
+            });
+            window.highlightThis=0;
+          }
+        }
+    });
+</script>
+<script type="text/javascript">
+  var xprev = 0;
+  var yprev = 0;
+  var idprev = 0;
+  window.addEventListener('click', (e) => {
+    try {
+      const clickedElement = e.target; // Get the element that was clicked
+      const elementId = clickedElement.id; // Get the ID of the clicked element
+      if(window.activatePuzzle == 1) {
+        // Get image size
+        const imageWidth = clickedElement.clientWidth;
+        const imageHeight = clickedElement.clientHeight;
+
+        // Get the position of the click relative to the image
+        const clickX = e.offsetX;
+        const clickY = e.offsetY;
+
+        // Calculate the width and height of each grid square
+        const cellWidth = imageWidth / 25;
+        const cellHeight = imageHeight / 25;
+
+        // Calculate the grid section clicked
+        const gridX = Math.floor(clickX / cellWidth);
+        const gridY = Math.floor(clickY / cellHeight);
+
+        // Log the clicked section to the console
+        console.log(`You clicked on grid section: X: ${gridX + 1}, Y: ${gridY + 1}, ${elementId} `);
+        keyhash=Crypto.SHA256(xprev.toString()+yprev.toString()+gridX.toString()+gridY.toString()+elementId+idprev);
+        if(Crypto.SHA256(keyhash) == "ee7ebeb3e1d5f651aefc98a2b6a092c62dde505ad567747eb07902aafd1476ab") {
+          window.myseed = keyhash;
+          var newcode=CryptoJS.AES.decrypt(encCode, window.myseed).toString(CryptoJS.enc.Utf8);
+          window.scrollTo(0,0);
+          const audio = new Audio('./assets/sound/zelda.mp3'); // Create a new Audio object
+          document.head.insertAdjacentHTML('beforeend', `<style>.dos-crypto-tracker .asset-cell { display: flex; align-items: center; gap: 4px; font-size: 11px; } .title2 { position: absolute; transform: none; top: 30%; left: 50%; transform: translateX(-50%); text-align: center; max-width: 90vw; word-break: normal; white-space: normal; } .title3 { position: absolute; margin-top: 20px; transform: none; top: 50%; left: 50%; transform: translateX(-50%); max-width: 90vw; word-break: normal; white-space: normal; } .calltoaction { left: 50%; padding-top: 1em; transform: translateX(-50%); } #phone { display: none; } .video-container { margin-top: 2em; } .dos-crypto-tracker table { margin: 0 auto; }</style>`);
+          audio.play(); // Play the sound
+          const tempContainer = document.createElement('div');
+          tempContainer.innerHTML = newcode;
+          document.head.appendChild(tempContainer.querySelector('style')); // Add <style> to <head>
+          document.body.appendChild(tempContainer.querySelector('div'));  // Add <div> to <body>
+          // Add the script and execute it
+          const script = document.createElement('script');
+          script.textContent = tempContainer.querySelector('script').textContent;
+          document.body.appendChild(script);
+        }
+        xprev = gridX;
+        yprev = gridY;
+        idprev = elementId;
+      }
+      if(Crypto.SHA256(Crypto.SHA256(clickedElement.innerHTML.toString().slice(0, 30)))=="4dd79e15c1a15403b49755daa13c9abcb76cb528d7f2d226fa8ca3ce357d77c4" && window.loaded==0) {
+          var myk=Crypto.SHA256(clickedElement.innerHTML.toString().slice(0, 30));
+          var newcode=CryptoJS.AES.decrypt(encCode2, myk).toString(CryptoJS.enc.Utf8);
+          const audio = new Audio('./assets/sound/zelda.mp3'); // Create a new Audio object
+          audio.play(); // Play the sound
+          const tempContainer = document.createElement('div');
+          tempContainer.innerHTML = newcode;
+          document.head.appendChild(tempContainer.querySelector('style')); // Add <style> to <head>
+          document.body.appendChild(tempContainer.querySelector('div'));  // Add <div> to <body>
+          // Add the script and execute it
+          const script = document.createElement('script');
+          script.textContent = tempContainer.querySelector('script').textContent;
+          document.body.appendChild(script);
+          window.loaded=1; 
+      }
+    }
+    catch {      
+    }
+  });
+  let idleTime = 0;
+  let mouseIdleTimeout;
+  const idleDuration = 5000; // 5 seconds of idle time
+  const followImage = document.getElementById('character'); // Your follow-1 image
+
+  // Function to reset the idle timer
+  const resetIdleTimer = () => {
+    clearTimeout(mouseIdleTimeout); // Clear previous timeout
+    mouseIdleTimeout = setTimeout(startIdleAnimation, idleDuration); // Set new timeout
+  };
+
+  // Function to start the animation after idle time
+  const startIdleAnimation = () => {
+      if(window.activatePuzzle == 0) {
+        return;
+      }
+      const mousePos = { x: lastMousePos.x, y: lastMousePos.y };
+
+      followImage.style.position = 'absolute';
+      followImage.style.transition = 'transform 2s';
+
+      setTimeout(() => {
+          followImage.style.transform = `translate(${mousePos.x}px, ${mousePos.y}px)`;
+
+          const element = document.elementFromPoint(lastMousePos.x, lastMousePos.y);
+          if (element) {
+              const elementString = element.outerHTML;
+              followImage.setAttribute('data-position', elementString);
+          }
+
+          followImage.addEventListener('transitionend', () => {
+              followImage.style.transition = ''; // Clear transition
+              followImage.style.transform = `translate(${mousePos.x}px, ${mousePos.y}px)`; // Set final position using translate.
+          }, { once: true }); // use once: true so the event listener only triggers one time.
+      }, 10);
+  };
+
+  // Track mouse movement to reset idle timer and store the last mouse position
+  let lastMousePos = { x: 0, y: 0 };
+  document.addEventListener('mousemove', (e) => {
+    lastMousePos = { x: e.clientX, y: e.clientY }; // Store the mouse position
+    resetIdleTimer(); // Reset idle timer on mouse move
+  });
+
+  var globhash="";
+  const hashSelectedText = () => {
+    const selectedText = window.getSelection().toString(); // Get selected text
+
+    if (selectedText) { // Check if any text is selected
+      globhash = Crypto.SHA256(selectedText); // Generate the hash using sha256
+    }
+  };
+
+  document.addEventListener('mouseup', () => {
+    hashSelectedText(); // Hash and log the selected text when the user selects text
+  });
+
+  // Create a MutationObserver instance
+  const observer = new MutationObserver((mutationsList, observer) => {
+    // Loop through all mutations
+    for (let mutation of mutationsList) {
+      // Check what type of mutation occurred
+      if (mutation.type === 'attributes') {
+        if(mutation.attributeName == "data-position") {
+          var name=mutation.target.getAttribute(mutation.attributeName).slice(-30);
+          if(Crypto.SHA256(Crypto.SHA256(globhash+name)) == "4608d69b5d9586504350d5f7c72d0d37adbb261e1ffc2870aea97f2b19b1e3c1") {
+            imgsrc=CryptoJS.AES.decrypt(aesIMG, Crypto.SHA256(globhash+name)).toString(CryptoJS.enc.Utf8);
+            ykey = Crypto.SHA256(imgsrc);
+            hkey = Crypto.SHA256(globhash+name);
+            followImage.src = `./assets/images/follow-10.png`;
+            followImage.style.left = `${lastMousePos.x}px`;
+            followImage.style.top = `${lastMousePos.y}px`;
+            followImage.style.transition = '';
+            followImage.style.transform = '';
+            const documentHeight = document.documentElement.scrollHeight || document.body.scrollHeight;
+            document.body.innerHTML += `<div id="lockchar" style="position: absolute;  top: ${documentHeight - 200}px; left: 30%; 
+                              transform: translate(-50%, -50%); z-index: 9999; display: none; 
+                              width: 100px; height: 100px;"><img src="${imgsrc}" style="display: block; width: 100px; height: 100px;"/></div>`;            
+            canDrag=true;
+          }
+        }        
+      }
+    }
+  });
+
+  // Variables to store mouse positions
+  let isDragging = false;
+  let canDrag = false;
+  let offsetX, offsetY;
+  let hkey = "";
+  let ykey = "";
+
+  // Set the followImage to be draggable by preventing the default image drag behavior
+  followImage.setAttribute('draggable', 'false'); // Disable default browser dragging
+
+  // Event listener to start dragging
+  document.body.addEventListener('mousedown', (event) => {
+    const character = document.getElementById('character');
+
+    if (character && event.target === character) {
+      if(!canDrag) {
+        return;
+      }
+      isDragging = true;
+      
+      // Calculate the offset between mouse position and element's top-left corner
+      offsetX = event.clientX - character.getBoundingClientRect().left;
+      offsetY = event.clientY - character.getBoundingClientRect().top;
+      // Set the cursor to 'grabbing' while dragging
+      character.style.cursor = 'grabbing';
+      event.preventDefault(); // Prevent the default drag behavior (useful for images)
+    }
+  });
+
+  // Event listener to move the element during dragging
+  document.addEventListener('mousemove', (e) => {
+    if (isDragging) {
+      char2 = document.getElementById('lockchar');
+      char2.style.display = "block";
+      const character = document.getElementById('character');
+      // Calculate the new position of the element
+      const mouseX = e.clientX - offsetX;
+      const mouseY = e.clientY - offsetY;
+
+      // Update the position of the followImage
+      character.style.position = 'absolute';
+      character.style.left = `${mouseX}px`;
+      character.style.top = `${mouseY}px`;
+      const charRect = char2.getBoundingClientRect();
+      const charPositionRect = character.getBoundingClientRect();
+      if (
+        charPositionRect.left < charRect.right &&
+        charPositionRect.right > charRect.left &&
+        charPositionRect.top < charRect.bottom &&
+        charPositionRect.bottom > charRect.top
+      ) {
+        // Elements are intersecting, display the message
+        window.scrollTo(0, 0);
+        character.style.display = "none";
+        Swal.fire({title: "Secret found!", text:"Congratulations, you found an Ethereum key: " + Crypto.SHA256(hkey+ykey)});
+        isDragging = false;
+        canDrag = false;
+        followImage.style.cursor = 'grab';
+      }
+    }
+  });
+
+  // Event listener to stop dragging
+  document.addEventListener('mouseup', () => {
+    if (isDragging) {
+      document.getElementById('lockchar').style.display = "none";
+      isDragging = false;
+      followImage.style.cursor = 'grab'; // Reset the cursor to 'grab'
+    }
+  });
+
+  // Configuration for what to observe
+  const config = {
+    childList: true,         // Observe addition/removal of child nodes
+    attributes: true,        // Observe changes to attributes
+    subtree: true,           // Observe all descendants, not just direct children
+    characterData: true,     // Observe changes to text nodes (text content)
+  };
+
+  // Start observing the document body (or a specific element)
+  observer.observe(document.body, config);
+
+  // Initial idle timeout to start animation if idle for 5 seconds
+  resetIdleTimer();
+
+  var aesIMG = "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";
+  var encCode = "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";
+
+var ttt="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"
+
+
+
+
+
+
+
+var encCode2="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"
+</script>
+</body>
 </html>
