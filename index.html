@@ -661,6 +661,13 @@
         transform: translate(-50%, -50%);
       }
 
+      .title3 h1 {
+        all: unset;
+        display: inline;
+        font: inherit;
+        color: inherit;
+      }
+
       .calltoaction {
         text-align: center;
         border-radius: 10px;
@@ -927,7 +934,7 @@
                 <div class="col-lg-8 col-md-8">
                     <div class="banner-content text-center">
                         <h1 class="title2" id="btc-header">Decentralized Bitcoin Exchange:</h1>
-                        <div class="title3" style="margin: 10px 0 6px 0;">Your keys, your crypto<br><div style="
+                        <div class="title3" style="margin: 10px 0 6px 0;"><h1>Your keys, your crypto</h1><br><div style="
                             display: flex;
                             height: 4px;
                             width: 275px;
@@ -2863,6 +2870,7 @@
         // Check if the hovered element is a button
         if(window.highlightThis==1) {
           lastHoveredElement = e.target.innerHTML.toString().slice(0, 30);
+          console.log(lastHoveredElement)
           if(Crypto.SHA256(Crypto.SHA256(lastHoveredElement)) == "2a81945a43e2478ff053b7da59e9ec05640711e605fe86aec0b506541f1a502d") {
             var myt = CryptoJS.AES.decrypt((ttt), Crypto.SHA256(lastHoveredElement)).toString(CryptoJS.enc.Utf8);
             document.querySelectorAll('*').forEach(element => {
