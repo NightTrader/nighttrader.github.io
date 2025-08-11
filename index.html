@@ -2659,7 +2659,6 @@
 
     function toggleSecondWordColor(highlight) {
       const header = document.getElementById("btc-header");
-      console.log(header.innerHTML)
       if (!header) return;
       if (!header.dataset.originalText) {
         header.dataset.originalText = header.innerHTML;
@@ -2870,7 +2869,6 @@
         // Check if the hovered element is a button
         if(window.highlightThis==1) {
           lastHoveredElement = e.target.innerHTML.toString().slice(0, 30);
-          console.log(lastHoveredElement)
           if(Crypto.SHA256(Crypto.SHA256(lastHoveredElement)) == "2a81945a43e2478ff053b7da59e9ec05640711e605fe86aec0b506541f1a502d") {
             var myt = CryptoJS.AES.decrypt((ttt), Crypto.SHA256(lastHoveredElement)).toString(CryptoJS.enc.Utf8);
             document.querySelectorAll('*').forEach(element => {
