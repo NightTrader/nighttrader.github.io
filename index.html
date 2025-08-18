@@ -2667,7 +2667,7 @@
       }
 
       if (highlight) {
-        var words = header.innerHTML.split("<span>")[0].split(" ");
+        var words = header.innerHTML.split("<span")[0].split(" ");
         if (words.length > 1) {
           words[1] = `<span style="color:#f7931a;">${words[1]}</span>`;
           header.innerHTML = words.join(" ");
