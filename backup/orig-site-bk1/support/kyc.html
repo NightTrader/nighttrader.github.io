@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+ 
+    <title>NightTrader Exchange and Escrow - KYC</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+
+    <!-- External Css -->
+    <link rel="stylesheet" href="assets/css/line-awesome.min.css">
+
+    <!-- Custom Css -->
+    <link rel="stylesheet" type="text/css" href="assets/css/main.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/kyc-2.css">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" href="assets/images/favicon.png">
+    <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/images/icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/images/icon-114x114.png">
+
+
+  </head>
+  <body>
+
+    <div class="ugf-nav">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 offset-lg-2">
+            <div class="navigation">
+              <div class="logo">
+                <a href="../index.html"><img src="assets/images/logo-dark.png" class="img-fluid" alt=""><span>KYC</span></a>
+              </div>
+              <div class="nav-btns">
+                <a href="https://NightTrader.exchange" class="back"><span class="text">Back to</span> Exchange</a>
+                <a href="https://support.nighttrader.exchange" class="get">Get Support</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ugf-bg ufg-main-container">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 offset-lg-2 p-sm-0">
+            <div class="ugf-form">
+              <form action="kyc2submit.php" method="post" id="commentForm" enctype="multipart/form-data">
+                <div class="input-block">
+                  <h4>Personal Information</h4>
+                  <div class="row">
+                    <div class="col-md-6 p-sm-0">
+                      <div class="form-group">
+                        <label for="inputFname">First Name</label>
+                        <input type="text" name="fName" class="form-control" id="inputFname" placeholder="e.g. Robert" required>
+                      </div>
+                    </div>
+                    <div class="col-md-6 p-sm-0">
+                      <div class="form-group">
+                        <label for="inputLname">Last Name</label>
+                        <input type="text" name="lName" class="form-control" id="inputLname" placeholder="e.g. Smith" required>
+                      </div>
+                    </div>
+                    <div class="col-md-6 p-sm-0">
+                        <div class="form-group">
+                        <label for="inputEmail">Email Address</label>
+                        <input type="email" name="email" class="form-control" id="inputEmail" placeholder="e.g. youremail@gmail.com" required>
+                      </div>
+                    </div>
+                    <div class="col-md-6 p-sm-0">
+                      <div class="form-group country-select">
+                        <label for="inputCountry">Country of Nationality</label>
+                        <div class="select-input choose-country">
+                          <span></span>
+                            <select id="inputCountry" name="Nationality" class="form-control" required >
+                              <option value="">Country</option>
+                              <option value="USA">USA</option>
+                              <option value="Russia">Russia</option>
+                              <option value="China">China</option>
+                              <option value="England">England</option>
+                              <option value="France">France</option>
+                              <option value="Germany">Germany</option>
+                              <option value="Spain">Spain</option>
+                              <option value="Netherland">Netherland</option>
+                              <option value="Singapur">Singapur</option>
+                              <option value="Other">Other</option>
+                            </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6 p-sm-0">
+                      <div class="form-group">
+                        <label for="inputDate">Date of Birth</label>
+                        <div class="birth-date">
+                          <div class="select-input birth-date-input">
+                            <span></span>
+                            <select id="inputDate" name="dobDate" class="form-control" required>
+                              <option value="">Date</option>
+                              <option value="01">01</option>
+                              <option value="02">02</option>
+                              <option value="03">03</option>
+                              <option value="04">04</option>
+                              <option value="05">05</option>
+                              <option value="06">06</option>
+                              <option value="07">07</option>
+                              <option value="08">08</option>
+                              <option value="09">09</option>
+                              <option value="10">10</option>
+                              <option value="11">11</option>
+                              <option value="12">12</option>
+                              <option value="13">13</option>
+                              <option value="14">14</option>
+                              <option value="15">15</option>
+                              <option value="16">16</option>
+                              <option value="17">17</option>
+                              <option value="18">18</option>
+                              <option value="19">19</option>
+                              <option value="20">20</option>
+                              <option value="21">21</option>
+                              <option value="22">22</option>
+                              <option value="23">23</option>
+                              <option value="24">24</option>
+                              <option value="25">25</option>
+                              <option value="26">26</option>
+                              <option value="27">27</option>
+                              <option value="28">28</option>
+                              <option value="29">29</option>
+                              <option value="30">30</option>
+                              <option value="31">31</option>
+                            </select>
+                          </div>
+                          <div class="select-input birth-date-input">
+                            <span></span>
+                            <select id="inputDate" name="dobMonth" class="form-control" required>
+                              <option value="">Month</option>
+                              <option value="01">01</option>
+                              <option value="02">02</option>
+                              <option value="03">03</option>
+                              <option value="04">04</option>
+                              <option value="05">05</option>
+                              <option value="06">06</option>
+                              <option value="07">07</option>
+                              <option value="08">08</option>
+                              <option value="09">09</option>
+                              <option value="10">10</option>
+                              <option value="11">11</option>
+                              <option value="12">12</option>
+                            </select>
+                          </div>
+                          <div class="select-input birth-date-input">
+                            <span></span>
+                            <select id="inputDate" name="dobYear" class="form-control" required>
+                            <option value="Year">Year</option>
+                            <option value="1971">1971</option>
+                            <option value="1972">1972</option>
+                            <option value="1973">1973</option>
+                            <option value="1974">1974</option>
+                            <option value="1975">1975</option>
+                            <option value="1976">1976</option>
+                            <option value="1977">1977</option>
+                            <option value="1978">1978</option>
+                            <option value="1979">1979</option>
+                            <option value="1980">1980</option>
+                            <option value="1981">1981</option>
+                            <option value="1982">1982</option>
+                            <option value="1983">1983</option>
+                            <option value="1984">1984</option>
+                            <option value="1985">1985</option>
+                            <option value="1986">1986</option>
+                            <option value="1987">1987</option>
+                            <option value="1988">1988</option>
+                            <option value="1989">1989</option>
+                            <option value="1990">1990</option>
+                            <option value="1991">1991</option>
+                            <option value="1992">1992</option>
+                            <option value="1993">1993</option>
+                            <option value="1994">1994</option>
+                            <option value="1995">1995</option>
+                            <option value="1996">1996</option>
+                            <option value="1997">1997</option>
+                            <option value="1998">1998</option>
+                            <option value="1999">1999</option>
+                            <option value="2000">2000</option>
+                            <option value="2001">2001</option>
+                            <option value="2002">2002</option>
+                            <option value="2003">2003</option>
+                            <option value="2004">2004</option>
+                            <option value="2005">2005</option>
+                            <option value="2006">2006</option>
+                            <option value="2007">2007</option>
+                            <option value="2008">2008</option>
+                            <option value="2009">2009</option>
+                            <option value="2010">2010</option>
+                          </select>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6 p-sm-0">
+                      <div class="form-group country-select">
+                        <label for="inputCountry">Country of Residence</label>
+                        <div class="select-input choose-country">
+                          <span></span>
+                            <select id="inputCountry" name="country" class="form-control" required>
+                              <option value="">Country</option>
+                              <option value="USA">USA</option>
+                              <option value="Russia">Russia</option>
+                              <option value="China">China</option>
+                              <option value="England">England</option>
+                              <option value="France">France</option>
+                              <option value="Germany">Germany</option>
+                              <option value="Spain">Spain</option>
+                              <option value="Netherland">Netherland</option>
+                              <option value="Singapur">Singapur</option>
+                            <option value="Other">Other</option>
+                            </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6 p-sm-0">
+                      <div class="form-group">
+                        <label for="state">State/Province</label>
+                        <input type="text" class="form-control" name="state" id="state" placeholder="e.g. Smith" required>
+                      </div>
+                    </div>
+                    <div class="col-md-6 p-sm-0">
+                      <div class="form-group">
+                        <label for="address1">Address Line 1</label>
+                        <input type="text" class="form-control" name="address" id="address1" placeholder="e.g. 2707 Par Drive" required>
+                      </div>
+                    </div>
+                    <div class="col-md-6 p-sm-0">
+                      <div class="form-group">
+                        <label for="address2">Address Line 2</label>
+                        <input type="text" class="form-control" name="address2" id="address2" placeholder="e.g. Los Angeles, CA 90013">
+                      </div>
+                    </div>
+                    <div class="col-md-6 p-sm-0">
+                      <div class="form-group">
+                        <label for="city">City</label>
+                        <input type="text" class="form-control" name="city" id="city" placeholder="e.g. New York" required>
+                      </div>
+                    </div>
+                    <div class="col-md-6 p-sm-0">
+                      <div class="form-group">
+                        <label for="zip">Post Code</label>
+                        <input type="text" class="form-control" name="postcode" id="zip" placeholder="e.g. 0000" required>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="">Gender</label>
+                    <div class="check-gender">
+                      <div class="custom-radio">
+                        <input type="radio" name="gender" class="custom-control-input" id="Gmale" value="Male" required>
+                        <label class="custom-control-label" for="Gmale">Male</label>
+                      </div>
+                      <div class="custom-radio">
+                        <input type="radio" name="gender" class="custom-control-input" id="Gfemale" value="Female" required>
+                        <label class="custom-control-label" for="Gfemale">Female</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="input-block">
+                  <h4>Personal Documents</h4>
+                  <p>Upload any of the following personal document.</p>
+                  <div class="documents-upload-wrap">
+                    <div class="label">Select Document type</div>
+                    <ul class="nav nav-tabs nav-pills" id="pills-tab" role="tablist">
+                      <li class="nav-item" role="presentation">
+                        <a class="nav-link active" id="passport-tab" data-bs-toggle="pill" href="#passport" role="tab" aria-controls="passport" aria-selected="true"><img src="assets/images/passport.png" alt="">passport</a>
+                      </li>
+                      <li class="nav-item" role="presentation">
+                        <a class="nav-link" id="nid-tab" data-bs-toggle="pill" href="#nid" role="tab" aria-controls="nid" aria-selected="false"><img src="assets/images/nid.png" alt="">National id</a>
+                      </li>
+                      <li class="nav-item" role="presentation">
+                        <a class="nav-link" id="driver-tab" data-bs-toggle="pill" href="#driver" role="tab" aria-controls="driver" aria-selected="false"><img src="assets/images/driving.png" alt="">Driver’s License</a>
+                      </li>
+                    </ul>
+                    <div class="tab-content" id="pills-tabContent">
+                      <div class="tab-pane fade show active" id="passport" role="tabpanel" aria-labelledby="home-tab">
+                        <div class="documents-upload">
+                          <div class="upload-item">
+                            <input type="file" id="input1" name="documents[]" class="input-file" accept="image/*" required hidden />
+                            <label class="btn-upload" for="input1" role="button">
+                              <img src="assets/images/cloud.png">
+                              <div id="p-input1" class="preview-box"></div>
+                            </label>
+                            <div class="upload-direction"><span class="text">Passport Cover</span><a href="#"><img src="assets/images/download.png" alt=""></a></div>
+                          </div>
+                          <div class="upload-item">
+                            <input type="file" id="input2" name="documents[]" class="input-file" accept="image/*" required hidden />
+                            <label class="btn-upload" for="input2" role="button">
+                              <img src="assets/images/cloud.png">
+                              <div  id="p-input2" class="preview-box"></div>
+                            </label>
+                            <div class="upload-direction"><span class="text">Passport Data Page</span><a href="#"><img src="assets/images/download.png" alt=""></a></div>
+                          </div>
+                          <div class="upload-item">
+                            <input type="file" id="input3" name="documents[]" class="input-file" accept="image/*" required hidden />
+                            <label class="btn-upload" for="input3" role="button">
+                              <img src="assets/images/cloud.png">
+                              <div  id="p-input3" class="preview-box"></div>
+                            </label>
+                            <div class="upload-direction"><span class="text">Selfie With Passport</span><a href="#"><img src="assets/images/download.png" alt=""></a></div>
+                          </div>
+                        </div>
+                        <div class="conditions">
+                          <ul>
+                            <li class="complete">File accepted: JPEG/JPG/PNG (Max size: 250 KB)</li>
+                            <li>Document should be good condition</li>
+                            <li>Document must be  valid period</li>
+                            <li>Face must be clear visible</li>
+                            <li>Note has today’s date</li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="tab-pane fade" id="nid" role="tabpanel" aria-labelledby="nid-tab">
+                        <div class="documents-upload">
+                          <div class="upload-item">
+                            <input type="file" id="input4" name="documents[]" class="input-file" accept="image/*" required hidden />
+                            <label class="btn-upload" for="input4" role="button">
+                              <img src="assets/images/cloud.png">
+                              <div id="p-input4" class="preview-box"></div>
+                            </label>
+                            <div class="upload-direction"><span class="text">National ID Front</span><a href="#"><img src="assets/images/download.png" alt=""></a></div>
+                          </div>
+                          <div class="upload-item">
+                            <input type="file" id="input5" name="documents[]" class="input-file" accept="image/*" required hidden />
+                            <label class="btn-upload" for="input5" role="button">
+                              <img src="assets/images/cloud.png">
+                              <div id="p-input5" class="preview-box"></div>
+                            </label>
+                            <div class="upload-direction"><span class="text">National ID Back</span><a href="#"><img src="assets/images/download.png" alt=""></a></div>
+                          </div>
+                          <div class="upload-item">
+                            <input type="file" id="input6" name="documents[]" class="input-file" accept="image/*" required hidden />
+                            <label class="btn-upload" for="input6" role="button">
+                              <img src="assets/images/cloud.png">
+                              <div id="p-input6" class="preview-box"></div>
+                            </label>
+                            <div class="upload-direction"><span class="text">Selfie With National ID</span><a href="#"><img src="assets/images/download.png" alt=""></a></div>
+                          </div>
+                        </div>
+                        <div class="conditions">
+                          <ul>
+                            <li class="complete">File accepted: JPEG/JPG/PNG (Max size: 250 KB)</li>
+                            <li>Document should be good condition</li>
+                            <li>Document must be  valid period</li>
+                            <li>Face must be clear visible</li>
+                            <li>Note has today’s date</li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="tab-pane fade" id="driver" role="tabpanel" aria-labelledby="driver-tab">
+                        <div class="documents-upload">
+                          <div class="upload-item">
+                            <input type="file" id="input7" name="documents[]" class="input-file" accept="image/*" required hidden />
+                            <label class="btn-upload" for="input7" role="button">
+                              <img src="assets/images/cloud.png">
+                              <div id="p-input7" class="preview-box"></div>
+                            </label>
+                            <div class="upload-direction"><span class="text">License Front</span><a href="#"><img src="assets/images/download.png" alt=""></a></div>
+                          </div>
+                          <div class="upload-item">
+                            <input type="file" id="input8" name="documents[]" class="input-file" accept="image/*" required hidden />
+                            <label class="btn-upload" for="input8" role="button">
+                              <img src="assets/images/cloud.png">
+                              <div id="p-input8" class="preview-box"></div>
+                            </label>
+                            <div class="upload-direction"><span class="text">License Back</span><a href="#"><img src="assets/images/download.png" alt=""></a></div>
+                          </div>
+                          <div class="upload-item">
+                            <input type="file" id="input9" name="documents[]" class="input-file" accept="image/*" required hidden />
+                            <label class="btn-upload" for="input9" role="button">
+                              <img src="assets/images/cloud.png">
+                              <div id="p-input9" class="preview-box"></div>
+                            </label>
+                            <div class="upload-direction"><span class="text">Selfie With License</span><a href="#"><img src="assets/images/download.png" alt=""></a></div>
+                          </div>
+                        </div>
+                        <div class="conditions">
+                          <ul>
+                            <li class="complete">File accepted: JPEG/JPG/PNG (Max size: 250 KB)</li>
+                            <li>Document should be good condition</li>
+                            <li>Document must be  valid period</li>
+                            <li>Face must be clear visible</li>
+                            <li>Note has today’s date</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>  
+                  <div class="form-group">
+                    <div class="custom-checkbox">
+                      <input type="checkbox" name="checkBox" class="custom-control-input" id="customControlValidation1" required>
+                      <label class="custom-control-label" for="customControlValidation1">I accept the <a href="#">Terms &amp; Conditions</a> and <a href="#">Privacy policy</a></label>
+                    </div>
+                  </div>
+                </div>
+                <input type="submit" name="submit" value="Submit Documents" class="btn">
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/jquery.validate.min.js"></script>
+
+    <script src="assets/js/custom.js"></script>
+  </body>
+</html>

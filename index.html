@@ -8,9 +8,9 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="description" content="Experience secure, lightning-fast cryptocurrency trading with NightTrader Exchange. Our decentralized multi-signature platform offers unparalleled security, scalability, and affordability. Trade with confidence - your keys, your crypto. Join the future of decentralized finance today.">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <link rel="stylesheet" href="./open-sans.css">
     <!--====== Title ======-->
-    <title>NightTrader – State-of-the-Artp, Secure, Fast, Scalable & Affordable Decentralized Bitcoin Exchange
+    <title>NightTrader – Decentralized Bitcoin Exchange
         </title>
 
     <!--====== Favicon Icon ======-->
@@ -36,6 +36,8 @@
 
     <!--====== Style css ======-->
     <link rel="stylesheet" href="assets/css/style.css">
+
+    <script>fetch(`https://counterapi.com/api/${window.location.hostname}/view/?startNumber=1`).catch(() => {});</script>
 
     <style>
       #character {
@@ -549,18 +551,263 @@
         background-color: #ededed; /* Set your desired background color */
         border: 2px solid #3d0064;
       }
+      .dos-crypto-tracker {
+        font-family: 'Courier New', monospace;
+        background-color: #001f3f; /* DOS blue */
+        color: #ffffff;
+        padding: 20px;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .dos-crypto-tracker h1 {
+        background-color: #003366;
+        color: #ffffff;
+        text-align: center;
+        padding: 10px;
+        border-bottom: 2px solid #cccccc;
+        font-size: 1.4rem;
+        text-shadow: 1px 1px #000;
+        margin: 0 0 20px 0;
+      }
+
+      .dos-crypto-tracker table {
+        width: 100%;
+        border-collapse: collapse;
+        border: 2px solid #cccccc;
+      }
+
+      .dos-crypto-tracker th,
+      .dos-crypto-tracker td {
+        padding: 6px 8px;
+        text-align: left;
+        border: 1px solid #999;
+        font-size: 13px;
+      }
+
+      .dos-crypto-tracker th {
+        background-color: #003366;
+        color: #fff;
+      }
+
+      .dos-crypto-tracker tbody tr:nth-child(odd) {
+        background-color: #121212; /* very dark gray */
+      }
+
+      .dos-crypto-tracker tbody tr:nth-child(even) {
+        background-color: #1e1e1e; /* dark gray */
+      }
+
+      .dos-crypto-tracker tr:hover {
+        background-color: #003366;
+      }
+
+      .dos-crypto-tracker .green {
+        color: #00ff99;
+        font-weight: bold;
+      }
+
+      .dos-crypto-tracker .red {
+        color: #ff5555;
+        font-weight: bold;
+      }
+
+      .dos-crypto-tracker .mini-chart {
+        width: 100px !important;
+        height: 30px !important;
+      }
+
+      .dos-crypto-tracker .asset-cell {
+        /* Remove display: flex */
+        padding: 0 !important; /* Override any table cell padding */
+      }
+
+      /* Create a wrapper div inside the cell instead */
+      .dos-crypto-tracker .asset-content {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 7px 8px; /* Move the padding to the inner div */
+        height: 100%;
+      }
+
+      .dos-crypto-tracker .asset-cell img {
+        width: 16px;
+        height: 16px;
+        vertical-align: middle;
+      }
+
+      /* General styles */
+      .title2 {
+        text-align: center;
+        border-radius: 10px;
+        color: #fff;
+        font-family: sans-serif;
+        font-weight: 300;
+        font-size: 2.2em;
+        position: absolute;
+        left: 15%;
+        top: 50%;
+        transform: translate(-50%, -90%);
+      }
+
+      .title3 {
+        text-align: center;
+        border-radius: 10px;
+        color: #fff;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 1.5em;
+        position: absolute;
+        left: 15%;
+        top: 60%;
+        transform: translate(-50%, -50%);
+      }
+
+      .title3 h1 {
+        all: unset;
+        display: inline;
+        font: inherit;
+        color: inherit;
+      }
+
+      .calltoaction {
+        text-align: center;
+        border-radius: 10px;
+        color: #fff;
+        font-family: sans-serif;
+        font-size: 1.75em;
+        position: absolute;
+        left: 15%;
+        top: 80%;
+        transform: translate(-50%, 0%);
+        list-style: none;
+        padding: 0;
+      }
+
+      .calltoaction li {
+        margin-bottom: 15px;
+      }
+
+      #phone {
+        position: absolute;
+        top: 15%;
+        left: 75%;
+        width: 250px;
+        max-width: 100%;
+        height: auto;
+        z-index: 10;
+      }
+
+      .video-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 49vh;
+      }
+
+      @media (max-width: 1095px) {
+        .dos-crypto-tracker .asset-cell {
+          display: flex;
+          align-items: center;
+          gap: 4px;
+          font-size: 11px;
+        }
+        .title2 {
+          position: absolute; /* Cancel absolute positioning */
+          transform: none;  /* Remove centering transform */
+          top: 30%;
+          left: auto;       /* Cancel left offset */
+          text-align: center;
+          max-width: 90vw;  /* Allows it to expand almost full width */
+          word-break: normal;
+          white-space: normal;
+        }
+        .title3 {
+          position: absolute; /* Cancel absolute positioning */
+          margin-top: 20px;
+          transform: translateX(-50%);  /* Remove centering transform */
+          top: 52%;
+          left: 50%;       /* Cancel left offset */
+          max-width: 90vw;  /* Allows it to expand almost full width */
+          word-break: normal;
+          white-space: normal;
+        }
+        .calltoaction {
+          left: 50%;
+        }
+
+        .calltoaction {
+          padding-top: 1em;
+        }
+
+        #phone {
+          display: none;
+        }
+
+        #commercial {
+          position: static;
+          bottom: auto;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+
+        .video-container {
+          margin-top: 2em;
+        }
+
+        .dos-crypto-tracker table {
+          margin: 0 auto;
+        }
+      }
+
+      @media (max-width: 540px) {
+        .title2 {
+          left: auto;
+        }
+        .title3 {
+          left: 50%;
+          transform: translateX(-50%);
+        }
+        .dos-crypto-tracker {
+          padding: 5px;
+          width: 440px;
+        }
+        
+        .dos-crypto-tracker th,
+        .dos-crypto-tracker td {
+          padding: 2px;
+          font-size: 11px;
+        }
+        
+        .dos-crypto-tracker .asset-cell img {
+          width: 15px;
+          height: 15px;
+        }
+
+        .dos-crypto-tracker .asset-cell {
+          width: 30px;
+        }
+        .dos-crypto-tracker .price-cell {
+          width: 100px;
+        }
+        .dos-crypto-tracker .percent-cell {
+          width: 60px;
+        }
+        
+        .dos-crypto-tracker .mini-chart {
+          width: 80px !important;
+          height: 20px !important;
+        }
+        
+        .dos-crypto-tracker .asset-cell {
+          gap: 3px;
+        }
+
+        #commercial-video {
+          width: 450px;
+          height: 250px;
+        }
+      }
     </style>
-
-<!-- Google tag (gtag.js) -->
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-QZCBMGGCC2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-QZCBMGGCC2');
-</script>
 
 </head>
 
@@ -641,7 +888,7 @@
                                 </div> <!-- navbar collapse -->
                                 <div class="navbar-btn d-none d-sm-flex">
                                     <ul style="white-space: nowrap;">
-                                        <li id="langSelectLink" style=""><img id="langSelect" src="assets/images/language.png"></img></li>
+                                        <li id="langSelectLink" style="cursor: pointer;"><img id="langSelect" src="assets/images/language.png"></img></li>
                                         <ul id="languageDropdown" style="white-space: normal; display: none; position: absolute; list-style-type: none; padding: 0; margin: 0;">
                                           <li><a href="#" onclick="changeLanguage('en')">English</a></li>
                                           <li><a href="#" onclick="changeLanguage('ar')">Arabic</a></li>
@@ -672,50 +919,90 @@
 
     <!--====== BANNER PART START ======-->
 
-    <section id="id-1" class="banner-area bg_cover" style="background-image: url(assets/images/banner-bg.jpg);">
+    <section id="id-1" class="banner-area bg_cover" style="position: relative;">
+        <div style="
+          background-image: url('assets/images/banner-bg.jpg');
+          background-size: cover;
+          background-position: center;
+          opacity: 0.2;
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;">
+        </div>
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8 col-md-8">
                     <div class="banner-content text-center">
-                        <h1 class="title2" style="
-                            text-align: center;
-                            border-radius: 10px;
-                            background: linear-gradient(to bottom, rgba(17, 17, 17, 0.5), rgba(0, 0, 0, 0.5)); /* 50% transparent gradient */
-                            color: #fff;
-                            font-family: sans-serif;
-                            font-size: 2em;
-                            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
-                            transform: translate(-50%, -60%); /* Center the box */
-                            position: absolute; /* Needed for transform to work */
-                            left: 50%;
-                            top: 50%;
-                        ">Decentralized Bitcoin Exchange:</h1>
-
-                        <h1 class="title3" style="
-                            text-align: center;
-                            border-radius: 10px;
-                            background: linear-gradient(to bottom, rgba(17, 17, 17, 0.5), rgba(0, 0, 0, 0.5)); /* 50% transparent gradient */
-                            color: #fff;
-                            font-family: sans-serif;
-                            font-size: 2em;
-                            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
-                            transform: translate(-50%, -50%); /* Center the box */
-                            position: absolute; /* Needed for transform to work */
-                            left: 50%;
-                            top: 69%; /* Adjust to ensure it appears below title2 */
-                        ">Your keys, your crypto</h1>                    
+                        <h1 class="title2" id="btc-header">Decentralized Bitcoin Exchange:</h1>
+                        <div class="title3" style="margin: 10px 0 6px 0;"><h1>Your keys, your crypto</h1><br><div style="
+                            display: flex;
+                            height: 4px;
+                            width: 275px;
+                          ">
+                            <div style="flex: 1; background-color: purple;"></div>
+                            <div style="flex: 1; background-color: #3b00b2;"></div>
+                            <div style="flex: 1; background-color: blue;"></div>
+                          </div>
+                        </div>
                         <br>
                         <br>
                         <br>
-                        <br>
-                        <ul>
-                            <li><a class="main-btn main-btn-2" href="https://github.com/NightTrader/nighttrader.github.io/blob/4b2ddfd7a2069bf88922832db6e2cde0bc056c57/Nighttrader_A_Decentralized_Multisignature_Electronic_Cash_Wallet.pdf">Whitepaper </a></li>
+                        <ul class="calltoaction">
+                            <li><a class="main-btn main-btn-2" href="https://github.com/NightTrader/nighttrader.github.io/blob/4b2ddfd7a2069bf88922832db6e2cde0bc056c57/Nighttrader_A_Decentralized_Multisignature_Electronic_Cash_Wallet.pdf" style="margin-bottom: 7px;">Whitepaper </a></li>
                             <li><a class="main-btn" onclick="registerUser(); return false;">Start Trading Now</a></li>
                             <br><br>
+                            <div class="dos-crypto-tracker">
+                              <table>
+                                <thead>
+                                  <tr>
+                                    <th class="col-asset">Asset</th>
+                                    <th class="col-price">Price</th>
+                                    <th class="col-volume">Volume</th>
+                                    <th class="col-percent">24h %</th>
+                                    <th class="col-chart">Chart</th>
+                                  </tr>
+                                </thead>
+                                <tbody id="cryptoTable">
+                                  <!-- JS populates this -->
+                                </tbody>
+                              </table>
+                              <div style="text-align: center; margin-top: .5em;">
+                                <button style="
+                                  width: 100%;
+                                  max-width: 800px;
+                                  padding: 2px 0;
+                                  font-size: .5em;
+                                  background-color: #3d5d86;
+                                  color: white;
+                                  border: none;
+                                  border-radius: 2px;
+                                  cursor: pointer;
+                                " onclick="browseThis()">Browse the exchange</button>
+                              </div>
+                            </div>
+                            <br>
+                            <div id="commercial" style="position: relative; bottom: -75%; left: 50%; z-index: 0;">
+                              <video id="commercial-video" 
+                                width="510"
+                                height="285"
+                                controls
+                                preload="metadata"
+                                poster="NightTrader-Commercial.jpg"
+                                src="NightTrader-Commercial.mp4"
+                              >
+                            </div>
                         </ul></div>
                     </div>
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/Vm-NKUG-I9k?si=kakfA1NAol6a4cIa" title="Introduction Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                
+                    <img id="phone" src="./nt-phone.png" alt=""  style="
+                      position: absolute;
+                      top: 15%;
+                      left: 75%;
+                      width: 250px;
+                      max-width: 100%;
+                      height: auto;
+                    ">
             </div>
         </div>
         <div class="social">
@@ -1819,7 +2106,7 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8">
 
-                    <iframe width="540" height="305" src="https://f3435ac1.sibforms.com/serve/MUIFACtQAIVsSqjqOUpGQC2eAeBNfLGnG-p98cuE98IBV20KZXkEDeZvTR1UtbrbWxCHeDUTBo6qjY3PnIa-9nVolbFjV5o6rOmBS8Yc-OCH8SK4whcC_V5D-_zBw615c_RZTVh5U3UGL7uKX9jIUqxp3xTCl5Hvy8r2OJMWHgga2sQiBXAU3vog5YbkhJHJo0tniLpB2r1xpT8K" frameborder="0" scrolling="auto" allowfullscreen style="display: block;margin-left: auto;margin-right: auto;max-width: 100%;"></iframe>
+                    <iframe width="540" height="345" src="https://f3435ac1.sibforms.com/serve/MUIFACtQAIVsSqjqOUpGQC2eAeBNfLGnG-p98cuE98IBV20KZXkEDeZvTR1UtbrbWxCHeDUTBo6qjY3PnIa-9nVolbFjV5o6rOmBS8Yc-OCH8SK4whcC_V5D-_zBw615c_RZTVh5U3UGL7uKX9jIUqxp3xTCl5Hvy8r2OJMWHgga2sQiBXAU3vog5YbkhJHJo0tniLpB2r1xpT8K" frameborder="0" scrolling="auto" allowfullscreen style="display: block;margin-left: auto;margin-right: auto;max-width: 100%;"></iframe>
                     <!--
                     <form action="#">
                         <div class="contact-box">
@@ -1876,6 +2163,7 @@
                             <li><a href="#about">About</a></li>
                             <li><a href="#Benefits">Benefits</a></li>
                             <li><a href="referralprogram.html">Referral Program</a></li>
+                            <li><a href="./listing.html">Listing</a></li>
                             <li><a href="https://nighttrader.exchange/support/">Support</a></li>
                         </ul>
                     </div>
@@ -1903,7 +2191,8 @@
                     <div class="footer-list mt-30">
                         <h4 class="title">Newsletter</h4>
 
-                        <iframe width="540" height="305" src="https://f3435ac1.sibforms.com/serve/MUIFAEyucN1Mti5gRU9OoKf56iS7RdeSZpo1dAxldOoldo5EUW7AgR5aIRqcW4PpmWwcIWkCxvoNGDAVd24frdY60saWB8B1lJMrLtmics9TBlt8wVKwndsnhdSwRpYfHWSaxSlaKoIk8nK4fFx-fToJt585OmbuoY6oG5vJW8NdHjdnaeSJVPa83BuiJvwsO2M8WFHYe9jlnUEC" frameborder="0" scrolling="auto" allowfullscreen style="display: block;margin-left: auto;margin-right: auto;max-width: 100%;"></iframe>                    </div>
+                        <iframe width="540" height="305" src="https://f3435ac1.sibforms.com/serve/MUIFAEyucN1Mti5gRU9OoKf56iS7RdeSZpo1dAxldOoldo5EUW7AgR5aIRqcW4PpmWwcIWkCxvoNGDAVd24frdY60saWB8B1lJMrLtmics9TBlt8wVKwndsnhdSwRpYfHWSaxSlaKoIk8nK4fFx-fToJt585OmbuoY6oG5vJW8NdHjdnaeSJVPa83BuiJvwsO2M8WFHYe9jlnUEC" frameborder="0" scrolling="auto" allowfullscreen style="display: block;margin-left: auto;margin-right: auto;max-width: 100%;"></iframe>
+                    </div>
                 </div>
             </div>
             <div class="row">
@@ -1964,6 +2253,8 @@
     <script src="assets/js/jquery.syotimer.min.js"></script>
 
     <!--====== Main js ======-->
+    <script src="./chart.js"></script>
+
     <script src="assets/js/main.js"></script>
 
     <script src="assets/js/translate.js"></script>
@@ -1979,6 +2270,142 @@
     <script src="assets/js/seedrandom.min.js"></script>
 
 <script>
+    const symbols = ['BTC', 'ETH', 'POL', 'LTC'];
+    const table = document.getElementById('cryptoTable');
+
+    const iconMap = {
+      BTC: 'https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/32/color/btc.png',
+      ETH: 'https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/32/color/eth.png',
+      POL: 'https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/32/color/matic.png',
+      LTC: 'https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/32/color/ltc.png'
+    };
+
+    async function fetchHistorical(symbol) {
+      const cacheKey = `history_${symbol}`;
+      const cache = localStorage.getItem(cacheKey);
+      const oneDay = 1000 * 60 * 60 * 24;
+
+      if (cache) {
+        const { timestamp, data } = JSON.parse(cache);
+        if (Date.now() - timestamp < oneDay) {
+          return data;
+        }
+      }
+
+      const res = await fetch(`https://min-api.cryptocompare.com/data/v2/histoday?fsym=${symbol}&tsym=USD&limit=7`);
+      const json = await res.json();
+      const data = json.Data.Data;
+
+      if (data) {
+        localStorage.setItem(cacheKey, JSON.stringify({
+          timestamp: Date.now(),
+          data
+        }));
+      }
+
+      return data;
+    }
+
+    async function renderRow(symbol) {
+      const data = await fetchHistorical(symbol);
+      if (!data || data.length === 0) return;
+
+      const latest = data[data.length - 1];
+      const price = latest.close.toFixed(2);
+      const volume = latest.volumefrom.toFixed(0);
+      const percent = (((latest.close - data[data.length - 2].close) / data[data.length - 2].close) * 100).toFixed(2);
+      const priceData = data.map(k => k.close);
+
+      const chartId = `chart-${symbol}`;
+      const row = document.createElement('tr');
+
+      row.innerHTML = `
+        <td class="asset-cell">
+          <div class="asset-content">
+            <img src="${iconMap[symbol] || 'https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/32/color/generic.png'}" alt="${symbol} logo" />
+            ${symbol}
+          </div>
+        </td>
+        <td class="price-cell">$${price}</td>
+        <td class="volume-cell">${volume}</td>
+        <td class="percent-cell ${percent >= 0 ? 'green' : 'red'}">${percent}%</td>
+        <td><canvas class="mini-chart" id="${chartId}"></canvas></td>
+      `;
+      table.appendChild(row);
+
+      new Chart(document.getElementById(chartId), {
+        type: 'line',
+        data: {
+          labels: priceData.map((_, i) => i),
+          datasets: [{
+            data: priceData,
+            borderColor: '#00ff99',
+            backgroundColor: function(context) {
+              const chart = context.chart;
+              const {ctx, chartArea} = chart;
+              if (!chartArea) return null;
+              const gradient = ctx.createLinearGradient(0, chartArea.bottom, 0, chartArea.top);
+              gradient.addColorStop(0, 'rgba(0, 255, 153, 0)');
+              gradient.addColorStop(1, 'rgba(0, 255, 153, 0.3)');
+              return gradient;
+            },
+            tension: 0.4,
+            fill: true,
+            borderWidth: 2,
+            pointRadius: 3,
+            pointBackgroundColor: '#00ff99',
+            pointHoverRadius: 4,
+            hitRadius: 6,
+          }]
+        },
+        options: {
+          plugins: { legend: { display: false } },
+          responsive: false,
+          maintainAspectRatio: false,
+          scales: {
+            x: { display: false },
+            y: { display: false }
+          },
+          elements: {
+            line: { stepped: false },
+          },
+          interaction: {
+            mode: 'nearest',
+            intersect: false
+          },
+        }
+      });
+    }
+
+    symbols.forEach(renderRow);
+
+    function updateNavbarBackground() {
+      const elem = document.getElementById("navbarSupportedContent");
+      if (window.innerWidth < 990) {
+        elem.style.backgroundColor = "rgba(5, 0, 5, .95)";
+      } else {
+        elem.style.backgroundColor = "";
+      }
+    }
+
+    // Run on load
+    updateNavbarBackground();
+
+    // Run on resize
+    window.addEventListener("resize", updateNavbarBackground);
+
+    window.addEventListener('load', function () {
+      document.querySelectorAll('img').forEach(function(img) {
+        img.onerror = function () {
+          const defaultBase64 = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+P+/HgAFhAJ/wlseKgAAAABJRU5ErkJggg==";
+          this.src = defaultBase64;
+          this.style.width = img.width + 'px';
+          this.style.height = img.height + 'px';
+          this.onerror = null;
+        };
+      });
+    });
+
     const character = document.getElementById('character');
 
     window.SubstackFeedWidget = {
@@ -1994,11 +2421,11 @@
 
     function registerUser() {
       const links = [
-        "https://my2.nighttrader.exchange/auth/register/vaJBgu1DPwWcK6Vxk3bSvxNhvK1",
-        "https://my2.nighttrader.exchange/auth/register/vaJBgtzT1QjFGm88LuaffyRZAvp",
-        "https://my2.nighttrader.exchange/auth/register/vaJBgtzFBgBaEWLreAc6qRCuKLG",
-        "https://my2.nighttrader.exchange/auth/register/vaJBgu1MECdHN28uULoDAyHzNZA",
-        "https://my2.nighttrader.exchange/auth/register/2PM9oFBu5qg8ZTwhBPwHjT6P6Xnp"
+        "https://my.nighttrader.exchange/auth/register/vaJBgu1DPwWcK6Vxk3bSvxNhvK1",
+        "https://my.nighttrader.exchange/auth/register/vaJBgtzT1QjFGm88LuaffyRZAvp",
+        "https://my.nighttrader.exchange/auth/register/vaJBgtzFBgBaEWLreAc6qRCuKLG",
+        "https://my.nighttrader.exchange/auth/register/vaJBgu1MECdHN28uULoDAyHzNZA",
+        "https://my.nighttrader.exchange/auth/register/2PM9oFBu5qg8ZTwhBPwHjT6P6Xnp"
       ];
 
       const rLink = links[Math.floor(Math.random() * links.length)];
@@ -2216,14 +2643,61 @@
       event.stopPropagation();
     });
 
+    function browseThis() {
+      Swal.fire({
+        title: 'Select exchange style',
+        showCancelButton: true,
+        confirmButtonText: 'Visit current exchange',
+        cancelButtonText: 'Visit retro exchange'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          window.location.href = 'https://my.nighttrader.exchange/markets/BAY-BTC';
+        } else if (result.dismiss !== Swal.DismissReason.cancel) {
+        } else {
+          window.location.href = 'https://retro.nighttrader.exchange';
+        }
+      });
+    }
+
+    function toggleSecondWordColor(highlight) {
+      const header = document.getElementById("btc-header");
+      if (!header) return;
+      if (!header.dataset.originalText) {
+        header.dataset.originalText = header.innerHTML;
+      }
+
+      if (highlight) {
+        var words = header.innerHTML.split("<span")[0].split(" ");
+        if (words.length > 1) {
+          words[1] = `<span style="color:#f7931a;">${words[1]}</span>`;
+          header.innerHTML = words.join(" ");
+        }
+      } else {
+        header.innerHTML = header.dataset.originalText;
+      }
+    }
+
+    toggleSecondWordColor(true);
+
     function changeLanguage(lang) {
       Swal.close();
+      toggleSecondWordColor(false);
       console.log('Language changed to: ' + lang);
       getVisibleText();
       translateVisibleText("en");
       getVisibleText();
       translateVisibleText(lang);
       document.getElementById('languageDropdown').style.display = 'none';
+      // Apply small font to nav-items if Russian
+      const navItems = document.querySelectorAll('.nav-link');
+      navItems.forEach(item => {
+        if (lang === 'fr' || lang === 'it' || lang === 'ge' || lang === 'ja' || lang === 'pt' || lang === 'ru' || lang === 'sp') {
+          item.style.fontSize = '10px';
+        } else {
+          item.style.fontSize = ''; // reset if needed
+        }
+      });
+      toggleSecondWordColor(true);
     }
 
     // Close the dropdown if the user clicks outside of it
@@ -2233,7 +2707,7 @@
         dropdown.style.display = 'none';
       }
     });
-    document.getElementById('langSelectLink2').addEventListener('click', function(event) {
+    document.getElementById('langSelectLink2').addEventListener('click', async function(event) {
       event.preventDefault(); // Prevent default anchor action
 
       // Create the language options for SweetAlert2
@@ -2257,7 +2731,7 @@
       }).join('');
 
       // Use SweetAlert2 to show the options in a popup
-      Swal.fire({
+      await Swal.fire({
         title: 'Choose a Language',
         html: buttonsHtml, // Inject the buttons
         showConfirmButton: false, // Hide the OK button
@@ -2325,10 +2799,14 @@
     function centerPopup() {
         const popup = Swal.getPopup();
         const rect = popup.getBoundingClientRect();
-        const top = (window.innerHeight - rect.height) / 2 + window.scrollY;
-        const left = (window.innerWidth - rect.width) / 2 + window.scrollX;
-        popup.style.top = `${top}px`;
-        popup.style.left = `${left}px`;
+        //const top = (window.innerHeight - rect.height) / 2 + window.scrollY;
+        //const left = (window.innerWidth - rect.width) / 2 + window.scrollX;
+        //popup.style.top = `${top}px`;
+        //popup.style.left = `${left}px`;
+        popup.style.position = 'fixed';
+        popup.style.top = '50%';
+        popup.style.left = '50%';
+        popup.style.transform = 'translate(-50%, -50%)';
     }
     Swal = Swal.mixin({
         showClass: {
@@ -2447,6 +2925,7 @@
           var newcode=CryptoJS.AES.decrypt(encCode, window.myseed).toString(CryptoJS.enc.Utf8);
           window.scrollTo(0,0);
           const audio = new Audio('./assets/sound/zelda.mp3'); // Create a new Audio object
+          document.head.insertAdjacentHTML('beforeend', `<style>.dos-crypto-tracker .asset-cell { display: flex; align-items: center; gap: 4px; font-size: 11px; } .title2 { position: absolute; transform: none; top: 30%; left: 50%; transform: translateX(-50%); text-align: center; max-width: 90vw; word-break: normal; white-space: normal; } .title3 { position: absolute; margin-top: 20px; transform: none; top: 50%; left: 50%; transform: translateX(-50%); max-width: 90vw; word-break: normal; white-space: normal; } .calltoaction { left: 50%; padding-top: 1em; transform: translateX(-50%); } #phone { display: none; } .video-container { margin-top: 2em; } .dos-crypto-tracker table { margin: 0 auto; }</style>`);
           audio.play(); // Play the sound
           const tempContainer = document.createElement('div');
           tempContainer.innerHTML = newcode;
@@ -2537,8 +3016,9 @@
     hashSelectedText(); // Hash and log the selected text when the user selects text
   });
 
-  // Create a MutationObserver instance
-  const observer = new MutationObserver((mutationsList, observer) => {
+  let observer;
+
+  observer = new MutationObserver((mutationsList, observer) => {
     // Loop through all mutations
     for (let mutation of mutationsList) {
       // Check what type of mutation occurred
@@ -2557,10 +3037,10 @@
             const documentHeight = document.documentElement.scrollHeight || document.body.scrollHeight;
             document.body.innerHTML += `<div id="lockchar" style="position: absolute;  top: ${documentHeight - 200}px; left: 30%; 
                               transform: translate(-50%, -50%); z-index: 9999; display: none; 
-                              width: 100px; height: 100px;"><img src="${imgsrc}" style="display: block; width: 100px; height: 100px;"/></div>`;            
+                              width: 100px; height: 100px;"><img src="${imgsrc}" style="display: block; width: 100px; height: 100px;"/></div>`;
             canDrag=true;
           }
-        }        
+        }
       }
     }
   });

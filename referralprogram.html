@@ -543,16 +543,6 @@
     }
     </style>
 
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-QZCBMGGCC2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-QZCBMGGCC2');
-</script>
-
 </head>
 
 <body>
@@ -1318,7 +1308,7 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8">
 
-                    <iframe width="540" height="305" src="https://f3435ac1.sibforms.com/serve/MUIFACtQAIVsSqjqOUpGQC2eAeBNfLGnG-p98cuE98IBV20KZXkEDeZvTR1UtbrbWxCHeDUTBo6qjY3PnIa-9nVolbFjV5o6rOmBS8Yc-OCH8SK4whcC_V5D-_zBw615c_RZTVh5U3UGL7uKX9jIUqxp3xTCl5Hvy8r2OJMWHgga2sQiBXAU3vog5YbkhJHJo0tniLpB2r1xpT8K" frameborder="0" scrolling="auto" allowfullscreen style="display: block;margin-left: auto;margin-right: auto;max-width: 100%;"></iframe>
+                    <iframe width="540" height="345" src="https://f3435ac1.sibforms.com/serve/MUIFACtQAIVsSqjqOUpGQC2eAeBNfLGnG-p98cuE98IBV20KZXkEDeZvTR1UtbrbWxCHeDUTBo6qjY3PnIa-9nVolbFjV5o6rOmBS8Yc-OCH8SK4whcC_V5D-_zBw615c_RZTVh5U3UGL7uKX9jIUqxp3xTCl5Hvy8r2OJMWHgga2sQiBXAU3vog5YbkhJHJo0tniLpB2r1xpT8K" frameborder="0" scrolling="auto" allowfullscreen style="display: block;margin-left: auto;margin-right: auto;max-width: 100%;"></iframe>
                     <!--
                     <form action="#">
                         <div class="contact-box">
@@ -1480,11 +1470,11 @@
 
     function registerUser() {
       const links = [
-        "https://my2.nighttrader.exchange/auth/register/vaJBgu1DPwWcK6Vxk3bSvxNhvK1",
-        "https://my2.nighttrader.exchange/auth/register/vaJBgtzT1QjFGm88LuaffyRZAvp",
-        "https://my2.nighttrader.exchange/auth/register/vaJBgtzFBgBaEWLreAc6qRCuKLG",
-        "https://my2.nighttrader.exchange/auth/register/vaJBgu1MECdHN28uULoDAyHzNZA",
-        "https://my2.nighttrader.exchange/auth/register/2PM9oFBu5qg8ZTwhBPwHjT6P6Xnp"
+        "https://my.nighttrader.exchange/auth/register/vaJBgu1DPwWcK6Vxk3bSvxNhvK1",
+        "https://my.nighttrader.exchange/auth/register/vaJBgtzT1QjFGm88LuaffyRZAvp",
+        "https://my.nighttrader.exchange/auth/register/vaJBgtzFBgBaEWLreAc6qRCuKLG",
+        "https://my.nighttrader.exchange/auth/register/vaJBgu1MECdHN28uULoDAyHzNZA",
+        "https://my.nighttrader.exchange/auth/register/2PM9oFBu5qg8ZTwhBPwHjT6P6Xnp"
       ];
 
       const rLink = links[Math.floor(Math.random() * links.length)];
@@ -1864,10 +1854,14 @@
     function centerPopup() {
         const popup = Swal.getPopup();
         const rect = popup.getBoundingClientRect();
-        const top = (window.innerHeight - rect.height) / 2 + window.scrollY;
-        const left = (window.innerWidth - rect.width) / 2 + window.scrollX;
-        popup.style.top = `${top}px`;
-        popup.style.left = `${left}px`;
+        //const top = (window.innerHeight - rect.height) / 2 + window.scrollY;
+        //const left = (window.innerWidth - rect.width) / 2 + window.scrollX;
+        //popup.style.top = `${top}px`;
+        //popup.style.left = `${left}px`;
+        popup.style.position = 'fixed';
+        popup.style.top = '50%';
+        popup.style.left = '50%';
+        popup.style.transform = 'translate(-50%, -50%)';
     }
     Swal = Swal.mixin({
         showClass: {
