@@ -2853,13 +2853,23 @@
     }
     window.activatePuzzle = 0;
     // Event listener to track clicks on the image
-    document.getElementById('owlGif').addEventListener('click', () => {
+    document.getElementById('owlGif').addEventListener('click', async () => {
       clickCount++;  // Increment the click count on each click
       if (clickCount === 1) {
         // Display the first GIF
         switchImage(owlGif1.src);
       } else if (Crypto.SHA256(clickCount+"It's what is within that counts") == "7483416ef7d088e7a0d488d80c0aee01c8140d19ff9e466f46bca17fe65af685") {
-        Swal.fire("All the puzzles on this page have been claimed. Check back for updates for any future puzzles. You can still solve these for fun in the meantime! Also please join the community to learn more. Thank you.");
+        await Swal.fire({
+          title: 'Notice',
+          text: 'All the puzzles on this page have been claimed. Check back for updates for any future puzzles. You can still solve these for fun in the meantime! Also please join the community to learn more. Thank you.',
+          icon: 'info',
+          confirmButtonText: 'OK',
+          allowOutsideClick: false, // disallow clicking outside to close
+          allowEscapeKey: false,    // disallow Esc to close
+          showCloseButton: false,   // no X in corner
+          showCancelButton: false,
+          focusConfirm: true
+        });
         console.log(Crypto.SHA256(clickCount))
         switchImage(owlGif2.src);
         window.activatePuzzle = 1;

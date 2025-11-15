@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STEPIC Steganography Decoder</title>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.container {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    max-width: 700px;
+    width: 100%;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 28px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 30px;
+    font-size: 14px;
+}
+
+.upload-area {
+    border: 2px dashed #667eea;
+    border-radius: 12px;
+    padding: 40px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: #f8f9ff;
+}
+
+.upload-area:hover {
+    border-color: #764ba2;
+    background: #f0f2ff;
+}
+
+.upload-area.dragover {
+    border-color: #764ba2;
+    background: #e8ebff;
+    transform: scale(1.02);
+}
+
+.upload-icon {
+    font-size: 48px;
+    color: #667eea;
+    margin-bottom: 15px;
+}
+
+.upload-text {
+    color: #333;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.upload-hint {
+    color: #666;
+    font-size: 14px;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.preview {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.preview img {
+    max-width: 200px;
+    max-height: 200px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.progress {
+    display: none;
+    margin-top: 20px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: #e0e0e0;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    width: 0%;
+    transition: width 0.3s ease;
+}
+
+.progress-text {
+    margin-top: 10px;
+    color: #666;
+    font-size: 14px;
+}
+
+.results {
+    display: none;
+    margin-top: 30px;
+}
+
+.result-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.result-title {
+    font-size: 20px;
+    color: #333;
+    font-weight: 600;
+}
+
+.download-btn {
+    background: #667eea;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s ease;
+}
+
+.download-btn:hover {
+    background: #764ba2;
+}
+
+.result-content {
+    background: #f8f9ff;
+    border-radius: 8px;
+    padding: 20px;
+    max-height: 400px;
+    overflow-y: auto;
+    white-space: pre-wrap;
+    word-break: break-all;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.error-message {
+    display: none;
+    background: #ffebee;
+    color: #c62828;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.info-box {
+    background: #e8f5e9;
+    border-left: 4px solid #4caf50;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 0 8px 8px 0;
+    font-size: 14px;
+    color: #2e7d32;
+}
+
+.file-info {
+    display: none;
+    background: #f5f5f5;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.file-info-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.file-info-item:last-child {
+    margin-bottom: 0;
+}
+
+.file-info-label {
+    font-weight: 600;
+    color: #555;
+}
+
+.file-info-value {
+    color: #333;
+}
+
+.encoding-tabs {
+    display: flex;
+    margin-top: 15px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.encoding-tab {
+    padding: 10px 20px;
+    cursor: pointer;
+    border: none;
+    background: none;
+    font-size: 14px;
+    color: #666;
+    transition: all 0.3s ease;
+    border-bottom: 2px solid transparent;
+}
+
+.encoding-tab.active {
+    color: #667eea;
+    border-bottom-color: #667eea;
+}
+
+.encoding-content {
+    display: none;
+    margin-top: 15px;
+}
+
+.encoding-content.active {
+    display: block;
+}
+
+.python-2-warning {
+    background: #fff3cd;
+    color: #856404;
+    padding: 12px;
+    border-radius: 6px;
+    margin-top: 15px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+}
+
+.python-2-warning .icon {
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+.decoder-status {
+    background: #e3f2fd;
+    border-left: 4px solid #2196f3;
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 0 8px 8px 0;
+    font-size: 14px;
+    color: #0d47a1;
+}
+
+.decoder-status strong {
+    display: inline-block;
+    min-width: 150px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>🔍 STEPIC Steganography Decoder</h1>
+    <p class="subtitle">Extract hidden data from Python STEPIC encoded PNG images</p>
+
+    <div class="info-box">
+        <strong>About:</strong> This decoder implements the exact STEPIC algorithm from Python 2.7. It extracts data hidden in the least significant bits of RGB channels and handles byte strings correctly.
+    </div>
+
+    <div class="python-2-warning">
+        <span class="icon">⚠️</span>
+        <span><strong>Note:</strong> This tool decodes data exactly as Python 2.7 would. Hidden data may appear as raw bytes or require specific encoding to display properly.</span>
+    </div>
+
+    <div class="decoder-status">
+        <strong>Status:</strong> <span id="decoderStatus">Ready</span>
+    </div>
+
+    <div class="upload-area" id="uploadArea">
+        <div class="upload-icon">📁</div>
+        <div class="upload-text">Click to upload or drag & drop</div>
+        <div class="upload-hint">Supports STEPIC encoded PNG files</div>
+        <input type="file" id="fileInput" accept=".png,image/png">
+    </div>
+
+    <div class="preview" id="preview"></div>
+
+    <div class="progress" id="progress">
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <div class="progress-text" id="progressText">Analyzing image...</div>
+    </div>
+
+    <div class="file-info" id="fileInfo">
+        <div class="file-info-item">
+            <span class="file-info-label">File Name:</span>
+            <span class="file-info-value" id="fileName">-</span>
+        </div>
+        <div class="file-info-item">
+            <span class="file-info-label">File Size:</span>
+            <span class="file-info-value" id="fileSize">-</span>
+        </div>
+        <div class="file-info-item">
+            <span class="file-info-label">Image Dimensions:</span>
+            <span class="file-info-value" id="imageDimensions">-</span>
+        </div>
+    </div>
+
+    <div class="results" id="results">
+        <div class="result-header">
+            <h3 class="result-title">📄 Extracted Data</h3>
+            <button class="download-btn" id="downloadBtn">Download Raw</button>
+        </div>
+
+        <div class="encoding-tabs">
+            <button class="encoding-tab active" data-encoding="latin1">Latin-1 Text</button>
+            <button class="encoding-tab" data-encoding="hex">Hex Dump</button>
+            <button class="encoding-tab" data-encoding="base64">Base64</button>
+            <button class="encoding-tab" data-encoding="python2">Python 2.7 Bytes</button>
+        </div>
+
+        <div class="encoding-content active" id="latin1-content">
+            <div class="result-content" id="resultContent"></div>
+        </div>
+
+        <div class="encoding-content" id="hex-content">
+            <div class="result-content" id="resultHex"></div>
+        </div>
+
+        <div class="encoding-content" id="base64-content">
+            <div class="result-content" id="resultBase64"></div>
+        </div>
+
+        <div class="encoding-content" id="python2-content">
+            <div class="result-content" id="resultPython2"></div>
+        </div>
+    </div>
+
+    <div class="error-message" id="errorMessage"></div>
+</div>
+
+<script>
+const uploadArea = document.getElementById('uploadArea');
+const fileInput = document.getElementById('fileInput');
+const preview = document.getElementById('preview');
+const progress = document.getElementById('progress');
+const progressFill = document.getElementById('progressFill');
+const progressText = document.getElementById('progressText');
+const results = document.getElementById('results');
+const errorMessage = document.getElementById('errorMessage');
+const fileInfo = document.getElementById('fileInfo');
+const fileName = document.getElementById('fileName');
+const fileSize = document.getElementById('fileSize');
+const imageDimensions = document.getElementById('imageDimensions');
+const downloadBtn = document.getElementById('downloadBtn');
+const decoderStatus = document.getElementById('decoderStatus');
+
+// Encoding tabs
+const encodingTabs = document.querySelectorAll('.encoding-tab');
+const encodingContents = document.querySelectorAll('.encoding-content');
+
+// Extracted data
+let extractedBytes = [];
+let endMarkerFound = false;
+let endMarkerPosition = -1;
+let totalChannels = 0;
+
+// Upload area click handler
+uploadArea.addEventListener('click', () => {
+    fileInput.click();
+});
+
+// Drag and drop handlers
+uploadArea.addEventListener('dragover', (e) => {
+    e.preventDefault();
+    uploadArea.classList.add('dragover');
+});
+
+uploadArea.addEventListener('dragleave', () => {
+    uploadArea.classList.remove('dragover');
+});
+
+uploadArea.addEventListener('drop', (e) => {
+    e.preventDefault();
+    uploadArea.classList.remove('dragover');
+
+    const files = e.dataTransfer.files;
+    if (files.length > 0) {
+        handleFile(files[0]);
+    }
+});
+
+// File input change handler
+fileInput.addEventListener('change', (e) => {
+    if (e.target.files.length > 0) {
+        handleFile(e.target.files[0]);
+    }
+});
+
+// Download button handler
+downloadBtn.addEventListener('click', () => {
+    const blob = new Blob([new Uint8Array(extractedBytes)]);
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'extracted_data.bin';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+});
+
+// Encoding tab handlers
+encodingTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+        // Remove active class from all tabs and contents
+        encodingTabs.forEach(t => t.classList.remove('active'));
+        encodingContents.forEach(c => c.classList.remove('active'));
+
+        // Add active class to clicked tab
+        tab.classList.add('active');
+
+        // Show corresponding content
+        const encoding = tab.dataset.encoding;
+        document.getElementById(`${encoding}-content`).classList.add('active');
+    });
+});
+
+async function handleFile(file) {
+    if (!file.type.match('image/png')) {
+        showError('Please upload a PNG file');
+        return;
+    }
+
+    // Reset previous state
+    results.style.display = 'none';
+    errorMessage.style.display = 'none';
+    progress.style.display = 'block';
+    preview.innerHTML = '';
+    fileInfo.style.display = 'block';
+    extractedBytes = [];
+    endMarkerFound = false;
+    endMarkerPosition = -1;
+    totalChannels = 0;
+
+    // Show file info
+    fileName.textContent = file.name;
+    fileSize.textContent = formatFileSize(file.size);
+
+    try {
+        const arrayBuffer = await file.arrayBuffer();
+        const pngData = new Uint8Array(arrayBuffer);
+        
+        // Verify PNG signature
+        const pngSignature = [0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A];
+        if (!pngSignature.every((byte, i) => pngData[i] === byte)) {
+            throw new Error('Invalid PNG signature');
+        }
+
+        // Create preview
+        const img = document.createElement('img');
+        img.src = URL.createObjectURL(file);
+        await new Promise((resolve, reject) => {
+            img.onload = resolve;
+            img.onerror = reject;
+        });
+
+        imageDimensions.textContent = `${img.width} × ${img.height} px`;
+        preview.innerHTML = '';
+        preview.appendChild(img);
+        URL.revokeObjectURL(img.src);
+
+        // Start decoding
+        await decodePNG(pngData);
+
+    } catch (error) {
+        showError(`Error processing file: ${error.message}`);
+    }
+}
+
+async function decodePNG(pngData) {
+    let offset = 8; // Skip signature
+    const idatChunks = [];
+    let ihdrData = null;
+
+    // Parse PNG chunks
+    while (offset < pngData.length) {
+        const length = (pngData[offset] << 24) | 
+                      (pngData[offset + 1] << 16) |
+                      (pngData[offset + 2] << 8) |
+                      pngData[offset + 3];
+        offset += 4;
+
+        const chunkType = String.fromCharCode(
+            pngData[offset],
+            pngData[offset + 1],
+            pngData[offset + 2],
+            pngData[offset + 3]
+        );
+        offset += 4;
+
+        if (chunkType === 'IHDR') {
+            ihdrData = {
+                width: (pngData[offset] << 24) | 
+                       (pngData[offset + 1] << 16) |
+                       (pngData[offset + 2] << 8) |
+                       pngData[offset + 3],
+                height: (pngData[offset + 4] << 24) |
+                        (pngData[offset + 5] << 16) |
+                        (pngData[offset + 6] << 8) |
+                        pngData[offset + 7],
+                bitDepth: pngData[offset + 8],
+                colorType: pngData[offset + 9],
+                compression: pngData[offset + 10],
+                filter: pngData[offset + 11],
+                interlace: pngData[offset + 12]
+            };
+        }
+        else if (chunkType === 'IDAT') {
+            idatChunks.push(pngData.slice(offset, offset + length));
+        }
+
+        offset += length + 4; // Skip data + CRC
+    }
+
+    if (!ihdrData) {
+        throw new Error('Invalid PNG: No IHDR chunk found');
+    }
+
+    // Decompress IDAT chunks
+    const inflatedData = await decompressIDATData(idatChunks);
+    
+    // Process filters and get raw RGB values
+    const rgbData = processFilters(
+        inflatedData,
+        ihdrData.width,
+        ihdrData.height,
+        ihdrData.colorType === 6 ? 4 : 3 // RGBA or RGB
+    );
+
+    totalChannels = rgbData.length;
+    progressFill.style.width = '50%';
+    progressText.textContent = 'Extracting hidden data...';
+
+    // Extract data using STEPIC algorithm
+    for (let i = 0; i < rgbData.length; i += 9) {
+        if (i + 8 >= rgbData.length) {
+            break;
+        }
+
+        let byte = 0;
+        for (let j = 0; j < 8; j++) {
+            byte = (byte << 1) | (rgbData[i + j] & 1);
+        }
+        
+        extractedBytes.push(byte);
+
+        if (rgbData[i + 8] & 1) {
+            endMarkerFound = true;
+            endMarkerPosition = i;
+            break;
+        }
+
+        if (i % 1000 === 0) {
+            const progress = Math.min(90, 50 + (i / rgbData.length) * 40);
+            progressFill.style.width = `${progress}%`;
+            progressText.textContent = `Processing channels (${Math.floor(i/9)} bytes)...`;
+        }
+    }
+
+    // Complete
+    progressFill.style.width = '100%';
+    progressText.textContent = 'Processing complete';
+    
+    setTimeout(() => {
+        progress.style.display = 'none';
+        displayResults();
+    }, 500);
+}
+
+async function decompressIDATData(idatChunks) {
+    // Combine all IDAT chunks
+    const combinedLength = idatChunks.reduce((sum, chunk) => sum + chunk.length, 0);
+    const combinedData = new Uint8Array(combinedLength);
+    let offset = 0;
+    
+    for (const chunk of idatChunks) {
+        combinedData.set(chunk, offset);
+        offset += chunk.length;
+    }
+    
+    // Use pako for DEFLATE decompression
+    return pako.inflate(combinedData);
+}
+
+function processFilters(data, width, height, bytesPerPixel) {
+    const rgbData = [];
+    const scanlineLength = width * bytesPerPixel;
+    let previousScanline = new Uint8Array(scanlineLength);
+    
+    for (let y = 0; y < height; y++) {
+        const filterType = data[y * (scanlineLength + 1)];
+        const currentScanline = new Uint8Array(scanlineLength);
+        
+        for (let x = 0; x < width; x++) {
+            const offset = y * (scanlineLength + 1) + 1 + x * bytesPerPixel;
+            
+            for (let c = 0; c < bytesPerPixel; c++) {
+                let value = data[offset + c];
+                const leftOffset = x * bytesPerPixel + c;
+                
+                switch (filterType) {
+                    case 0: // None
+                        break;
+                    case 1: // Sub
+                        if (x > 0) {
+                            value += currentScanline[leftOffset - bytesPerPixel];
+                        }
+                        break;
+                    case 2: // Up
+                        value += previousScanline[leftOffset];
+                        break;
+                    case 3: // Average
+                        let left = x > 0 ? currentScanline[leftOffset - bytesPerPixel] : 0;
+                        let up = previousScanline[leftOffset];
+                        value += Math.floor((left + up) / 2);
+                        break;
+                    case 4: // Paeth
+                        let a = x > 0 ? currentScanline[leftOffset - bytesPerPixel] : 0;
+                        let b = previousScanline[leftOffset];
+                        let c = x > 0 ? previousScanline[leftOffset - bytesPerPixel] : 0;
+                        value += paethPredictor(a, b, c);
+                        break;
+                }
+                
+                value &= 0xFF; // Ensure 8-bit value
+                currentScanline[leftOffset] = value;
+                
+                if (c < 3) { // Only use RGB channels, ignore alpha
+                    rgbData.push(value);
+                }
+            }
+        }
+        
+        previousScanline.set(currentScanline);
+    }
+    
+    return rgbData;
+}
+
+function paethPredictor(a, b, c) {
+    const p = a + b - c;
+    const pa = Math.abs(p - a);
+    const pb = Math.abs(p - b);
+    const pc = Math.abs(p - c);
+    
+    if (pa <= pb && pa <= pc) return a;
+    if (pb <= pc) return b;
+    return c;
+}
+
+function displayResults() {
+    // Display in different encodings
+    const latin1Content = document.getElementById('resultContent');
+    const hexContent = document.getElementById('resultHex');
+    const base64Content = document.getElementById('resultBase64');
+    const python2Content = document.getElementById('resultPython2');
+
+    // Latin-1 (default encoding in Python 2.7)
+    try {
+        const latin1Text = new TextDecoder('latin1').decode(new Uint8Array(extractedBytes));
+        latin1Content.textContent = latin1Text;
+    } catch (e) {
+        latin1Content.textContent = 'Error decoding Latin-1';
+    }
+
+    // Hex dump
+    const hexString = Array.from(extractedBytes)
+        .map(b => b.toString(16).padStart(2, '0').toUpperCase())
+        .join(' ');
+    hexContent.textContent = hexString;
+
+    // Base64
+    const base64String = btoa(String.fromCharCode(...extractedBytes));
+    base64Content.textContent = base64String;
+
+    // Python 2.7 bytes representation
+    const python2String = Array.from(extractedBytes)
+        .map(b => {
+            if (b >= 32 && b < 127) {
+                return String.fromCharCode(b);
+            } else {
+                return `\\x${b.toString(16).padStart(2, '0')}`;
+            }
+        }).join('');
+    python2Content.textContent = python2String;
+
+    // Show results
+    results.style.display = 'block';
+
+    // Show warnings if needed
+    if (endMarkerFound) {
+        const warning = document.createElement('div');
+        warning.style.cssText = 'background: #e8f5e9; color: #2e7d32; padding: 10px; border-radius: 6px; margin-top: 15px; font-size: 14px;';
+        warning.textContent = `✓ End marker found at position ${endMarkerPosition/9} (byte ${extractedBytes.length-1})`;
+        results.appendChild(warning);
+    } else {
+        const warning = document.createElement('div');
+        warning.style.cssText = 'background: #fff3cd; color: #856404; padding: 10px; border-radius: 6px; margin-top: 15px; font-size: 14px;';
+        warning.textContent = '⚠️ End marker not found. Data may be incomplete or image may not use STEPIC encoding.';
+        results.appendChild(warning);
+    }
+
+    if (extractedBytes.length * 9 < totalChannels) {
+        const warning = document.createElement('div');
+        warning.style.cssText = 'background: #e3f2fd; color: #0d47a1; padding: 10px; border-radius: 6px; margin-top: 10px; font-size: 14px;';
+        warning.textContent = `ℹ️ Unused channels: ${totalChannels - extractedBytes.length * 9} channels not read. Image may contain more data.`;
+        results.appendChild(warning);
+    }
+
+    decoderStatus.textContent = `Decoded ${extractedBytes.length} bytes from ${totalChannels} channels`;
+}
+
+function showError(message) {
+    errorMessage.textContent = message;
+    errorMessage.style.display = 'block';
+    progress.style.display = 'none';
+    decoderStatus.textContent = 'Error';
+}
+
+function formatFileSize(bytes) {
+    if (bytes === 0) return '0 Bytes';
+    const k = 1024;
+    const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+    const i = Math.floor(Math.log(bytes) / Math.log(k));
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+}
+</script>
+<script src="./pako.min.js"></script>
+</body>
+</html>
