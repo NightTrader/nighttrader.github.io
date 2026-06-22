@@ -902,7 +902,7 @@
                                           <li><a href="#" onclick="changeLanguage('ru')">Russian</a></li>
                                           <li><a href="#" onclick="changeLanguage('sp')">Spanish</a></li>
                                         </ul>
-                                        <li><a class="main-btn" href="https://my.nighttrader.exchange/#login">login</a></li>
+                                        <li><a class="main-btn" href="https://my.nighttrader.exchange/auth/login">login</a></li>
                                         <li><a class="main-btn-2 main-btn" onclick="registerUser(); return false;">signup</a></li>
                                     </ul>
                                 </div>
@@ -2270,15 +2270,52 @@
     <script src="assets/js/seedrandom.min.js"></script>
 
 <script>
-    const symbols = ['BTC', 'ETH', 'POL', 'LTC'];
+    const symbols = ['BTC', 'ETH', 'LTC'];
     const table = document.getElementById('cryptoTable');
 
     const iconMap = {
       BTC: 'https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/32/color/btc.png',
       ETH: 'https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/32/color/eth.png',
-      POL: 'https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/32/color/matic.png',
       LTC: 'https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/32/color/ltc.png'
     };
+
+    const idMap = {
+      BTC: 'bitcoin',
+      ETH: 'ethereum',
+      LTC: 'litecoin'
+    };
+
+    async function getChart(symbol) {
+      const coinId = idMap[symbol] || symbol.toLowerCase();
+      const cacheKey = `history_${symbol}`;
+      const cache = localStorage.getItem(cacheKey);
+      const oneDay = 1000 * 60 * 60 * 24;
+
+      if (cache) {
+        const { timestamp, data } = JSON.parse(cache);
+        if (Date.now() - timestamp < oneDay) return data;
+      }
+
+      // Use market_chart to get both prices and volumes
+      const url = `https://api.coingecko.com/api/v3/coins/${coinId}/market_chart?vs_currency=usd&days=7`;
+      
+      const res = await fetch(url);
+      const json = await res.json();
+      
+      const data = json.prices.map((item, index) => ({
+        close: item[1],
+        volumefrom: json.total_volumes[index][1]
+      }));
+
+      if (data.length > 0) {
+        localStorage.setItem(cacheKey, JSON.stringify({
+          timestamp: Date.now(),
+          data
+        }));
+      }
+
+      return data;
+    }
 
     async function fetchHistorical(symbol) {
       const cacheKey = `history_${symbol}`;
@@ -2292,9 +2329,7 @@
         }
       }
 
-      const res = await fetch(`https://min-api.cryptocompare.com/data/v2/histoday?fsym=${symbol}&tsym=USD&limit=7`);
-      const json = await res.json();
-      const data = json.Data.Data;
+      const res = await getChart(symbol);
 
       if (data) {
         localStorage.setItem(cacheKey, JSON.stringify({
@@ -2352,7 +2387,7 @@
             tension: 0.4,
             fill: true,
             borderWidth: 2,
-            pointRadius: 3,
+            pointRadius: 1,
             pointBackgroundColor: '#00ff99',
             pointHoverRadius: 4,
             hitRadius: 6,
