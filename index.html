@@ -2331,14 +2331,14 @@
 
       const res = await getChart(symbol);
 
-      if (data) {
+      if (res) {
         localStorage.setItem(cacheKey, JSON.stringify({
           timestamp: Date.now(),
-          data
+          res
         }));
       }
 
-      return data;
+      return res;
     }
 
     async function renderRow(symbol) {
